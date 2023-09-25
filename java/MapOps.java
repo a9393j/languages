@@ -3,6 +3,11 @@ import java.util.HashMap;
 public class MapOps {
 
     public static void hashMapOps() {
+
+        System.out.println("------------------------------------------");
+        System.out.println("HASHMAP OPERATIONS");
+        System.out.println("---------------------");
+
         HashMap<String, Integer> map = new HashMap<String, Integer>();
 
         map.put("A", 1);
@@ -25,6 +30,10 @@ public class MapOps {
     }
 
     public static void treeMapOps() {
+
+        System.out.println("------------------------------------------");
+        System.out.println("TREEMAP OPERATIONS");
+        System.out.println("---------------------");
 
     }
 

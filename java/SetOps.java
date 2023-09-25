@@ -9,7 +9,7 @@ class SetOps {
 
     public static void hashSetOps() {
 
-        System.out.println("---------------------");
+        System.out.println("------------------------------------------");
         System.out.println("HASHSET OPERATIONS");
         System.out.println("---------------------");
 
@@ -51,7 +51,7 @@ class SetOps {
 
     public static void treeSetOps() {
 
-        System.out.println("---------------------");
+        System.out.println("------------------------------------------");
         System.out.println("TREESET OPERATIONS");
         System.out.println("---------------------");
 

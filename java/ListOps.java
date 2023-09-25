@@ -18,7 +18,7 @@ public class ListOps {
          * Generics with List will avoid ClassCastException at runtime.
          */
 
-        System.out.println("---------------------");
+        System.out.println("------------------------------------------");
         System.out.println("LIST OPERATIONS");
         System.out.println("---------------------");
 
@@ -61,29 +61,43 @@ public class ListOps {
     }
 
     public static void stackOps() {
+
+        System.out.println("------------------------------------------");
+        System.out.println("STACK OPERATIONS");
+        System.out.println("---------------------");
         Stack<Integer> st = new Stack<>();
-        st.push(1);
-        st.push(2);
-        st.push(3);
-        st.pop();
-        st.peek();
-        st.isEmpty();
-        st.size();
+        System.out.println("st.push(1): " + st.push(1));
+        System.out.println("st.push(2): " + st.push(2));
+        System.out.println("st.push(3): " + st.push(3));
+        System.out.println("st.pop(): " + st.pop());
+        System.out.println("st.peek(): " + st.peek());
+        System.out.println("st.isEmpty(): " + st.isEmpty());
+        System.out.println("st.size(): " + st.size());
     }
 
     public static void queueOps() {
+
+        System.out.println("------------------------------------------");
+        System.out.println("QUEUE OPERATIONS");
+        System.out.println("---------------------");
+
         Queue<Integer> q = new LinkedList<Integer>();
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        q.remove();
-        q.poll();
-        q.peek();
-        q.size();
+        System.out.println("q.add(1): " + q.add(1));
+        System.out.println("q.add(2): " + q.add(2));
+        System.out.println("q.add(3): " + q.add(3));
+        System.out.println("q.remove(): " + q.remove());
+        System.out.println("q.poll(): " + q.poll());
+        System.out.println("q.peek(): " + q.peek());
+        System.out.println("q.size(): " + q.size());
 
     }
 
     public static void linkedListOps() {
+
+        System.out.println("------------------------------------------");
+        System.out.println("LINKEDLIST OPERATIONS");
+        System.out.println("---------------------");
+
         // CREATTION
         List<Integer> list = new LinkedList<Integer>();
         // List<Integer> list = new LinkedList<Integer>(oldList);
@@ -110,6 +124,10 @@ public class ListOps {
 
     public static void priorityQueueOps() {
 
+        System.out.println("------------------------------------------");
+        System.out.println("PRIORITY QUEUE OPERATIONS");
+        System.out.println("---------------------");
+
         PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
 
         // (max elements on top/descending order)
@@ -130,9 +148,17 @@ public class ListOps {
 
     public static void dequeOps() {
 
+        System.out.println("------------------------------------------");
+        System.out.println("DEQUE OPERATIONS");
+        System.out.println("---------------------");
+
     }
 
     public static void randomOps() {
+
+        System.out.println("------------------------------------------");
+        System.out.println("RANDOM OPERATIONS");
+        System.out.println("---------------------");
 
     }
 

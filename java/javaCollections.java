@@ -8,49 +8,16 @@ class JavaCollections {
 
     System.out.println("------------------------------------------");
     System.out.println("Collections Testing");
-
-    // operations on List
-    System.out.println("------------------------------------------");
     ListOps.listOps();
-
-    // operations on Hashset
-    System.out.println("------------------------------------------");
     SetOps.hashSetOps();
-
-    // operations on TreeSet
-    System.out.println("------------------------------------------");
     SetOps.treeSetOps();
-
-    // operations on String
-    System.out.println("------------------------------------------");
     StringOps.stringOps();
-
-    // operations on HashMap
-    System.out.println("------------------------------------------");
     MapOps.hashMapOps();
-
-    // operations on TreeMap
-    System.out.println("------------------------------------------");
     MapOps.treeMapOps();
-
-    // operations on Stack
-    System.out.println("------------------------------------------");
     ListOps.stackOps();
-
-    // operations on Queue
-    System.out.println("------------------------------------------");
     ListOps.queueOps();
-
-    // operations on Deque
-    System.out.println("------------------------------------------");
     ListOps.dequeOps();
-
-    // operations on priorityQueue
-    System.out.println("------------------------------------------");
     ListOps.priorityQueueOps();
-
-    // operations on LinkedList
-    System.out.println("------------------------------------------");
     ListOps.linkedListOps();
 
   }
