@@ -1,7 +1,12 @@
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Stack;
 
 public class ListOps {
 
@@ -52,6 +57,82 @@ public class ListOps {
 
         System.out.println("list.clear(): ");
         list.clear(); // remove all element from the list
+
+    }
+
+    public static void stackOps() {
+        Stack<Integer> st = new Stack<>();
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.pop();
+        st.peek();
+        st.isEmpty();
+        st.size();
+    }
+
+    public static void queueOps() {
+        Queue<Integer> q = new LinkedList<Integer>();
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.remove();
+        q.poll();
+        q.peek();
+        q.size();
+
+    }
+
+    public static void linkedListOps() {
+        // CREATTION
+        List<Integer> list = new LinkedList<Integer>();
+        // List<Integer> list = new LinkedList<Integer>(oldList);
+        // ADD ELEMENTS
+        list.add(0, null);
+        list.add(0, 1);
+        list.add(2);
+        list.add(3);
+        // list.addAll(Collection c);
+        // list.addAll(0, Collection c);
+
+        // list.get();
+        // REMOVING
+        list.remove(1);
+        // list.removeLast();
+        // removeLast();
+        // remove(int index)
+        // remove(E element) // first occurrence is removed.
+        // removeLastOccurrence(E element)
+        // SORT
+        // Collections.sort(linkedList);
+
+    }
+
+    public static void priorityQueueOps() {
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
+
+        // (max elements on top/descending order)
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>((a, b) -> b - a);
+
+        // Let’s say you want your own comparator, example, the pq has keys of a hashmap
+        // as it’s elements, and they need to be arranged according to their values in a
+        // hashmap.
+
+        // pq = new PriorityQueue<>((a, b) -> map.get(a) - map.get(b));
+
+        // You can define your own comparator separately( named MyComparator for
+        // example):
+
+        // pq = new PriorityQueue<>(new MyComparator());
+
+    }
+
+    public static void dequeOps() {
+
+    }
+
+    public static void randomOps() {
 
     }
 
