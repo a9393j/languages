@@ -1,3 +1,4 @@
+package syntax;
 
 import java.util.ArrayList;
 import java.util.Collection;

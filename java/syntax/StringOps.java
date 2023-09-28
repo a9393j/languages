@@ -1,3 +1,5 @@
+package syntax;
+
 public class StringOps {
 
     public static void stringOps() {

@@ -1,3 +1,5 @@
+package syntax;
+
 import java.util.HashMap;
 
 public class MapOps {
