@@ -1,4 +1,4 @@
-package designPatterns.Creational.AbstractFactory;
+package designPatterns.Creational.AbstractFactory.cars.products;
 
 import designPatterns.Creational.AbstractFactory.cars.Car;
 
