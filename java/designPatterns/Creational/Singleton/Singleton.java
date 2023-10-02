@@ -1,4 +1,4 @@
-package designPatterns.Singleton;
+package designPatterns.Creational.Singleton;
 
 public final class Singleton {
     // The field must be declared volatile so that double check lock would work
