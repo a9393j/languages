@@ -21,11 +21,11 @@ public class DesignPatterns {
     System.out.println("------------------------------------------");
     // System.out.println("Adapter");
     System.out.println("Bridge");
-    System.out.println("Composite");
-    System.out.println("Decorator");
-    System.out.println("Facade");
-    System.out.println("Flyweight");
-    System.out.println("Proxy");
+    // System.out.println("Composite");
+    // System.out.println("Decorator");
+    // System.out.println("Facade");
+    // System.out.println("Flyweight");
+    // System.out.println("Proxy");
 
     System.out.println("------------------------------------------");
     System.out.println("Behavioral Design Patterns");
