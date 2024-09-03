@@ -39,6 +39,12 @@ public class MapOps {
         //to iterate over map we need entrySet()
         he entrySet() method is used here to iterate over the key-value pairs (entries) in a Map. 
 
+        //HashMap and ConcurrentHashMap are both implementations of the Map interface in Java,
+        //but they serve different purposes and have different characteristics, especially in the context of concurrency
+
+    
+    
+
     }
 
     public static void treeMapOps() {
