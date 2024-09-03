@@ -145,6 +145,13 @@ public class ListOps {
 
         // pq = new PriorityQueue<>(new MyComparator());
 
+         final Comparator<Map.Entry<String, Amount>> ascending = Comparator.comparingDouble(balance -> balance.getValue().getAmount()); // creating a comparator for an object
+
+        positiveAmounts = new PriorityQueue<>(ascending.reversed()) // to create a max heap
+        negativeAmounts = new PriorityQueue<>(ascending);
+
+         positiveAmounts.add(new AbstractMap.SimpleEntry<>(largestPositive.getKey(), remainingAmount)); // the way to add a new amp entry in this priority Queue is by Abstractmap
+         negativeAmounts.add(new AbstractMap.SimpleEntry<>(largestNegative.getKey(), remainingAmount));
     }
 
     public static void dequeOps() {
