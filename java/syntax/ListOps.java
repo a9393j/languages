@@ -144,7 +144,15 @@ public class ListOps {
         // example):
 
         // pq = new PriorityQueue<>(new MyComparator());
+        final Comparator<Map.Entry<String, Amount>> ascending = Comparator.comparingDouble(balance -> balance.getValue().getAmount());
+        final PriorityQueue<Map.Entry<String, Amount>>
+                positiveAmounts = new PriorityQueue<>(ascending.reversed()),
+                negativeAmounts = new PriorityQueue<>(ascending);
 
+         graph.get(largestPositive.getKey()).getBalances()
+                    .put(largestNegative.getKey(), new Amount(USD, Math.min(positiveAmount, negativeAmount)));
+
+        positiveAmounts.add(new AbstractMap.SimpleEntry<>(largestPositive.getKey(), remainingAmount));
         negativeAmounts.add(new AbstractMap.SimpleEntry<>(largestNegative.getKey(), remainingAmount));
 
     }
