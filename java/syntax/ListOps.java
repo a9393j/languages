@@ -145,6 +145,8 @@ public class ListOps {
 
         // pq = new PriorityQueue<>(new MyComparator());
 
+        negativeAmounts.add(new AbstractMap.SimpleEntry<>(largestNegative.getKey(), remainingAmount));
+
     }
 
     public static void dequeOps() {
