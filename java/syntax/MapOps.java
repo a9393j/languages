@@ -29,6 +29,16 @@ public class MapOps {
         map.containsKey("E");
         map.containsValue(2);
 
+
+        resultBalances.put(user, resultBalances.getOrDefault(user, NIL).add(amount));
+        
+        //This method checks if the resultBalances map already contains a balance for the given user.
+        //If there is already an entry for the user, it returns the existing Amount associated with that user.
+        //If there is no existing entry for the user, it returns a default value, which in this case is NIL.
+
+        //to iterate over map we need entrySet()
+        he entrySet() method is used here to iterate over the key-value pairs (entries) in a Map. 
+
     }
 
     public static void treeMapOps() {
