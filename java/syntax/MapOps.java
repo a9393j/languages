@@ -42,6 +42,15 @@ public class MapOps {
         //HashMap and ConcurrentHashMap are both implementations of the Map interface in Java,
         //but they serve different purposes and have different characteristics, especially in the context of concurrency
 
+             for (Map.Entry<Integer, String> entry :map.entrySet()) 
+        {
+            Integer key = (Integer)entry.getKey();
+            String value = entry.getValue();
+ 
+            System.out.println(key + "=" + value);
+        }
+       
+
     
     
 
