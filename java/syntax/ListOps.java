@@ -59,7 +59,13 @@ public class ListOps {
         System.out.println("list.clear(): ");
         list.clear(); // remove all element from the list
 
+
+        public Optional<Cab> mathCabToRider {
+            return Candiadate.stream.filter(cab->cab.getCurrentTrip()==null).findAny();
     }
+
+        Here Optional means it will return only one cab but filter method returns a list of cabs. so to stop at the first matching position and to just return only one 
+            object we need to add findAny()  here
 
     public static void stackOps() {
 
