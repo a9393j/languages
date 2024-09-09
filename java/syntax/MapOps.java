@@ -50,7 +50,9 @@ public class MapOps {
             System.out.println(key + "=" + value);
         }
        
+       Optional<String> cab = MatchingStrategy.match(to,from,currentLocation,rider);
 
+        //here because of using Optional it doesn't throw null exception
     
     
 
