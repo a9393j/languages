@@ -1,0 +1,22 @@
+ String tableFieldId = formIdData
+                .stream()
+                .filter(dataset -> dataset.getCandidateDatasetId().equals(formId + "__" + fieldId))
+                .findFirst()
+                .map(dataset -> {
+                        if (dataset.getTableFieldId()!=null)
+                            return dataset.getTableFieldId();
+                        else try {
+                            throw new Exception("tableFieldId not found for the fieldId");
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+
+                })
+                .orElse("");
+
+
+
+filter use .findfirst ()to get the first matching value and it returns an optional
+If we don't use findFirst(), it will return a stream of all matching values
+
+so to access that value return ed in the optional we have to use map to access the value inside that object
