@@ -22,6 +22,8 @@ public class MapOps {
 
         map.get("E");
         map.getOrDefault("F", 0);
+                cartItems.put(product, cartItems.getOrDefault(product,0) + quantity); //useful method to update values at map when you are ensure if it exists or not
+
         map.remove("E");
 
         map.size();
