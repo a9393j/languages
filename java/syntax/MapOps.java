@@ -53,6 +53,12 @@ public class MapOps {
  
             System.out.println(key + "=" + value);
         }
+
+        //Here is the other way to iterate over map using forEach method
+        cartItems.forEach((product, quantity) -> {
+            System.out.println(product.name + " x " + quantity);
+        });
+        
        
        Optional<String> cab = MatchingStrategy.match(to,from,currentLocation,rider);
 
