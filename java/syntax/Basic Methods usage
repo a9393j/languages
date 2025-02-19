@@ -20,3 +20,16 @@ filter use .findfirst ()to get the first matching value and it returns an option
 If we don't use findFirst(), it will return a stream of all matching values
 
 so to access that value return ed in the optional we have to use map to access the value inside that object
+
+
+
+
+formMetadata.setFieldIds(
+    uiConfigStaticForm.getUiConfigStaticFormField() // Get the list of UiConfigStaticFormField objects
+        .stream() // Convert the list into a Stream
+        .map(UiConfigStaticFormField::getFieldId) // Extract the fieldId from each UiConfigStaticFormField object
+        .collect(Collectors.toUnmodifiableList()) // Collect the results into an unmodifiable List
+);
+
+
+here UiConfigStaticFormField is the class which contains fieldId
