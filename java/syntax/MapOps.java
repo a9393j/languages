@@ -64,7 +64,12 @@ public class MapOps {
        Optional<String> cab = MatchingStrategy.match(to,from,currentLocation,rider);
 
         //here because of using Optional it doesn't throw null exception
-    
+
+        .sorted(Comparator.comparing(Product::isSponsored).reversed())
+                .collect(Collectors.toList());
+
+        Comparator.comparing(Product::isSponsored) → Creates a comparator that compares products based on their isSponsored boolean value.
+	•	.reversed() → Since false (non-sponsored) comes before true in natural boolean sorting, reversing it ensures that sponsored products (true) appear first.
     
 
     }
