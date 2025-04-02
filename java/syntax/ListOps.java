@@ -12,6 +12,9 @@ import java.util.Stack;
 public class ListOps {
 
     public static void listOps() {
+
+        //sorting vert Important
+        Collections.sort(people, (p1, p2) -> Integer.compare(p1.age, p2.age));
         /**
          * - List indexes start from ‘0’, just like array index.
          * - List allows “null”
