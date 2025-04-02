@@ -10,6 +10,10 @@ class SetOps {
 
     public static void hashSetOps() {
 
+        String pincodeList = 
+       Set<String> pincodes = new HashSet<>(Arrays.asList(pincodeList.split("/")));
+
+
         System.out.println("------------------------------------------");
         System.out.println("HASHSET OPERATIONS");
         System.out.println("---------------------");
