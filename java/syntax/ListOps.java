@@ -15,6 +15,9 @@ public class ListOps {
 
         //sorting vert Important
         Collections.sort(people, (p1, p2) -> Integer.compare(p1.age, p2.age));
+
+       // In Java, arrays (not Lists) can be sorted using the Arrays.sort() method.
+        Arrays.sort(people, Comparator.comparingInt((Person p) -> p.age).reversed());
         /**
          * - List indexes start from ‘0’, just like array index.
          * - List allows “null”
