@@ -1,4 +1,18 @@
- String tableFieldId = formIdData
+TO convert object into a json string
+
+JSONObject jsonObject = new JSONObject();
+jsonObject.put("name", "Alice");
+jsonObject.put("age", 25);
+jsonObject.put("city", "New York");
+
+String jsonString = jsonObject.toString(); // Generates properly formatted JSON
+System.out.println(jsonString);
+
+
+
+
+
+String tableFieldId = formIdData
                 .stream()
                 .filter(dataset -> dataset.getCandidateDatasetId().equals(formId + "__" + fieldId))
                 .findFirst()
