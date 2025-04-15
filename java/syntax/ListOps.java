@@ -12,6 +12,12 @@ import java.util.Stack;
 public class ListOps {
 
     public static void listOps() {
+
+        //sorting vert Important
+        Collections.sort(people, (p1, p2) -> Integer.compare(p1.age, p2.age));
+
+       // In Java, arrays (not Lists) can be sorted using the Arrays.sort() method.
+        Arrays.sort(people, Comparator.comparingInt((Person p) -> p.age).reversed());
         /**
          * - List indexes start from ‘0’, just like array index.
          * - List allows “null”
@@ -59,7 +65,13 @@ public class ListOps {
         System.out.println("list.clear(): ");
         list.clear(); // remove all element from the list
 
+
+        public Optional<Cab> mathCabToRider {
+            return Candiadate.stream.filter(cab->cab.getCurrentTrip()==null).findAny();
     }
+
+        Here Optional means it will return only one cab but filter method returns a list of cabs. so to stop at the first matching position and to just return only one 
+            object we need to add findAny()  here
 
     public static void stackOps() {
 
@@ -144,6 +156,16 @@ public class ListOps {
         // example):
 
         // pq = new PriorityQueue<>(new MyComparator());
+        final Comparator<Map.Entry<String, Amount>> ascending = Comparator.comparingDouble(balance -> balance.getValue().getAmount());
+        final PriorityQueue<Map.Entry<String, Amount>>
+                positiveAmounts = new PriorityQueue<>(ascending.reversed()),
+                negativeAmounts = new PriorityQueue<>(ascending);
+
+         graph.get(largestPositive.getKey()).getBalances()
+                    .put(largestNegative.getKey(), new Amount(USD, Math.min(positiveAmount, negativeAmount)));
+
+        positiveAmounts.add(new AbstractMap.SimpleEntry<>(largestPositive.getKey(), remainingAmount));
+        negativeAmounts.add(new AbstractMap.SimpleEntry<>(largestNegative.getKey(), remainingAmount));
 
     }
 

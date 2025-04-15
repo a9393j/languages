@@ -10,6 +10,17 @@ class SetOps {
 
     public static void hashSetOps() {
 
+        //containsAll method checks if all the values of a list are present in the set or not
+        Set<String> processed = new HashSet<>();
+       List<String> dep = dependencies.getOrDefault(name,new ArrayList<>());
+                if(!processed.containsAll(dep))
+
+                    
+        
+        String pincodeList = 
+       Set<String> pincodes = new HashSet<>(Arrays.asList(pincodeList.split("/")));
+
+
         System.out.println("------------------------------------------");
         System.out.println("HASHSET OPERATIONS");
         System.out.println("---------------------");
