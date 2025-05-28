@@ -1,8 +1,29 @@
+flatMap is a method available in Java Streams API (java.util.stream.Stream). It’s used to:
+	•	Transform each element of the stream into a new stream (or collection),
+	•	Then flatten all the resulting streams into a single stream.
+
+Use Case: When each element of your stream maps to multiple values.
+List<List<String>> listOfLists = List.of(
+    List.of("a", "b"),
+    List.of("c", "d"),
+    List.of("e")
+);
+
+List<String> flatList = listOfLists.stream()
+    .flatMap(List::stream)
+    .collect(Collectors.toList());
+
+System.out.println(flatList); // Output: [a, b, c, d, e]
+
 package syntax;
 
 import java.util.*;
 
 // https://satishkathiriya99.medium.com/java-cheat-sheet-287da6e15e96
+
+
+
+
 class JavaCollections {
 
   public static void main(String[] args) {
