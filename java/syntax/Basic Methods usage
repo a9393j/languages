@@ -1,0 +1,49 @@
+TO convert object into a json string
+
+JSONObject jsonObject = new JSONObject();
+jsonObject.put("name", "Alice");
+jsonObject.put("age", 25);
+jsonObject.put("city", "New York");
+
+String jsonString = jsonObject.toString(); // Generates properly formatted JSON
+System.out.println(jsonString);
+
+
+
+
+
+String tableFieldId = formIdData
+                .stream()
+                .filter(dataset -> dataset.getCandidateDatasetId().equals(formId + "__" + fieldId))
+                .findFirst()
+                .map(dataset -> {
+                        if (dataset.getTableFieldId()!=null)
+                            return dataset.getTableFieldId();
+                        else try {
+                            throw new Exception("tableFieldId not found for the fieldId");
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+
+                })
+                .orElse("");
+
+
+
+filter use .findfirst ()to get the first matching value and it returns an optional
+If we don't use findFirst(), it will return a stream of all matching values
+
+so to access that value return ed in the optional we have to use map to access the value inside that object
+
+
+
+
+formMetadata.setFieldIds(
+    uiConfigStaticForm.getUiConfigStaticFormField() // Get the list of UiConfigStaticFormField objects
+        .stream() // Convert the list into a Stream
+        .map(UiConfigStaticFormField::getFieldId) // Extract the fieldId from each UiConfigStaticFormField object
+        .collect(Collectors.toUnmodifiableList()) // Collect the results into an unmodifiable List
+);
+
+
+here UiConfigStaticFormField is the class which contains fieldId
