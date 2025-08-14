@@ -4,6 +4,9 @@
 
 Design a video streaming platform like Netflix that provides on-demand video content with personalized recommendations and global content delivery.
 
+Checkout Netflix blog for Tech used in Netflix
+https://netflixtechblog.com/
+
 ## Functional Requirements
 
 ### Core Features

@@ -25,30 +25,30 @@ public class Main {
         gasolineSedan.getInfo();
         gasolineSedan.start();
         gasolineSedan.drive();
-        gasolineSedan.comfortableRide();
+        ((Sedan) gasolineSedan).comfortableRide();
         gasolineSedan.stop();
         
         System.out.println("\n2. Electric Sedan:");
         electricSedan.getInfo();
         electricSedan.start();
         electricSedan.drive();
-        electricSedan.comfortableRide();
+        ((Sedan) electricSedan).comfortableRide();
         electricSedan.stop();
         
         System.out.println("\n3. Gasoline SUV:");
         gasolineSUV.getInfo();
         gasolineSUV.start();
         gasolineSUV.drive();
-        gasolineSUV.offRoadCapability();
-        gasolineSUV.loadCargo();
+        ((SUV) gasolineSUV).offRoadCapability();
+        ((SUV) gasolineSUV).loadCargo();
         gasolineSUV.stop();
         
         System.out.println("\n4. Electric SUV:");
         electricSUV.getInfo();
         electricSUV.start();
         electricSUV.drive();
-        electricSUV.offRoadCapability();
-        electricSUV.loadCargo();
+        ((SUV) electricSUV).offRoadCapability();
+        ((SUV) electricSUV).loadCargo();
         electricSUV.stop();
         
         System.out.println("\n=== Bridge Pattern Benefits ===");

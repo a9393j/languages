@@ -1,1 +1,29 @@
 /languages.iml
+
+# IntelliJ IDEA output directory
+/out/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
