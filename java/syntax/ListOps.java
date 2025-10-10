@@ -150,7 +150,7 @@ public class ListOps {
         Printer.print(list);
 
         // Removing
-        System.out.println("list.remove(1): " + list.remove(1));
+        System.out.println("list.remove(4): " + list.remove(4));
         System.out.println("list.remove(Integer.valueOf(2)): " + list.remove(Integer.valueOf(2)));
         
         // LinkedList specific operations
