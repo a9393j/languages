@@ -1,0 +1,112 @@
+{
+  "arrays": [
+    {"title":"Two Sum","difficulty":"Easy","leetcode":"https://leetcode.com/problems/two-sum/","tags":["hashmap","two-pointers"]},
+    {"title":"Three Number Sum (3Sum)","difficulty":"Medium","leetcode":"https://leetcode.com/problems/3sum/","tags":["sorting","two-pointers"]},
+    {"title":"Four Sum","difficulty":"Medium","leetcode":"https://leetcode.com/problems/4sum/","tags":["sorting","k-sum"]},
+    {"title":"Non-Constructible Change","difficulty":"Easy","leetcode":"https://www.interviewcake.com/question/java/non-constructible-change","tags":["greedy","sorting"]},
+    {"title":"Smallest Difference","difficulty":"Medium","leetcode":"https://leetcode.com/problems/minimum-absolute-difference/","tags":["two-pointers","sorting"]},
+    {"title":"Product of Array Except Self","difficulty":"Medium","leetcode":"https://leetcode.com/problems/product-of-array-except-self/","tags":["prefix-suffix","no-division"]},
+    {"title":"First Duplicate Value","difficulty":"Easy","leetcode":"https://leetcode.com/problems/contains-duplicate/","tags":["hashing"]},
+    {"title":"Min Rewards","difficulty":"Medium","leetcode":"","tags":["greedy"]},
+    {"title":"Longest Peak / Longest Mountain","difficulty":"Medium","leetcode":"https://leetcode.com/problems/longest-mountain-in-array/","tags":["scan","peak-detection"]},
+    {"title":"Merge Intervals","difficulty":"Medium","leetcode":"https://leetcode.com/problems/merge-intervals/","tags":["intervals","sorting"]},
+    {"title":"Missing Number","difficulty":"Easy","leetcode":"https://leetcode.com/problems/missing-number/","tags":["xor","math"]},
+    {"title":"Maximum Subarray (Kadane)","difficulty":"Easy","leetcode":"https://leetcode.com/problems/maximum-subarray/","tags":["greedy","dp"]},
+    {"title":"Smallest Difference Between Two Arrays","difficulty":"Medium","leetcode":"https://leetcode.com/problems/minimum-absolute-difference/","tags":["two-arrays","two-pointers"]},
+    {"title":"Tournament Winner","difficulty":"Easy","leetcode":"","tags":["hashmap","score-tracking"]}
+  ],
+
+  "strings": [
+    {"title":"Longest Substring Without Repeating Characters","difficulty":"Medium","leetcode":"https://leetcode.com/problems/longest-substring-without-repeating-characters/","tags":["sliding-window","hashmap"]},
+    {"title":"Longest Palindromic Substring","difficulty":"Medium","leetcode":"https://leetcode.com/problems/longest-palindromic-substring/","tags":["expand-center","dp"]},
+    {"title":"Valid Anagram","difficulty":"Easy","leetcode":"https://leetcode.com/problems/valid-anagram/","tags":["hashing"]},
+    {"title":"Valid Palindrome","difficulty":"Easy","leetcode":"https://leetcode.com/problems/valid-palindrome/","tags":["two-pointers","string"]},
+    {"title":"Minimum Window Substring","difficulty":"Hard","leetcode":"https://leetcode.com/problems/minimum-window-substring/","tags":["sliding-window","two-pointer"]},
+    {"title":"Word Break","difficulty":"Medium","leetcode":"https://leetcode.com/problems/word-break/","tags":["dp","trie"]}
+  ],
+
+  "linkedlists": [
+    {"title":"Reverse Linked List","difficulty":"Easy","leetcode":"https://leetcode.com/problems/reverse-linked-list/","tags":["iterative","two-pointers"]},
+    {"title":"Merge Two Sorted Lists","difficulty":"Easy","leetcode":"https://leetcode.com/problems/merge-two-sorted-lists/","tags":["pointers"]},
+    {"title":"Detect Cycle in Linked List","difficulty":"Easy","leetcode":"https://leetcode.com/problems/linked-list-cycle/","tags":["floyd","two-pointers"]},
+    {"title":"Interweaving / Merge Alternate Nodes","difficulty":"Medium","leetcode":"","tags":["pointer-manipulation"]},
+    {"title":"Palindrome Linked List","difficulty":"Medium","leetcode":"https://leetcode.com/problems/palindrome-linked-list/","tags":["reverse-half","stack"]},
+    {"title":"Remove Nth Node From End","difficulty":"Medium","leetcode":"https://leetcode.com/problems/remove-nth-node-from-end-of-list/","tags":["two-pointers"]},
+    {"title":"Add Two Numbers","difficulty":"Medium","leetcode":"https://leetcode.com/problems/add-two-numbers/","tags":["linked-list","math"]}
+  ],
+
+  "trees": [
+    {"title":"Binary Tree Inorder/Preorder/Postorder Traversal","difficulty":"Easy","leetcode":"https://leetcode.com/problems/binary-tree-inorder-traversal/","tags":["dfs","recursion","stack"]},
+    {"title":"Binary Tree Level Order Traversal","difficulty":"Easy","leetcode":"https://leetcode.com/problems/binary-tree-level-order-traversal/","tags":["bfs","queue"]},
+    {"title":"Binary Tree Maximum Path Sum","difficulty":"Hard","leetcode":"https://leetcode.com/problems/binary-tree-maximum-path-sum/","tags":["dfs","tree-dp"]},
+    {"title":"Lowest Common Ancestor (Binary Tree)","difficulty":"Medium","leetcode":"https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/","tags":["dfs","recursion"]},
+    {"title":"Lowest Common Ancestor (BST)","difficulty":"Medium","leetcode":"https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/","tags":["bst","property"]},
+    {"title":"Validate Binary Search Tree","difficulty":"Medium","leetcode":"https://leetcode.com/problems/validate-binary-search-tree/","tags":["dfs","range-check"]},
+    {"title":"Serialize and Deserialize Binary Tree","difficulty":"Hard","leetcode":"https://leetcode.com/problems/serialize-and-deserialize-binary-tree/","tags":["bfs","dfs","string"]},
+    {"title":"Invert Binary Tree","difficulty":"Easy","leetcode":"https://leetcode.com/problems/invert-binary-tree/","tags":["dfs","recursion"]}
+  ],
+
+  "heaps": [
+    {"title":"Kth Largest Element in an Array","difficulty":"Medium","leetcode":"https://leetcode.com/problems/kth-largest-element-in-an-array/","tags":["heap","quickselect"]},
+    {"title":"Top K Frequent Elements","difficulty":"Medium","leetcode":"https://leetcode.com/problems/top-k-frequent-elements/","tags":["heap","bucket-sort"]},
+    {"title":"Median of Data Stream","difficulty":"Hard","leetcode":"https://leetcode.com/problems/find-median-from-data-stream/","tags":["two-heaps","streaming"]}
+  ],
+
+  "stacks_queues": [
+    {"title":"Valid Parentheses","difficulty":"Easy","leetcode":"https://leetcode.com/problems/valid-parentheses/","tags":["stack"]},
+    {"title":"Daily Temperatures","difficulty":"Medium","leetcode":"https://leetcode.com/problems/daily-temperatures/","tags":["monotonic-stack"]},
+    {"title":"Sliding Window Maximum","difficulty":"Hard","leetcode":"https://leetcode.com/problems/sliding-window-maximum/","tags":["deque","monotonic-queue"]},
+    {"title":"Min Stack","difficulty":"Easy","leetcode":"https://leetcode.com/problems/min-stack/","tags":["stack","auxiliary-stack"]}
+  ],
+
+  "graphs": [
+    {"title":"Number of Islands","difficulty":"Medium","leetcode":"https://leetcode.com/problems/number-of-islands/","tags":["dfs","bfs","grid"]},
+    {"title":"Course Schedule","difficulty":"Medium","leetcode":"https://leetcode.com/problems/course-schedule/","tags":["topological-sort","cycle-detection"]},
+    {"title":"Course Schedule II","difficulty":"Medium","leetcode":"https://leetcode.com/problems/course-schedule-ii/","tags":["topological-sort"]},
+    {"title":"Clone Graph","difficulty":"Medium","leetcode":"https://leetcode.com/problems/clone-graph/","tags":["dfs","bfs","hashmap"]},
+    {"title":"Redundant Connection","difficulty":"Medium","leetcode":"https://leetcode.com/problems/redundant-connection/","tags":["union-find","graph"]},
+    {"title":"Network Delay Time (Dijkstra)","difficulty":"Medium","leetcode":"https://leetcode.com/problems/network-delay-time/","tags":["dijkstra","shortest-path"]}
+  ],
+
+  "greedy": [
+    {"title":"Jump Game","difficulty":"Medium","leetcode":"https://leetcode.com/problems/jump-game/","tags":["greedy"]},
+    {"title":"Activity Selection / Meeting Rooms","difficulty":"Medium","leetcode":"https://leetcode.com/problems/meeting-rooms/","tags":["intervals","greedy"]}
+  ],
+
+  "dynamic_programming": [
+    {"title":"Coin Change","difficulty":"Medium","leetcode":"https://leetcode.com/problems/coin-change/","tags":["dp","unbounded-knapsack"]},
+    {"title":"Longest Increasing Subsequence","difficulty":"Medium","leetcode":"https://leetcode.com/problems/longest-increasing-subsequence/","tags":["dp","binary-search"]},
+    {"title":"Edit Distance","difficulty":"Hard","leetcode":"https://leetcode.com/problems/edit-distance/","tags":["dp","string-dp"]},
+    {"title":"House Robber","difficulty":"Medium","leetcode":"https://leetcode.com/problems/house-robber/","tags":["dp"]},
+    {"title":"Partition Equal Subset Sum","difficulty":"Medium","leetcode":"https://leetcode.com/problems/partition-equal-subset-sum/","tags":["dp","subset-sum"]}
+  ],
+
+  "recursion_backtracking": [
+    {"title":"Permutations","difficulty":"Medium","leetcode":"https://leetcode.com/problems/permutations/","tags":["backtracking"]},
+    {"title":"Subsets","difficulty":"Medium","leetcode":"https://leetcode.com/problems/subsets/","tags":["backtracking"]},
+    {"title":"N-Queens","difficulty":"Hard","leetcode":"https://leetcode.com/problems/n-queens/","tags":["backtracking"]},
+    {"title":"Sudoku Solver","difficulty":"Hard","leetcode":"https://leetcode.com/problems/sudoku-solver/","tags":["backtracking","dfs"]}
+  ],
+
+  "tries_hashing": [
+    {"title":"Implement Trie (Prefix Tree)","difficulty":"Medium","leetcode":"https://leetcode.com/problems/implement-trie-prefix-tree/","tags":["trie"]},
+    {"title":"Word Search II","difficulty":"Hard","leetcode":"https://leetcode.com/problems/word-search-ii/","tags":["trie","backtracking"]},
+    {"title":"LRU Cache","difficulty":"Medium","leetcode":"https://leetcode.com/problems/lru-cache/","tags":["hashmap","linkedlist"]}
+  ],
+
+  "sorting_searching": [
+    {"title":"Search in Rotated Sorted Array","difficulty":"Medium","leetcode":"https://leetcode.com/problems/search-in-rotated-sorted-array/","tags":["binary-search","rotated-array"]},
+    {"title":"Kth Smallest Element in a Sorted Matrix","difficulty":"Medium","leetcode":"https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/","tags":["heap","binary-search"]},
+    {"title":"Quick Sort Template","difficulty":"Medium","leetcode":"","tags":["sorting","divide-and-conquer"]}
+  ],
+
+  "patterns_misc": [
+    {"title":"Largest Rectangle in Histogram","difficulty":"Hard","leetcode":"https://leetcode.com/problems/largest-rectangle-in-histogram/","tags":["monotonic-stack"]},
+    {"title":"Union-Find Template","difficulty":"Medium","leetcode":"https://leetcode.com/problems/redundant-connection/","tags":["union-find"]},
+    {"title":"Minimum Window Substring (Sliding Window Template)","difficulty":"Hard","leetcode":"https://leetcode.com/problems/minimum-window-substring/","tags":["sliding-window"]}
+  ],
+
+  "system_design": [
+    {"title":"System Design Quick Notes (Load Balancer, Caching, Queues, CAP)","difficulty":"N/A","leetcode":"","tags":["system-design","notes"]}
+  ]
+}
