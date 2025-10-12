@@ -180,8 +180,8 @@ public class LongestPeakLongestMountain {
     /**
      * Helper method to find all peaks in the array
      */
-    public static java.util.List<Integer> findAllPeaks(int[] array) {
-        java.util.List<Integer> peaks = new java.util.ArrayList<>();
+    public static List<Integer> findAllPeaks(int[] array) {
+        List<Integer> peaks = new ArrayList<>();
         
         for (int i = 1; i < array.length - 1; i++) {
             if (array[i] > array[i - 1] && array[i] > array[i + 1]) {
@@ -197,7 +197,7 @@ public class LongestPeakLongestMountain {
         int[] array = {1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3};
         
         System.out.println("Testing Longest Peak:");
-        System.out.println("Array: " + java.util.Arrays.toString(array));
+        System.out.println("Array: " + Arrays.toString(array));
         
         int result1 = longestPeak_peakDetection(array);
         System.out.println("Peak detection result: " + result1);
@@ -217,7 +217,7 @@ public class LongestPeakLongestMountain {
         
         // Test case: array = [1, 2, 3, 4, 5] (no peak)
         int[] noPeak = {1, 2, 3, 4, 5};
-        System.out.println("Array with no peak: " + java.util.Arrays.toString(noPeak));
+        System.out.println("Array with no peak: " + Arrays.toString(noPeak));
         
         int result5 = longestPeak_peakDetection(noPeak);
         System.out.println("Peak detection result: " + result5);
@@ -228,7 +228,7 @@ public class LongestPeakLongestMountain {
         
         // Test case: array = [5, 4, 3, 2, 1] (no peak)
         int[] decreasing = {5, 4, 3, 2, 1};
-        System.out.println("Decreasing array: " + java.util.Arrays.toString(decreasing));
+        System.out.println("Decreasing array: " + Arrays.toString(decreasing));
         
         int result6 = longestPeak_peakDetection(decreasing);
         System.out.println("Peak detection result: " + result6);

@@ -25,12 +25,12 @@ package masterDSA.topics.stacks_queues;
  */
 public class MinStack {
     
-    private java.util.Stack<Integer> stack;
-    private java.util.Stack<Integer> minStack;
+    private Stack<Integer> stack;
+    private Stack<Integer> minStack;
     
     public MinStack() {
-        stack = new java.util.Stack<>();
-        minStack = new java.util.Stack<>();
+        stack = new Stack<>();
+        minStack = new Stack<>();
     }
     
     /**
@@ -79,12 +79,12 @@ public class MinStack {
      * Use two stacks: one for elements, one for minimums
      */
     public static class MinStackTwoStacks {
-        private java.util.Stack<Integer> stack;
-        private java.util.Stack<Integer> minStack;
+        private Stack<Integer> stack;
+        private Stack<Integer> minStack;
         
         public MinStackTwoStacks() {
-            stack = new java.util.Stack<>();
-            minStack = new java.util.Stack<>();
+            stack = new Stack<>();
+            minStack = new Stack<>();
         }
         
         public void push(int val) {
@@ -118,10 +118,10 @@ public class MinStack {
      * Store pairs of (value, minimum) in single stack
      */
     public static class MinStackSingle {
-        private java.util.Stack<int[]> stack;
+        private Stack<int[]> stack;
         
         public MinStackSingle() {
-            stack = new java.util.Stack<>();
+            stack = new Stack<>();
         }
         
         public void push(int val) {

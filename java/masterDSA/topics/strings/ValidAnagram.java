@@ -41,7 +41,7 @@ public class ValidAnagram {
             return false;
         }
         
-        java.util.Map<Character, Integer> charCount = new java.util.HashMap<>();
+        Map<Character, Integer> charCount = new HashMap<>();
         
         // Count characters in first string
         for (char c : s.toCharArray()) {
@@ -106,10 +106,10 @@ public class ValidAnagram {
         char[] sArray = s.toCharArray();
         char[] tArray = t.toCharArray();
         
-        java.util.Arrays.sort(sArray);
-        java.util.Arrays.sort(tArray);
+        Arrays.sort(sArray);
+        Arrays.sort(tArray);
         
-        return java.util.Arrays.equals(sArray, tArray);
+        return Arrays.equals(sArray, tArray);
     }
     
     /**
@@ -183,13 +183,13 @@ public class ValidAnagram {
     /**
      * Helper method to find all anagrams of a string
      */
-    public static java.util.List<String> findAllAnagrams(String s) {
-        java.util.List<String> anagrams = new java.util.ArrayList<>();
+    public static List<String> findAllAnagrams(String s) {
+        List<String> anagrams = new ArrayList<>();
         findAllAnagramsHelper(s.toCharArray(), 0, anagrams);
         return anagrams;
     }
     
-    private static void findAllAnagramsHelper(char[] chars, int start, java.util.List<String> result) {
+    private static void findAllAnagramsHelper(char[] chars, int start, List<String> result) {
         if (start == chars.length) {
             result.add(new String(chars));
             return;
@@ -214,18 +214,18 @@ public class ValidAnagram {
     /**
      * Helper method to group anagrams
      */
-    public static java.util.List<java.util.List<String>> groupAnagrams(String[] strs) {
-        java.util.Map<String, java.util.List<String>> anagramGroups = new java.util.HashMap<>();
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> anagramGroups = new HashMap<>();
         
         for (String str : strs) {
             char[] chars = str.toCharArray();
-            java.util.Arrays.sort(chars);
+            Arrays.sort(chars);
             String sorted = new String(chars);
             
-            anagramGroups.computeIfAbsent(sorted, k -> new java.util.ArrayList<>()).add(str);
+            anagramGroups.computeIfAbsent(sorted, k -> new ArrayList<>()).add(str);
         }
         
-        return new java.util.ArrayList<>(anagramGroups.values());
+        return new ArrayList<>(anagramGroups.values());
     }
     
     public static void main(String[] args) {
@@ -289,7 +289,7 @@ public class ValidAnagram {
         
         // Find all anagrams of "abc"
         String testString = "abc";
-        java.util.List<String> anagrams = findAllAnagrams(testString);
+        List<String> anagrams = findAllAnagrams(testString);
         System.out.println("All anagrams of '" + testString + "': " + anagrams);
         
         // Expected: [abc, acb, bac, bca, cab, cba]
@@ -298,7 +298,7 @@ public class ValidAnagram {
         
         // Group anagrams
         String[] words = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        java.util.List<java.util.List<String>> groups = groupAnagrams(words);
+        List<List<String>> groups = groupAnagrams(words);
         System.out.println("Grouped anagrams: " + groups);
         
         // Expected: [[eat, tea, ate], [tan, nat], [bat]]

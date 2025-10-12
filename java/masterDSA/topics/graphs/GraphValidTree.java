@@ -100,9 +100,9 @@ public class GraphValidTree {
         }
         
         // Build adjacency list
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+        List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] edge : edges) {
@@ -127,7 +127,7 @@ public class GraphValidTree {
         return true;
     }
     
-    private static boolean hasCycle(java.util.List<java.util.List<Integer>> graph, int node, int parent, boolean[] visited) {
+    private static boolean hasCycle(List<List<Integer>> graph, int node, int parent, boolean[] visited) {
         visited[node] = true;
         
         for (int neighbor : graph.get(node)) {
@@ -153,9 +153,9 @@ public class GraphValidTree {
         }
         
         // Build adjacency list
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+        List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] edge : edges) {
@@ -164,7 +164,7 @@ public class GraphValidTree {
         }
         
         boolean[] visited = new boolean[n];
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         
         queue.offer(0);
         visited[0] = true;
@@ -200,7 +200,7 @@ public class GraphValidTree {
             uf.union(edge[0], edge[1]);
         }
         
-        java.util.Set<Integer> roots = new java.util.HashSet<>();
+        Set<Integer> roots = new HashSet<>();
         for (int i = 0; i < n; i++) {
             roots.add(uf.find(i));
         }
@@ -241,10 +241,10 @@ public class GraphValidTree {
         }
         
         // Sort edges by weight (assuming edges are [u, v, weight])
-        java.util.Arrays.sort(edges, (a, b) -> Integer.compare(a[2], b[2]));
+        Arrays.sort(edges, (a, b) -> Integer.compare(a[2], b[2]));
         
         UnionFind uf = new UnionFind(n);
-        java.util.List<int[]> mst = new java.util.ArrayList<>();
+        List<int[]> mst = new ArrayList<>();
         
         for (int[] edge : edges) {
             int u = edge[0];
@@ -266,11 +266,11 @@ public class GraphValidTree {
     /**
      * Helper method to find shortest path between two nodes
      */
-    public static java.util.List<Integer> shortestPath(int n, int[][] edges, int start, int end) {
+    public static List<Integer> shortestPath(int n, int[][] edges, int start, int end) {
         // Build adjacency list
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+        List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] edge : edges) {
@@ -279,10 +279,10 @@ public class GraphValidTree {
         }
         
         // BFS to find shortest path
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[n];
         int[] parent = new int[n];
-        java.util.Arrays.fill(parent, -1);
+        Arrays.fill(parent, -1);
         
         queue.offer(start);
         visited[start] = true;
@@ -305,10 +305,10 @@ public class GraphValidTree {
         
         // Reconstruct path
         if (!visited[end]) {
-            return new java.util.ArrayList<>(); // No path found
+            return new ArrayList<>(); // No path found
         }
         
-        java.util.List<Integer> path = new java.util.ArrayList<>();
+        List<Integer> path = new ArrayList<>();
         int current = end;
         
         while (current != -1) {
@@ -328,9 +328,9 @@ public class GraphValidTree {
         }
         
         // Build adjacency list
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+        List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] edge : edges) {
@@ -349,8 +349,8 @@ public class GraphValidTree {
         return farthest[1];
     }
     
-    private static int[] bfsFarthest(java.util.List<java.util.List<Integer>> graph, int start) {
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+    private static int[] bfsFarthest(List<List<Integer>> graph, int start) {
+        Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[graph.size()];
         
         queue.offer(start);
@@ -389,7 +389,7 @@ public class GraphValidTree {
         
         System.out.println("Testing Graph Valid Tree:");
         System.out.println("n = " + n1);
-        System.out.println("edges = " + java.util.Arrays.deepToString(edges1));
+        System.out.println("edges = " + Arrays.deepToString(edges1));
         
         boolean result1 = validTree_unionFind(n1, edges1);
         System.out.println("Union-Find result: " + result1);
@@ -409,7 +409,7 @@ public class GraphValidTree {
         int[][] edges2 = {{0, 1}, {0, 2}, {0, 3}, {1, 4}};
         
         System.out.println("n = " + n2);
-        System.out.println("edges = " + java.util.Arrays.deepToString(edges2));
+        System.out.println("edges = " + Arrays.deepToString(edges2));
         
         boolean result4 = validTree_unionFind(n2, edges2);
         System.out.println("Union-Find result: " + result4);
@@ -429,7 +429,7 @@ public class GraphValidTree {
         int[][] edges3 = {{0, 1}, {1, 2}, {2, 0}};
         
         System.out.println("n = " + n3);
-        System.out.println("edges = " + java.util.Arrays.deepToString(edges3));
+        System.out.println("edges = " + Arrays.deepToString(edges3));
         
         boolean result7 = validTree_unionFind(n3, edges3);
         System.out.println("Union-Find result: " + result7);
@@ -445,7 +445,7 @@ public class GraphValidTree {
         boolean hasCycle = hasCycle(n3, edges3);
         System.out.println("Has cycle: " + hasCycle);
         
-        java.util.List<Integer> shortestPath = shortestPath(n2, edges2, 0, 4);
+        List<Integer> shortestPath = shortestPath(n2, edges2, 0, 4);
         System.out.println("Shortest path from 0 to 4: " + shortestPath);
         
         int diameter = findDiameter(n2, edges2);

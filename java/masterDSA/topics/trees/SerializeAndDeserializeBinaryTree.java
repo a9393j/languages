@@ -57,12 +57,12 @@ public class SerializeAndDeserializeBinaryTree {
      * Use preorder traversal with null markers
      */
     public static String serialize_preorder(TreeNode root) {
-        java.util.List<String> values = new java.util.ArrayList<>();
+        List<String> values = new ArrayList<>();
         serializeHelper(root, values);
         return String.join(",", values);
     }
     
-    private static void serializeHelper(TreeNode root, java.util.List<String> values) {
+    private static void serializeHelper(TreeNode root, List<String> values) {
         if (root == null) {
             values.add("null");
             return;
@@ -75,14 +75,14 @@ public class SerializeAndDeserializeBinaryTree {
     
     public static TreeNode deserialize_preorder(String data) {
         String[] values = data.split(",");
-        java.util.Queue<String> queue = new java.util.LinkedList<>();
+        Queue<String> queue = new LinkedList<>();
         for (String value : values) {
             queue.offer(value);
         }
         return deserializeHelper(queue);
     }
     
-    private static TreeNode deserializeHelper(java.util.Queue<String> queue) {
+    private static TreeNode deserializeHelper(Queue<String> queue) {
         String value = queue.poll();
         if ("null".equals(value)) {
             return null;
@@ -104,8 +104,8 @@ public class SerializeAndDeserializeBinaryTree {
             return "null";
         }
         
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
-        java.util.List<String> values = new java.util.ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<String> values = new ArrayList<>();
         
         queue.offer(root);
         
@@ -131,7 +131,7 @@ public class SerializeAndDeserializeBinaryTree {
         }
         
         TreeNode root = new TreeNode(Integer.parseInt(values[0]));
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         
         int index = 1;
@@ -163,7 +163,7 @@ public class SerializeAndDeserializeBinaryTree {
         }
         
         TreeNode root = new TreeNode(values[0]);
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         
         for (int i = 1; i < values.length; i += 2) {

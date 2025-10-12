@@ -66,7 +66,7 @@ public class JumpGameII {
             return 0;
         }
         
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[nums.length];
         
         queue.offer(0);
@@ -110,7 +110,7 @@ public class JumpGameII {
         
         int n = nums.length;
         int[] dp = new int[n];
-        java.util.Arrays.fill(dp, Integer.MAX_VALUE);
+        Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
         
         for (int i = 0; i < n; i++) {
@@ -169,7 +169,7 @@ public class JumpGameII {
         
         int n = nums.length;
         int[] dp = new int[n];
-        java.util.Arrays.fill(dp, Integer.MAX_VALUE);
+        Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = costs[0];
         
         for (int i = 0; i < n; i++) {
@@ -189,15 +189,15 @@ public class JumpGameII {
     /**
      * Helper method to find all paths with minimum jumps
      */
-    public static java.util.List<java.util.List<Integer>> findAllMinJumpPaths(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> findAllMinJumpPaths(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
         
         if (nums == null || nums.length <= 1) {
             return result;
         }
         
         int minJumps = jump_greedy(nums);
-        java.util.List<Integer> path = new java.util.ArrayList<>();
+        List<Integer> path = new ArrayList<>();
         path.add(0);
         
         findAllMinJumpPathsHelper(nums, 0, path, result, minJumps);
@@ -205,11 +205,11 @@ public class JumpGameII {
         return result;
     }
     
-    private static void findAllMinJumpPathsHelper(int[] nums, int position, java.util.List<Integer> path, 
-                                                 java.util.List<java.util.List<Integer>> result, int minJumps) {
+    private static void findAllMinJumpPathsHelper(int[] nums, int position, List<Integer> path, 
+                                                 List<List<Integer>> result, int minJumps) {
         if (position == nums.length - 1) {
             if (path.size() - 1 == minJumps) {
-                result.add(new java.util.ArrayList<>(path));
+                result.add(new ArrayList<>(path));
             }
             return;
         }
@@ -239,7 +239,7 @@ public class JumpGameII {
         
         int n = nums.length;
         int[] dp = new int[n];
-        java.util.Arrays.fill(dp, Integer.MIN_VALUE);
+        Arrays.fill(dp, Integer.MIN_VALUE);
         dp[0] = scores[0];
         
         for (int i = 0; i < n; i++) {
@@ -264,7 +264,7 @@ public class JumpGameII {
             return -1;
         }
         
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[nums.length];
         
         queue.offer(0);
@@ -336,7 +336,7 @@ public class JumpGameII {
         int[] nums1 = {2, 3, 1, 1, 4};
         
         System.out.println("Testing Jump Game II:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         
         int result1 = jump_greedy(nums1);
         System.out.println("Greedy result: " + result1);
@@ -354,7 +354,7 @@ public class JumpGameII {
         // Test case: nums = [2,3,0,1,4]
         int[] nums2 = {2, 3, 0, 1, 4};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         
         int result4 = jump_greedy(nums2);
         System.out.println("Greedy result: " + result4);
@@ -366,7 +366,7 @@ public class JumpGameII {
         // Test case: nums = [1,2,3]
         int[] nums3 = {1, 2, 3};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums3));
+        System.out.println("Array: " + Arrays.toString(nums3));
         
         int result5 = jump_greedy(nums3);
         System.out.println("Greedy result: " + result5);
@@ -384,7 +384,7 @@ public class JumpGameII {
         int jumpsWithCost = jumpWithCost(nums1, costs);
         System.out.println("Jumps with cost: " + jumpsWithCost);
         
-        java.util.List<java.util.List<Integer>> allMinJumpPaths = findAllMinJumpPaths(nums1);
+        List<List<Integer>> allMinJumpPaths = findAllMinJumpPaths(nums1);
         System.out.println("All minimum jump paths: " + allMinJumpPaths);
         
         int[] scores = {1, 2, 3, 4, 5};

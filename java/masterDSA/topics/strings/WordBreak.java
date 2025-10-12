@@ -34,12 +34,12 @@ public class WordBreak {
      * Dynamic programming approach - O(n²) time, O(n) space
      * dp[i] = true if s[0:i] can be segmented into dictionary words
      */
-    public static boolean wordBreak_dp(String s, java.util.List<String> wordDict) {
+    public static boolean wordBreak_dp(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) {
             return true;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordDict);
+        Set<String> wordSet = new HashSet<>(wordDict);
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true; // Empty string can always be segmented
         
@@ -60,12 +60,12 @@ public class WordBreak {
      * Optimized DP approach - O(n²) time, O(n) space
      * Only check words that are shorter than current position
      */
-    public static boolean wordBreak_dpOptimized(String s, java.util.List<String> wordDict) {
+    public static boolean wordBreak_dpOptimized(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) {
             return true;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordDict);
+        Set<String> wordSet = new HashSet<>(wordDict);
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
         
@@ -87,13 +87,13 @@ public class WordBreak {
      * BFS approach - O(n²) time, O(n) space
      * Use BFS to explore all possible segmentations
      */
-    public static boolean wordBreak_bfs(String s, java.util.List<String> wordDict) {
+    public static boolean wordBreak_bfs(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) {
             return true;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordDict);
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Set<String> wordSet = new HashSet<>(wordDict);
+        Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[s.length()];
         
         queue.offer(0);
@@ -127,19 +127,19 @@ public class WordBreak {
      * DFS with memoization - O(n²) time, O(n) space
      * Use DFS to explore all possible segmentations with memoization
      */
-    public static boolean wordBreak_dfs(String s, java.util.List<String> wordDict) {
+    public static boolean wordBreak_dfs(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) {
             return true;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordDict);
-        java.util.Map<Integer, Boolean> memo = new java.util.HashMap<>();
+        Set<String> wordSet = new HashSet<>(wordDict);
+        Map<Integer, Boolean> memo = new HashMap<>();
         
         return wordBreakHelper(s, 0, wordSet, memo);
     }
     
-    private static boolean wordBreakHelper(String s, int start, java.util.Set<String> wordSet, 
-                                         java.util.Map<Integer, Boolean> memo) {
+    private static boolean wordBreakHelper(String s, int start, Set<String> wordSet, 
+                                         Map<Integer, Boolean> memo) {
         if (start == s.length()) {
             return true;
         }
@@ -165,7 +165,7 @@ public class WordBreak {
      * Trie approach - O(n²) time, O(n) space
      * Use Trie for efficient word lookup
      */
-    public static boolean wordBreak_trie(String s, java.util.List<String> wordDict) {
+    public static boolean wordBreak_trie(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) {
             return true;
         }
@@ -191,7 +191,7 @@ public class WordBreak {
         boolean isEndOfWord = false;
     }
     
-    private static TrieNode buildTrie(java.util.List<String> wordDict) {
+    private static TrieNode buildTrie(List<String> wordDict) {
         TrieNode root = new TrieNode();
         
         for (String word : wordDict) {
@@ -225,17 +225,17 @@ public class WordBreak {
      * Brute force approach - O(2^n) time, O(n) space
      * Check all possible segmentations
      */
-    public static boolean wordBreak_bruteForce(String s, java.util.List<String> wordDict) {
+    public static boolean wordBreak_bruteForce(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) {
             return true;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordDict);
+        Set<String> wordSet = new HashSet<>(wordDict);
         
         return wordBreakBruteForceHelper(s, 0, wordSet);
     }
     
-    private static boolean wordBreakBruteForceHelper(String s, int start, java.util.Set<String> wordSet) {
+    private static boolean wordBreakBruteForceHelper(String s, int start, Set<String> wordSet) {
         if (start == s.length()) {
             return true;
         }
@@ -254,20 +254,20 @@ public class WordBreak {
     /**
      * Helper method to find all possible segmentations
      */
-    public static java.util.List<String> wordBreakAll(String s, java.util.List<String> wordDict) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> wordBreakAll(String s, List<String> wordDict) {
+        List<String> result = new ArrayList<>();
         if (s == null || s.length() == 0) {
             return result;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordDict);
-        wordBreakAllHelper(s, 0, wordSet, new java.util.ArrayList<>(), result);
+        Set<String> wordSet = new HashSet<>(wordDict);
+        wordBreakAllHelper(s, 0, wordSet, new ArrayList<>(), result);
         
         return result;
     }
     
-    private static void wordBreakAllHelper(String s, int start, java.util.Set<String> wordSet,
-                                         java.util.List<String> current, java.util.List<String> result) {
+    private static void wordBreakAllHelper(String s, int start, Set<String> wordSet,
+                                         List<String> current, List<String> result) {
         if (start == s.length()) {
             result.add(String.join(" ", current));
             return;
@@ -287,7 +287,7 @@ public class WordBreak {
     public static void main(String[] args) {
         // Test case: s = "leetcode", wordDict = ["leet","code"]
         String s1 = "leetcode";
-        java.util.List<String> wordDict1 = java.util.Arrays.asList("leet", "code");
+        List<String> wordDict1 = Arrays.asList("leet", "code");
         
         System.out.println("Testing Word Break:");
         System.out.println("String: " + s1);
@@ -317,7 +317,7 @@ public class WordBreak {
         
         // Test case: s = "applepenapple", wordDict = ["apple","pen"]
         String s2 = "applepenapple";
-        java.util.List<String> wordDict2 = java.util.Arrays.asList("apple", "pen");
+        List<String> wordDict2 = Arrays.asList("apple", "pen");
         
         System.out.println("String: " + s2);
         System.out.println("Word Dict: " + wordDict2);
@@ -331,7 +331,7 @@ public class WordBreak {
         
         // Test case: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
         String s3 = "catsandog";
-        java.util.List<String> wordDict3 = java.util.Arrays.asList("cats", "dog", "sand", "and", "cat");
+        List<String> wordDict3 = Arrays.asList("cats", "dog", "sand", "and", "cat");
         
         System.out.println("String: " + s3);
         System.out.println("Word Dict: " + wordDict3);
@@ -345,12 +345,12 @@ public class WordBreak {
         
         // Find all possible segmentations
         String s4 = "catsanddog";
-        java.util.List<String> wordDict4 = java.util.Arrays.asList("cat", "cats", "and", "sand", "dog");
+        List<String> wordDict4 = Arrays.asList("cat", "cats", "and", "sand", "dog");
         
         System.out.println("String: " + s4);
         System.out.println("Word Dict: " + wordDict4);
         
-        java.util.List<String> allSegmentations = wordBreakAll(s4, wordDict4);
+        List<String> allSegmentations = wordBreakAll(s4, wordDict4);
         System.out.println("All possible segmentations: " + allSegmentations);
         
         // Expected: ["cat sand dog", "cats and dog"]

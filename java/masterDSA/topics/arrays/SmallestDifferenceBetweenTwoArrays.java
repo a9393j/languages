@@ -35,8 +35,8 @@ public class SmallestDifferenceBetweenTwoArrays {
      */
     public static int smallestDifference_twoPointers(int[] arrayOne, int[] arrayTwo) {
         // Sort both arrays to enable two-pointer technique
-        java.util.Arrays.sort(arrayOne);
-        java.util.Arrays.sort(arrayTwo);
+        Arrays.sort(arrayOne);
+        Arrays.sort(arrayTwo);
         
         int indexOne = 0;
         int indexTwo = 0;
@@ -62,8 +62,8 @@ public class SmallestDifferenceBetweenTwoArrays {
      * O(n log n + m log m) time, O(1) space
      */
     public static int[] smallestDifferencePair(int[] arrayOne, int[] arrayTwo) {
-        java.util.Arrays.sort(arrayOne);
-        java.util.Arrays.sort(arrayTwo);
+        Arrays.sort(arrayOne);
+        Arrays.sort(arrayTwo);
         
         int indexOne = 0;
         int indexTwo = 0;
@@ -112,7 +112,7 @@ public class SmallestDifferenceBetweenTwoArrays {
      * For each element in arrayOne, find closest element in arrayTwo using binary search
      */
     public static int smallestDifference_binarySearch(int[] arrayOne, int[] arrayTwo) {
-        java.util.Arrays.sort(arrayTwo);
+        Arrays.sort(arrayTwo);
         int minDiff = Integer.MAX_VALUE;
         
         for (int num : arrayOne) {
@@ -154,8 +154,8 @@ public class SmallestDifferenceBetweenTwoArrays {
      * Store all elements in sets and find minimum difference
      */
     public static int smallestDifference_hashSet(int[] arrayOne, int[] arrayTwo) {
-        java.util.Set<Integer> setOne = new java.util.HashSet<>();
-        java.util.Set<Integer> setTwo = new java.util.HashSet<>();
+        Set<Integer> setOne = new HashSet<>();
+        Set<Integer> setTwo = new HashSet<>();
         
         for (int num : arrayOne) {
             setOne.add(num);
@@ -190,14 +190,14 @@ public class SmallestDifferenceBetweenTwoArrays {
         int[] arrayTwo = {26, 134, 135, 15, 17};
         
         System.out.println("Testing Smallest Difference Between Two Arrays:");
-        System.out.println("Array One: " + java.util.Arrays.toString(arrayOne));
-        System.out.println("Array Two: " + java.util.Arrays.toString(arrayTwo));
+        System.out.println("Array One: " + Arrays.toString(arrayOne));
+        System.out.println("Array Two: " + Arrays.toString(arrayTwo));
         
         int result1 = smallestDifference_twoPointers(arrayOne, arrayTwo);
         System.out.println("Two pointers result: " + result1);
         
         int[] pair = smallestDifferencePair(arrayOne, arrayTwo);
-        System.out.println("Closest pair: " + java.util.Arrays.toString(pair));
+        System.out.println("Closest pair: " + Arrays.toString(pair));
         
         int result2 = smallestDifference_bruteForce(arrayOne, arrayTwo);
         System.out.println("Brute force result: " + result2);
@@ -216,8 +216,8 @@ public class SmallestDifferenceBetweenTwoArrays {
         int[] arrayOne2 = {1, 2, 3};
         int[] arrayTwo2 = {4, 5, 6};
         
-        System.out.println("Array One: " + java.util.Arrays.toString(arrayOne2));
-        System.out.println("Array Two: " + java.util.Arrays.toString(arrayTwo2));
+        System.out.println("Array One: " + Arrays.toString(arrayOne2));
+        System.out.println("Array Two: " + Arrays.toString(arrayTwo2));
         
         int result5 = smallestDifference_twoPointers(arrayOne2, arrayTwo2);
         System.out.println("Two pointers result: " + result5);
@@ -230,8 +230,8 @@ public class SmallestDifferenceBetweenTwoArrays {
         int[] arrayOne3 = {1, 2, 3};
         int[] arrayTwo3 = {2, 3, 4};
         
-        System.out.println("Array One: " + java.util.Arrays.toString(arrayOne3));
-        System.out.println("Array Two: " + java.util.Arrays.toString(arrayTwo3));
+        System.out.println("Array One: " + Arrays.toString(arrayOne3));
+        System.out.println("Array Two: " + Arrays.toString(arrayTwo3));
         
         int result6 = smallestDifference_twoPointers(arrayOne3, arrayTwo3);
         System.out.println("Two pointers result: " + result6);

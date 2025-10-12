@@ -133,7 +133,7 @@ public class RemoveNthNodeFromEnd {
             return null;
         }
         
-        java.util.Stack<ListNode> stack = new java.util.Stack<>();
+        Stack<ListNode> stack = new Stack<>();
         ListNode current = head;
         
         // Push all nodes to stack
@@ -167,7 +167,7 @@ public class RemoveNthNodeFromEnd {
         }
         
         // Convert to array
-        java.util.List<Integer> values = new java.util.ArrayList<>();
+        List<Integer> values = new ArrayList<>();
         ListNode current = head;
         
         while (current != null) {
@@ -254,7 +254,7 @@ public class RemoveNthNodeFromEnd {
      * Helper method to convert linked list to array
      */
     public static int[] linkedListToArray(ListNode head) {
-        java.util.List<Integer> values = new java.util.ArrayList<>();
+        List<Integer> values = new ArrayList<>();
         ListNode current = head;
         
         while (current != null) {

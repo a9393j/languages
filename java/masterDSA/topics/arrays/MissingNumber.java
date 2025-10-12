@@ -73,7 +73,7 @@ public class MissingNumber {
      * Sort array and find first missing number
      */
     public static int missingNumber_sorting(int[] nums) {
-        java.util.Arrays.sort(nums);
+        Arrays.sort(nums);
         
         // Check if 0 is missing
         if (nums[0] != 0) {
@@ -96,7 +96,7 @@ public class MissingNumber {
      * Store all numbers in set, find missing one
      */
     public static int missingNumber_hashSet(int[] nums) {
-        java.util.Set<Integer> numSet = new java.util.HashSet<>();
+        Set<Integer> numSet = new HashSet<>();
         
         // Add all numbers to set
         for (int num : nums) {
@@ -118,7 +118,7 @@ public class MissingNumber {
      * Sort array and use binary search to find missing number
      */
     public static int missingNumber_binarySearch(int[] nums) {
-        java.util.Arrays.sort(nums);
+        Arrays.sort(nums);
         
         int left = 0;
         int right = nums.length;
@@ -164,7 +164,7 @@ public class MissingNumber {
         int[] nums1 = {3, 0, 1};
         
         System.out.println("Testing Missing Number:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         
         int result1 = missingNumber_math(nums1);
         System.out.println("Math result: " + result1);
@@ -190,7 +190,7 @@ public class MissingNumber {
         
         // Test case: nums = [0,1]
         int[] nums2 = {0, 1};
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         
         int result7 = missingNumber_math(nums2);
         System.out.println("Math result: " + result7);
@@ -201,7 +201,7 @@ public class MissingNumber {
         
         // Test case: nums = [9,6,4,2,3,5,7,0,1]
         int[] nums3 = {9, 6, 4, 2, 3, 5, 7, 0, 1};
-        System.out.println("Array: " + java.util.Arrays.toString(nums3));
+        System.out.println("Array: " + Arrays.toString(nums3));
         
         int result8 = missingNumber_math(nums3);
         System.out.println("Math result: " + result8);

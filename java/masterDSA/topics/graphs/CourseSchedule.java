@@ -37,9 +37,9 @@ public class CourseSchedule {
         }
         
         // Build adjacency list
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+        List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < numCourses; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] prereq : prerequisites) {
@@ -58,7 +58,7 @@ public class CourseSchedule {
         return true;
     }
     
-    private static boolean hasCycle(java.util.List<java.util.List<Integer>> graph, int node, int[] state) {
+    private static boolean hasCycle(List<List<Integer>> graph, int node, int[] state) {
         if (state[node] == 1) {
             return true; // Cycle detected
         }
@@ -89,11 +89,11 @@ public class CourseSchedule {
         }
         
         // Build adjacency list and in-degree count
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+        List<List<Integer>> graph = new ArrayList<>();
         int[] inDegree = new int[numCourses];
         
         for (int i = 0; i < numCourses; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] prereq : prerequisites) {
@@ -102,7 +102,7 @@ public class CourseSchedule {
         }
         
         // Add courses with no prerequisites to queue
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < numCourses; i++) {
             if (inDegree[i] == 0) {
                 queue.offer(i);
@@ -140,11 +140,11 @@ public class CourseSchedule {
         }
         
         // Build adjacency list and in-degree count
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+        List<List<Integer>> graph = new ArrayList<>();
         int[] inDegree = new int[numCourses];
         
         for (int i = 0; i < numCourses; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] prereq : prerequisites) {
@@ -153,7 +153,7 @@ public class CourseSchedule {
         }
         
         // Add courses with no prerequisites to queue
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < numCourses; i++) {
             if (inDegree[i] == 0) {
                 queue.offer(i);
@@ -188,9 +188,9 @@ public class CourseSchedule {
         }
         
         // Build adjacency list
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+        List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < numCourses; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] prereq : prerequisites) {
@@ -209,7 +209,7 @@ public class CourseSchedule {
         return true;
     }
     
-    private static boolean hasCyclePath(java.util.List<java.util.List<Integer>> graph, int node, boolean[] visited, boolean[] path) {
+    private static boolean hasCyclePath(List<List<Integer>> graph, int node, boolean[] visited, boolean[] path) {
         visited[node] = true;
         path[node] = true;
         
@@ -230,11 +230,11 @@ public class CourseSchedule {
     /**
      * Helper method to build adjacency list
      */
-    public static java.util.List<java.util.List<Integer>> buildGraph(int numCourses, int[][] prerequisites) {
-        java.util.List<java.util.List<Integer>> graph = new java.util.ArrayList<>();
+    public static List<List<Integer>> buildGraph(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> graph = new ArrayList<>();
         
         for (int i = 0; i < numCourses; i++) {
-            graph.add(new java.util.ArrayList<>());
+            graph.add(new ArrayList<>());
         }
         
         for (int[] prereq : prerequisites) {
@@ -260,7 +260,7 @@ public class CourseSchedule {
     /**
      * Helper method to check if graph is acyclic
      */
-    public static boolean isAcyclic(java.util.List<java.util.List<Integer>> graph) {
+    public static boolean isAcyclic(List<List<Integer>> graph) {
         int n = graph.size();
         int[] state = new int[n]; // 0: unvisited, 1: visiting, 2: visited
         
@@ -276,10 +276,10 @@ public class CourseSchedule {
     /**
      * Helper method to find strongly connected components
      */
-    public static java.util.List<java.util.List<Integer>> findSCCs(java.util.List<java.util.List<Integer>> graph) {
+    public static List<List<Integer>> findSCCs(List<List<Integer>> graph) {
         int n = graph.size();
         boolean[] visited = new boolean[n];
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         
         // First pass: fill stack
         for (int i = 0; i < n; i++) {
@@ -289,9 +289,9 @@ public class CourseSchedule {
         }
         
         // Build transpose graph
-        java.util.List<java.util.List<Integer>> transpose = new java.util.ArrayList<>();
+        List<List<Integer>> transpose = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            transpose.add(new java.util.ArrayList<>());
+            transpose.add(new ArrayList<>());
         }
         
         for (int i = 0; i < n; i++) {
@@ -302,12 +302,12 @@ public class CourseSchedule {
         
         // Second pass: process in reverse order
         visited = new boolean[n];
-        java.util.List<java.util.List<Integer>> sccs = new java.util.ArrayList<>();
+        List<List<Integer>> sccs = new ArrayList<>();
         
         while (!stack.isEmpty()) {
             int node = stack.pop();
             if (!visited[node]) {
-                java.util.List<Integer> scc = new java.util.ArrayList<>();
+                List<Integer> scc = new ArrayList<>();
                 dfsSCC(transpose, node, visited, scc);
                 sccs.add(scc);
             }
@@ -316,7 +316,7 @@ public class CourseSchedule {
         return sccs;
     }
     
-    private static void dfsFillStack(java.util.List<java.util.List<Integer>> graph, int node, boolean[] visited, java.util.Stack<Integer> stack) {
+    private static void dfsFillStack(List<List<Integer>> graph, int node, boolean[] visited, Stack<Integer> stack) {
         visited[node] = true;
         
         for (int neighbor : graph.get(node)) {
@@ -328,7 +328,7 @@ public class CourseSchedule {
         stack.push(node);
     }
     
-    private static void dfsSCC(java.util.List<java.util.List<Integer>> graph, int node, boolean[] visited, java.util.List<Integer> scc) {
+    private static void dfsSCC(List<List<Integer>> graph, int node, boolean[] visited, List<Integer> scc) {
         visited[node] = true;
         scc.add(node);
         
@@ -346,7 +346,7 @@ public class CourseSchedule {
         
         System.out.println("Testing Course Schedule:");
         System.out.println("numCourses: " + numCourses1);
-        System.out.println("prerequisites: " + java.util.Arrays.deepToString(prerequisites1));
+        System.out.println("prerequisites: " + Arrays.deepToString(prerequisites1));
         
         boolean result1 = canFinish_dfs(numCourses1, prerequisites1);
         System.out.println("DFS result: " + result1);
@@ -358,7 +358,7 @@ public class CourseSchedule {
         System.out.println("DFS path result: " + result3);
         
         int[] order1 = findOrder(numCourses1, prerequisites1);
-        System.out.println("Topological order: " + java.util.Arrays.toString(order1));
+        System.out.println("Topological order: " + Arrays.toString(order1));
         
         // Expected: true, [0, 1]
         
@@ -369,7 +369,7 @@ public class CourseSchedule {
         int[][] prerequisites2 = {{1, 0}, {0, 1}};
         
         System.out.println("numCourses: " + numCourses2);
-        System.out.println("prerequisites: " + java.util.Arrays.deepToString(prerequisites2));
+        System.out.println("prerequisites: " + Arrays.deepToString(prerequisites2));
         
         boolean result4 = canFinish_dfs(numCourses2, prerequisites2);
         System.out.println("DFS result: " + result4);
@@ -378,7 +378,7 @@ public class CourseSchedule {
         System.out.println("BFS result: " + result5);
         
         int[] order2 = findOrder(numCourses2, prerequisites2);
-        System.out.println("Topological order: " + java.util.Arrays.toString(order2));
+        System.out.println("Topological order: " + Arrays.toString(order2));
         
         // Expected: false, []
         
@@ -389,29 +389,29 @@ public class CourseSchedule {
         int[][] prerequisites3 = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
         
         System.out.println("numCourses: " + numCourses3);
-        System.out.println("prerequisites: " + java.util.Arrays.deepToString(prerequisites3));
+        System.out.println("prerequisites: " + Arrays.deepToString(prerequisites3));
         
         boolean result6 = canFinish_dfs(numCourses3, prerequisites3);
         System.out.println("DFS result: " + result6);
         
         int[] order3 = findOrder(numCourses3, prerequisites3);
-        System.out.println("Topological order: " + java.util.Arrays.toString(order3));
+        System.out.println("Topological order: " + Arrays.toString(order3));
         
         // Expected: true, [0, 1, 2, 3] or [0, 2, 1, 3]
         
         System.out.println();
         
         // Test helper methods
-        java.util.List<java.util.List<Integer>> graph = buildGraph(numCourses3, prerequisites3);
+        List<List<Integer>> graph = buildGraph(numCourses3, prerequisites3);
         System.out.println("Graph: " + graph);
         
         int[] inDegrees = findInDegrees(numCourses3, prerequisites3);
-        System.out.println("In-degrees: " + java.util.Arrays.toString(inDegrees));
+        System.out.println("In-degrees: " + Arrays.toString(inDegrees));
         
         boolean isAcyclic = isAcyclic(graph);
         System.out.println("Is acyclic: " + isAcyclic);
         
-        java.util.List<java.util.List<Integer>> sccs = findSCCs(graph);
+        List<List<Integer>> sccs = findSCCs(graph);
         System.out.println("Strongly connected components: " + sccs);
         
         // Expected: Graph = [[1, 2], [3], [3], []], In-degrees = [0, 1, 1, 2], Is acyclic = true

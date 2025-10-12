@@ -42,7 +42,7 @@ public class MinimumWindowSubstring {
         }
         
         // Count characters in t
-        java.util.Map<Character, Integer> tCount = new java.util.HashMap<>();
+        Map<Character, Integer> tCount = new HashMap<>();
         for (char c : t.toCharArray()) {
             tCount.put(c, tCount.getOrDefault(c, 0) + 1);
         }
@@ -53,7 +53,7 @@ public class MinimumWindowSubstring {
         int required = tCount.size(); // Number of unique characters in t
         int formed = 0; // Number of unique characters in current window
         
-        java.util.Map<Character, Integer> windowCount = new java.util.HashMap<>();
+        Map<Character, Integer> windowCount = new HashMap<>();
         
         for (int right = 0; right < s.length(); right++) {
             char rightChar = s.charAt(right);
@@ -174,7 +174,7 @@ public class MinimumWindowSubstring {
      * Helper method to check if substring contains all characters from t
      */
     private static boolean containsAllCharacters(String s, String t) {
-        java.util.Map<Character, Integer> sCount = new java.util.HashMap<>();
+        Map<Character, Integer> sCount = new HashMap<>();
         for (char c : s.toCharArray()) {
             sCount.put(c, sCount.getOrDefault(c, 0) + 1);
         }
@@ -244,15 +244,15 @@ public class MinimumWindowSubstring {
     /**
      * Helper method to find all substrings containing t
      */
-    public static java.util.List<String> findAllWindows(String s, String t) {
-        java.util.List<String> windows = new java.util.ArrayList<>();
+    public static List<String> findAllWindows(String s, String t) {
+        List<String> windows = new ArrayList<>();
         
         if (s == null || t == null || s.length() == 0 || t.length() == 0) {
             return windows;
         }
         
         // Count characters in t
-        java.util.Map<Character, Integer> tCount = new java.util.HashMap<>();
+        Map<Character, Integer> tCount = new HashMap<>();
         for (char c : t.toCharArray()) {
             tCount.put(c, tCount.getOrDefault(c, 0) + 1);
         }
@@ -261,7 +261,7 @@ public class MinimumWindowSubstring {
         int required = tCount.size();
         int formed = 0;
         
-        java.util.Map<Character, Integer> windowCount = new java.util.HashMap<>();
+        Map<Character, Integer> windowCount = new HashMap<>();
         
         for (int right = 0; right < s.length(); right++) {
             char rightChar = s.charAt(right);
@@ -370,7 +370,7 @@ public class MinimumWindowSubstring {
         System.out.println();
         
         // Find all windows
-        java.util.List<String> allWindows = findAllWindows(s1, t1);
+        List<String> allWindows = findAllWindows(s1, t1);
         System.out.println("All windows containing '" + t1 + "': " + allWindows);
         
         // Expected: ["ADOBEC", "DOBECODEBA", "OBECODEBA", "BECODEBA", "ECODEBA", "CODEBA", "ODEBANC", "DEBANC", "EBANC", "BANC"]

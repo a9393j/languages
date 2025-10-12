@@ -56,7 +56,7 @@ public class StringsTests {
     @Test
     public void testWordBreak() {
         String s = "leetcode";
-        java.util.List<String> wordDict = java.util.Arrays.asList("leet", "code");
+        List<String> wordDict = Arrays.asList("leet", "code");
         boolean result = WordBreak.wordBreak_dp(s, wordDict);
         assertTrue(result);
     }

@@ -75,7 +75,7 @@ public class ValidateBinarySearchTree {
      * Use inorder traversal to check if values are sorted
      */
     public static boolean isValidBST_inorder(TreeNode root) {
-        java.util.List<Integer> values = new java.util.ArrayList<>();
+        List<Integer> values = new ArrayList<>();
         inorderTraversal(root, values);
         
         for (int i = 1; i < values.size(); i++) {
@@ -87,7 +87,7 @@ public class ValidateBinarySearchTree {
         return true;
     }
     
-    private static void inorderTraversal(TreeNode root, java.util.List<Integer> values) {
+    private static void inorderTraversal(TreeNode root, List<Integer> values) {
         if (root == null) {
             return;
         }
@@ -106,7 +106,7 @@ public class ValidateBinarySearchTree {
         }
         
         TreeNode root = new TreeNode(values[0]);
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         
         for (int i = 1; i < values.length; i += 2) {

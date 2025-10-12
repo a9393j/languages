@@ -30,15 +30,15 @@ public class Subsets {
      * Backtracking approach - O(2^n) time, O(2^n) space
      * Generate all subsets using backtracking
      */
-    public static java.util.List<java.util.List<Integer>> subsets_backtracking(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> subsets_backtracking(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrack(nums, 0, current, result);
         return result;
     }
     
-    private static void backtrack(int[] nums, int start, java.util.List<Integer> current, java.util.List<java.util.List<Integer>> result) {
-        result.add(new java.util.ArrayList<>(current));
+    private static void backtrack(int[] nums, int start, List<Integer> current, List<List<Integer>> result) {
+        result.add(new ArrayList<>(current));
         
         for (int i = start; i < nums.length; i++) {
             current.add(nums[i]);
@@ -51,14 +51,14 @@ public class Subsets {
      * Iterative approach - O(2^n) time, O(2^n) space
      * Build subsets incrementally
      */
-    public static java.util.List<java.util.List<Integer>> subsets_iterative(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        result.add(new java.util.ArrayList<>());
+    public static List<List<Integer>> subsets_iterative(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>());
         
         for (int num : nums) {
             int size = result.size();
             for (int i = 0; i < size; i++) {
-                java.util.List<Integer> newSubset = new java.util.ArrayList<>(result.get(i));
+                List<Integer> newSubset = new ArrayList<>(result.get(i));
                 newSubset.add(num);
                 result.add(newSubset);
             }
@@ -71,12 +71,12 @@ public class Subsets {
      * Bit manipulation approach - O(2^n) time, O(2^n) space
      * Use bit masks to generate subsets
      */
-    public static java.util.List<java.util.List<Integer>> subsets_bitManipulation(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> subsets_bitManipulation(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
         int n = nums.length;
         
         for (int i = 0; i < (1 << n); i++) {
-            java.util.List<Integer> subset = new java.util.ArrayList<>();
+            List<Integer> subset = new ArrayList<>();
             for (int j = 0; j < n; j++) {
                 if ((i & (1 << j)) != 0) {
                     subset.add(nums[j]);
@@ -91,17 +91,17 @@ public class Subsets {
     /**
      * Helper method to find subsets with target sum
      */
-    public static java.util.List<java.util.List<Integer>> subsetsWithTargetSum(int[] nums, int target) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> subsetsWithTargetSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrackWithTarget(nums, 0, current, result, target, 0);
         return result;
     }
     
-    private static void backtrackWithTarget(int[] nums, int start, java.util.List<Integer> current, 
-                                          java.util.List<java.util.List<Integer>> result, int target, int currentSum) {
+    private static void backtrackWithTarget(int[] nums, int start, List<Integer> current, 
+                                          List<List<Integer>> result, int target, int currentSum) {
         if (currentSum == target) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -119,17 +119,17 @@ public class Subsets {
     /**
      * Helper method to find subsets with specific size
      */
-    public static java.util.List<java.util.List<Integer>> subsetsWithSize(int[] nums, int size) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> subsetsWithSize(int[] nums, int size) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrackWithSize(nums, 0, current, result, size);
         return result;
     }
     
-    private static void backtrackWithSize(int[] nums, int start, java.util.List<Integer> current, 
-                                        java.util.List<java.util.List<Integer>> result, int targetSize) {
+    private static void backtrackWithSize(int[] nums, int start, List<Integer> current, 
+                                        List<List<Integer>> result, int targetSize) {
         if (current.size() == targetSize) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -147,17 +147,17 @@ public class Subsets {
     /**
      * Helper method to find subsets with duplicates
      */
-    public static java.util.List<java.util.List<Integer>> subsetsWithDuplicates(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
-        java.util.Arrays.sort(nums);
+    public static List<List<Integer>> subsetsWithDuplicates(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
+        Arrays.sort(nums);
         backtrackWithDuplicates(nums, 0, current, result);
         return result;
     }
     
-    private static void backtrackWithDuplicates(int[] nums, int start, java.util.List<Integer> current, 
-                                             java.util.List<java.util.List<Integer>> result) {
-        result.add(new java.util.ArrayList<>(current));
+    private static void backtrackWithDuplicates(int[] nums, int start, List<Integer> current, 
+                                             List<List<Integer>> result) {
+        result.add(new ArrayList<>(current));
         
         for (int i = start; i < nums.length; i++) {
             if (i > start && nums[i] == nums[i - 1]) {
@@ -193,7 +193,7 @@ public class Subsets {
      * Helper method to find minimum subset sum difference
      */
     public static int minSubsetSumDifference(int[] nums) {
-        int totalSum = java.util.Arrays.stream(nums).sum();
+        int totalSum = Arrays.stream(nums).sum();
         int n = nums.length;
         int minDiff = Integer.MAX_VALUE;
         
@@ -213,12 +213,12 @@ public class Subsets {
     /**
      * Helper method to find subsets with even sum
      */
-    public static java.util.List<java.util.List<Integer>> subsetsWithEvenSum(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> subsetsWithEvenSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
         int n = nums.length;
         
         for (int i = 0; i < (1 << n); i++) {
-            java.util.List<Integer> subset = new java.util.ArrayList<>();
+            List<Integer> subset = new ArrayList<>();
             int sum = 0;
             
             for (int j = 0; j < n; j++) {
@@ -239,12 +239,12 @@ public class Subsets {
     /**
      * Helper method to find subsets with odd sum
      */
-    public static java.util.List<java.util.List<Integer>> subsetsWithOddSum(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> subsetsWithOddSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
         int n = nums.length;
         
         for (int i = 0; i < (1 << n); i++) {
-            java.util.List<Integer> subset = new java.util.ArrayList<>();
+            List<Integer> subset = new ArrayList<>();
             int sum = 0;
             
             for (int j = 0; j < n; j++) {
@@ -265,17 +265,17 @@ public class Subsets {
     /**
      * Helper method to find subsets with product
      */
-    public static java.util.List<java.util.List<Integer>> subsetsWithProduct(int[] nums, int targetProduct) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> subsetsWithProduct(int[] nums, int targetProduct) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrackWithProduct(nums, 0, current, result, targetProduct, 1);
         return result;
     }
     
-    private static void backtrackWithProduct(int[] nums, int start, java.util.List<Integer> current, 
-                                           java.util.List<java.util.List<Integer>> result, int targetProduct, int currentProduct) {
+    private static void backtrackWithProduct(int[] nums, int start, List<Integer> current, 
+                                           List<List<Integer>> result, int targetProduct, int currentProduct) {
         if (currentProduct == targetProduct) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -295,15 +295,15 @@ public class Subsets {
         int[] nums1 = {1, 2, 3};
         
         System.out.println("Testing Subsets:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         
-        java.util.List<java.util.List<Integer>> result1 = subsets_backtracking(nums1);
+        List<List<Integer>> result1 = subsets_backtracking(nums1);
         System.out.println("Backtracking result: " + result1);
         
-        java.util.List<java.util.List<Integer>> result2 = subsets_iterative(nums1);
+        List<List<Integer>> result2 = subsets_iterative(nums1);
         System.out.println("Iterative result: " + result2);
         
-        java.util.List<java.util.List<Integer>> result3 = subsets_bitManipulation(nums1);
+        List<List<Integer>> result3 = subsets_bitManipulation(nums1);
         System.out.println("Bit manipulation result: " + result3);
         
         // Expected: [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
@@ -313,9 +313,9 @@ public class Subsets {
         // Test case: nums = [0]
         int[] nums2 = {0};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         
-        java.util.List<java.util.List<Integer>> result4 = subsets_backtracking(nums2);
+        List<List<Integer>> result4 = subsets_backtracking(nums2);
         System.out.println("Backtracking result: " + result4);
         
         // Expected: [[], [0]]
@@ -325,9 +325,9 @@ public class Subsets {
         // Test case: nums = [1,2,2]
         int[] nums3 = {1, 2, 2};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums3));
+        System.out.println("Array: " + Arrays.toString(nums3));
         
-        java.util.List<java.util.List<Integer>> result5 = subsetsWithDuplicates(nums3);
+        List<List<Integer>> result5 = subsetsWithDuplicates(nums3);
         System.out.println("Subsets with duplicates: " + result5);
         
         // Expected: [[], [1], [1,2], [1,2,2], [2], [2,2]]
@@ -335,10 +335,10 @@ public class Subsets {
         System.out.println();
         
         // Test helper methods
-        java.util.List<java.util.List<Integer>> withTargetSum = subsetsWithTargetSum(nums1, 3);
+        List<List<Integer>> withTargetSum = subsetsWithTargetSum(nums1, 3);
         System.out.println("Subsets with target sum 3: " + withTargetSum);
         
-        java.util.List<java.util.List<Integer>> withSize = subsetsWithSize(nums1, 2);
+        List<List<Integer>> withSize = subsetsWithSize(nums1, 2);
         System.out.println("Subsets with size 2: " + withSize);
         
         int maxSum = maxSubsetSum(nums1);
@@ -347,13 +347,13 @@ public class Subsets {
         int minDiff = minSubsetSumDifference(nums1);
         System.out.println("Minimum subset sum difference: " + minDiff);
         
-        java.util.List<java.util.List<Integer>> evenSum = subsetsWithEvenSum(nums1);
+        List<List<Integer>> evenSum = subsetsWithEvenSum(nums1);
         System.out.println("Subsets with even sum: " + evenSum);
         
-        java.util.List<java.util.List<Integer>> oddSum = subsetsWithOddSum(nums1);
+        List<List<Integer>> oddSum = subsetsWithOddSum(nums1);
         System.out.println("Subsets with odd sum: " + oddSum);
         
-        java.util.List<java.util.List<Integer>> withProduct = subsetsWithProduct(nums1, 6);
+        List<List<Integer>> withProduct = subsetsWithProduct(nums1, 6);
         System.out.println("Subsets with product 6: " + withProduct);
         
         // Expected: Target sum 3 = [[1,2], [3]], Size 2 = [[1,2], [1,3], [2,3]], Max sum = 6, Min diff = 0, Even sum = [[], [2], [1,3], [1,2,3]], Odd sum = [[1], [3], [1,2]], Product 6 = [[1,2,3]]

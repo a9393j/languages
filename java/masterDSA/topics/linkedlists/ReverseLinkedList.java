@@ -94,7 +94,7 @@ public class ReverseLinkedList {
             return null;
         }
         
-        java.util.Stack<ListNode> stack = new java.util.Stack<>();
+        Stack<ListNode> stack = new Stack<>();
         
         // Push all nodes to stack
         ListNode current = head;
@@ -163,7 +163,7 @@ public class ReverseLinkedList {
      * Helper method to convert linked list to array
      */
     public static int[] linkedListToArray(ListNode head) {
-        java.util.List<Integer> values = new java.util.ArrayList<>();
+        List<Integer> values = new ArrayList<>();
         ListNode current = head;
         
         while (current != null) {
@@ -342,7 +342,7 @@ public class ReverseLinkedList {
         System.out.println("Middle node: " + middle.val);
         
         int[] array = linkedListToArray(head5);
-        System.out.println("Array: " + java.util.Arrays.toString(array));
+        System.out.println("Array: " + Arrays.toString(array));
         
         // Test palindrome
         int[] values6 = {1, 2, 3, 2, 1};

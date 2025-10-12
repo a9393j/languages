@@ -179,8 +179,8 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
     /**
      * Helper method to find all occurrences
      */
-    public static java.util.List<Integer> findAllOccurrences(int[] nums, int target) {
-        java.util.List<Integer> result = new java.util.ArrayList<>();
+    public static List<Integer> findAllOccurrences(int[] nums, int target) {
+        List<Integer> result = new ArrayList<>();
         
         if (nums == null || nums.length == 0) {
             return result;
@@ -397,17 +397,17 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         int target1 = 8;
         
         System.out.println("Testing Find First and Last Position of Element in Sorted Array:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         System.out.println("Target: " + target1);
         
         int[] result1 = searchRange_twoBinarySearches(nums1, target1);
-        System.out.println("Two binary searches result: " + java.util.Arrays.toString(result1));
+        System.out.println("Two binary searches result: " + Arrays.toString(result1));
         
         int[] result2 = searchRange_singleBinarySearch(nums1, target1);
-        System.out.println("Single binary search result: " + java.util.Arrays.toString(result2));
+        System.out.println("Single binary search result: " + Arrays.toString(result2));
         
         int[] result3 = searchRange_template(nums1, target1);
-        System.out.println("Template result: " + java.util.Arrays.toString(result3));
+        System.out.println("Template result: " + Arrays.toString(result3));
         
         // Expected: [3, 4]
         
@@ -419,7 +419,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         System.out.println("Target: " + target2);
         
         int[] result4 = searchRange_twoBinarySearches(nums1, target2);
-        System.out.println("Two binary searches result: " + java.util.Arrays.toString(result4));
+        System.out.println("Two binary searches result: " + Arrays.toString(result4));
         
         // Expected: [-1, -1]
         
@@ -429,11 +429,11 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         int[] nums2 = {};
         int target3 = 0;
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         System.out.println("Target: " + target3);
         
         int[] result5 = searchRange_twoBinarySearches(nums2, target3);
-        System.out.println("Two binary searches result: " + java.util.Arrays.toString(result5));
+        System.out.println("Two binary searches result: " + Arrays.toString(result5));
         
         // Expected: [-1, -1]
         
@@ -443,26 +443,26 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         int count = countOccurrences(nums1, 8);
         System.out.println("Count of occurrences of 8: " + count);
         
-        java.util.List<Integer> allOccurrences = findAllOccurrences(nums1, 8);
+        List<Integer> allOccurrences = findAllOccurrences(nums1, 8);
         System.out.println("All occurrences of 8: " + allOccurrences);
         
         int kthOccurrence = findKthOccurrence(nums1, 8, 2);
         System.out.println("2nd occurrence of 8: " + kthOccurrence);
         
         int[] rangeInRange = searchRangeInRange(nums1, 8, 1, 4);
-        System.out.println("Range of 8 in [1,4]: " + java.util.Arrays.toString(rangeInRange));
+        System.out.println("Range of 8 in [1,4]: " + Arrays.toString(rangeInRange));
         
         int[] closest = findClosestOccurrences(nums1, 6);
-        System.out.println("Closest occurrences of 6: " + java.util.Arrays.toString(closest));
+        System.out.println("Closest occurrences of 6: " + Arrays.toString(closest));
         
         int[] minDistance = findOccurrencesWithMinDistance(nums1, 8, 2);
-        System.out.println("Occurrences with min distance 2: " + java.util.Arrays.toString(minDistance));
+        System.out.println("Occurrences with min distance 2: " + Arrays.toString(minDistance));
         
         int[] maxDistance = findOccurrencesWithMaxDistance(nums1, 8, 3);
-        System.out.println("Occurrences with max distance 3: " + java.util.Arrays.toString(maxDistance));
+        System.out.println("Occurrences with max distance 3: " + Arrays.toString(maxDistance));
         
         int[] exactDistance = findOccurrencesWithExactDistance(nums1, 8, 2);
-        System.out.println("Occurrences with exact distance 2: " + java.util.Arrays.toString(exactDistance));
+        System.out.println("Occurrences with exact distance 2: " + Arrays.toString(exactDistance));
         
         // Expected: Count = 2, All occurrences = [3, 4], 2nd occurrence = 4, Range in [1,4] = [3, 4], Closest occurrences = [2, 3], Min distance 2 = [3, 4], Max distance 3 = [3, 4], Exact distance 2 = [3, 4]
     }

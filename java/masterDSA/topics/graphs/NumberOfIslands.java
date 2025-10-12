@@ -96,7 +96,7 @@ public class NumberOfIslands {
     private static void bfs(char[][] grid, int startRow, int startCol) {
         int m = grid.length;
         int n = grid[0].length;
-        java.util.Queue<int[]> queue = new java.util.LinkedList<>();
+        Queue<int[]> queue = new LinkedList<>();
         
         queue.offer(new int[]{startRow, startCol});
         grid[startRow][startCol] = '0'; // Mark as visited
@@ -212,7 +212,7 @@ public class NumberOfIslands {
      */
     public static void printGrid(char[][] grid) {
         for (char[] row : grid) {
-            System.out.println(java.util.Arrays.toString(row));
+            System.out.println(Arrays.toString(row));
         }
     }
     

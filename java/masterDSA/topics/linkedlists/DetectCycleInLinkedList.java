@@ -83,7 +83,7 @@ public class DetectCycleInLinkedList {
             return false;
         }
         
-        java.util.Set<ListNode> visited = new java.util.HashSet<>();
+        Set<ListNode> visited = new HashSet<>();
         ListNode current = head;
         
         while (current != null) {

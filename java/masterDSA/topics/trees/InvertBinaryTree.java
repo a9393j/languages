@@ -75,7 +75,7 @@ public class InvertBinaryTree {
             return null;
         }
         
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         
         while (!queue.isEmpty()) {
@@ -107,7 +107,7 @@ public class InvertBinaryTree {
         }
         
         TreeNode root = new TreeNode(values[0]);
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         
         for (int i = 1; i < values.length; i += 2) {

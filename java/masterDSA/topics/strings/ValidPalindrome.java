@@ -178,7 +178,7 @@ public class ValidPalindrome {
         String cleanedString = cleaned.toString();
         
         // Use stack to reverse
-        java.util.Stack<Character> stack = new java.util.Stack<>();
+        Stack<Character> stack = new Stack<>();
         for (char c : cleanedString.toCharArray()) {
             stack.push(c);
         }

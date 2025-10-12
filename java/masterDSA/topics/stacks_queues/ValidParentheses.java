@@ -37,7 +37,7 @@ public class ValidParentheses {
             return true;
         }
         
-        java.util.Stack<Character> stack = new java.util.Stack<>();
+        Stack<Character> stack = new Stack<>();
         
         for (char c : s.toCharArray()) {
             if (c == '(' || c == '{' || c == '[') {
@@ -75,12 +75,12 @@ public class ValidParentheses {
             return true;
         }
         
-        java.util.Map<Character, Character> bracketMap = new java.util.HashMap<>();
+        Map<Character, Character> bracketMap = new HashMap<>();
         bracketMap.put(')', '(');
         bracketMap.put('}', '{');
         bracketMap.put(']', '[');
         
-        java.util.Stack<Character> stack = new java.util.Stack<>();
+        Stack<Character> stack = new Stack<>();
         
         for (char c : s.toCharArray()) {
             if (bracketMap.containsKey(c)) {
@@ -136,10 +136,10 @@ public class ValidParentheses {
             return true;
         }
         
-        return isValidHelper(s, 0, new java.util.Stack<>());
+        return isValidHelper(s, 0, new Stack<>());
     }
     
-    private static boolean isValidHelper(String s, int index, java.util.Stack<Character> stack) {
+    private static boolean isValidHelper(String s, int index, Stack<Character> stack) {
         if (index == s.length()) {
             return stack.isEmpty();
         }
@@ -173,7 +173,7 @@ public class ValidParentheses {
             return 0;
         }
         
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         stack.push(-1);
         int maxLen = 0;
         
@@ -196,13 +196,13 @@ public class ValidParentheses {
     /**
      * Helper method to generate valid parentheses
      */
-    public static java.util.List<String> generateParentheses(int n) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> generateParentheses(int n) {
+        List<String> result = new ArrayList<>();
         generateParenthesesHelper("", 0, 0, n, result);
         return result;
     }
     
-    private static void generateParenthesesHelper(String current, int open, int close, int n, java.util.List<String> result) {
+    private static void generateParenthesesHelper(String current, int open, int close, int n, List<String> result) {
         if (current.length() == 2 * n) {
             result.add(current);
             return;
@@ -220,13 +220,13 @@ public class ValidParentheses {
     /**
      * Helper method to remove invalid parentheses
      */
-    public static java.util.List<String> removeInvalidParentheses(String s) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> removeInvalidParentheses(String s) {
+        List<String> result = new ArrayList<>();
         removeInvalidParenthesesHelper(s, 0, 0, new char[]{'(', ')'}, result);
         return result;
     }
     
-    private static void removeInvalidParenthesesHelper(String s, int lastI, int lastJ, char[] par, java.util.List<String> result) {
+    private static void removeInvalidParenthesesHelper(String s, int lastI, int lastJ, char[] par, List<String> result) {
         int stack = 0;
         
         for (int i = lastI; i < s.length(); i++) {
@@ -314,7 +314,7 @@ public class ValidParentheses {
         int longestValid = longestValidParentheses(s5);
         System.out.println("Longest valid parentheses in '" + s5 + "': " + longestValid);
         
-        java.util.List<String> generated = generateParentheses(3);
+        List<String> generated = generateParentheses(3);
         System.out.println("Generated parentheses for n=3: " + generated);
         
         // Expected: Longest valid = 2, Generated = ["((()))", "(()())", "(())()", "()(())", "()()()"]

@@ -397,8 +397,8 @@ public class BinarySearch {
     /**
      * Helper method to find three sum in sorted array
      */
-    public static java.util.List<java.util.List<Integer>> threeSum(int[] nums, int target) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> threeSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
         
         if (nums == null || nums.length < 3) {
             return result;
@@ -416,7 +416,7 @@ public class BinarySearch {
                 int sum = nums[i] + nums[left] + nums[right];
                 
                 if (sum == target) {
-                    result.add(java.util.Arrays.asList(nums[i], nums[left], nums[right]));
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     
                     // Skip duplicates
                     while (left < right && nums[left] == nums[left + 1]) {
@@ -445,7 +445,7 @@ public class BinarySearch {
         int target1 = 9;
         
         System.out.println("Testing Binary Search:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         System.out.println("Target: " + target1);
         
         int result1 = search_iterative(nums1, target1);
@@ -511,11 +511,11 @@ public class BinarySearch {
         
         int[] nums5 = {2, 7, 11, 15};
         int[] twoSum = twoSum(nums5, 9);
-        System.out.println("Two sum indices: " + java.util.Arrays.toString(twoSum));
+        System.out.println("Two sum indices: " + Arrays.toString(twoSum));
         
         int[] nums6 = {-1, 0, 1, 2, -1, -4};
-        java.util.Arrays.sort(nums6);
-        java.util.List<java.util.List<Integer>> threeSum = threeSum(nums6, 0);
+        Arrays.sort(nums6);
+        List<List<Integer>> threeSum = threeSum(nums6, 0);
         System.out.println("Three sum: " + threeSum);
         
         // Expected: First occurrence = 1, Last occurrence = 3, Insert position = 7, Floor = 2, Ceiling = 3, Peak element index = 2, Minimum = 0, Maximum = 7, Square root = 2, Perfect square = true, Two sum = [0, 1], Three sum = [[-1, -1, 2], [-1, 0, 1]]

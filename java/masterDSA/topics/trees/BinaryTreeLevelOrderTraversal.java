@@ -52,18 +52,18 @@ public class BinaryTreeLevelOrderTraversal {
      * BFS approach - O(n) time, O(w) space where w is maximum width
      * Use queue to process nodes level by level
      */
-    public static java.util.List<java.util.List<Integer>> levelOrder_bfs(TreeNode root) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> levelOrder_bfs(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
         
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
-            java.util.List<Integer> currentLevel = new java.util.ArrayList<>();
+            List<Integer> currentLevel = new ArrayList<>();
             
             // Process all nodes in current level
             for (int i = 0; i < levelSize; i++) {
@@ -89,20 +89,20 @@ public class BinaryTreeLevelOrderTraversal {
      * DFS approach - O(n) time, O(h) space
      * Use DFS with level tracking
      */
-    public static java.util.List<java.util.List<Integer>> levelOrder_dfs(TreeNode root) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> levelOrder_dfs(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
         levelOrderHelper(root, 0, result);
         return result;
     }
     
-    private static void levelOrderHelper(TreeNode root, int level, java.util.List<java.util.List<Integer>> result) {
+    private static void levelOrderHelper(TreeNode root, int level, List<List<Integer>> result) {
         if (root == null) {
             return;
         }
         
         // Ensure we have enough levels
         if (level >= result.size()) {
-            result.add(new java.util.ArrayList<>());
+            result.add(new ArrayList<>());
         }
         
         // Add current node to its level
@@ -117,19 +117,19 @@ public class BinaryTreeLevelOrderTraversal {
      * Two queues approach - O(n) time, O(w) space
      * Use two queues to separate current and next level
      */
-    public static java.util.List<java.util.List<Integer>> levelOrder_twoQueues(TreeNode root) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> levelOrder_twoQueues(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
         
-        java.util.Queue<TreeNode> currentLevel = new java.util.LinkedList<>();
-        java.util.Queue<TreeNode> nextLevel = new java.util.LinkedList<>();
+        Queue<TreeNode> currentLevel = new LinkedList<>();
+        Queue<TreeNode> nextLevel = new LinkedList<>();
         
         currentLevel.offer(root);
         
         while (!currentLevel.isEmpty()) {
-            java.util.List<Integer> levelValues = new java.util.ArrayList<>();
+            List<Integer> levelValues = new ArrayList<>();
             
             // Process current level
             while (!currentLevel.isEmpty()) {
@@ -148,7 +148,7 @@ public class BinaryTreeLevelOrderTraversal {
             result.add(levelValues);
             
             // Swap queues
-            java.util.Queue<TreeNode> temp = currentLevel;
+            Queue<TreeNode> temp = currentLevel;
             currentLevel = nextLevel;
             nextLevel = temp;
         }
@@ -160,24 +160,24 @@ public class BinaryTreeLevelOrderTraversal {
      * Level order traversal with null markers - O(n) time, O(w) space
      * Use null markers to separate levels
      */
-    public static java.util.List<java.util.List<Integer>> levelOrder_nullMarkers(TreeNode root) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> levelOrder_nullMarkers(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
         
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         queue.offer(null); // Level separator
         
-        java.util.List<Integer> currentLevel = new java.util.ArrayList<>();
+        List<Integer> currentLevel = new ArrayList<>();
         
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
             
             if (node == null) {
                 // End of current level
-                result.add(new java.util.ArrayList<>(currentLevel));
+                result.add(new ArrayList<>(currentLevel));
                 currentLevel.clear();
                 
                 if (!queue.isEmpty()) {
@@ -207,7 +207,7 @@ public class BinaryTreeLevelOrderTraversal {
         }
         
         TreeNode root = new TreeNode(values[0]);
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         
         for (int i = 1; i < values.length; i += 2) {
@@ -317,19 +317,19 @@ public class BinaryTreeLevelOrderTraversal {
         printBinaryTree(root);
         
         System.out.println("\nBFS Approach:");
-        java.util.List<java.util.List<Integer>> result1 = levelOrder_bfs(root);
+        List<List<Integer>> result1 = levelOrder_bfs(root);
         System.out.println(result1);
         
         System.out.println("\nDFS Approach:");
-        java.util.List<java.util.List<Integer>> result2 = levelOrder_dfs(root);
+        List<List<Integer>> result2 = levelOrder_dfs(root);
         System.out.println(result2);
         
         System.out.println("\nTwo Queues Approach:");
-        java.util.List<java.util.List<Integer>> result3 = levelOrder_twoQueues(root);
+        List<List<Integer>> result3 = levelOrder_twoQueues(root);
         System.out.println(result3);
         
         System.out.println("\nNull Markers Approach:");
-        java.util.List<java.util.List<Integer>> result4 = levelOrder_nullMarkers(root);
+        List<List<Integer>> result4 = levelOrder_nullMarkers(root);
         System.out.println(result4);
         
         // Expected: [[3],[9,20],[15,7]]
@@ -349,7 +349,7 @@ public class BinaryTreeLevelOrderTraversal {
         printBinaryTree(root2);
         
         System.out.println("\nLevel Order Traversal:");
-        java.util.List<java.util.List<Integer>> result5 = levelOrder_bfs(root2);
+        List<List<Integer>> result5 = levelOrder_bfs(root2);
         System.out.println(result5);
         
         // Expected: [[1],[2,3],[4,5,6,7]]
@@ -364,7 +364,7 @@ public class BinaryTreeLevelOrderTraversal {
         printBinaryTree(root3);
         
         System.out.println("\nLevel Order Traversal:");
-        java.util.List<java.util.List<Integer>> result6 = levelOrder_bfs(root3);
+        List<List<Integer>> result6 = levelOrder_bfs(root3);
         System.out.println(result6);
         
         // Expected: [[1]]
@@ -375,7 +375,7 @@ public class BinaryTreeLevelOrderTraversal {
         TreeNode root4 = null;
         
         System.out.println("Empty tree:");
-        java.util.List<java.util.List<Integer>> result7 = levelOrder_bfs(root4);
+        List<List<Integer>> result7 = levelOrder_bfs(root4);
         System.out.println(result7);
         
         // Expected: []

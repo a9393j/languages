@@ -132,10 +132,10 @@ public class ProductOfArrayExceptSelf {
         // Handle different cases
         if (zeroCount > 1) {
             // Multiple zeros: all products are 0
-            java.util.Arrays.fill(result, 0);
+            Arrays.fill(result, 0);
         } else if (zeroCount == 1) {
             // One zero: only the zero index has non-zero product
-            java.util.Arrays.fill(result, 0);
+            Arrays.fill(result, 0);
             result[zeroIndex] = totalProduct;
         } else {
             // No zeros: divide total product by each element
@@ -152,19 +152,19 @@ public class ProductOfArrayExceptSelf {
         int[] nums = {1, 2, 3, 4};
         
         System.out.println("Testing Product of Array Except Self:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums));
+        System.out.println("Array: " + Arrays.toString(nums));
         
         int[] result1 = productExceptSelf_twoPasses(nums);
-        System.out.println("Two passes result: " + java.util.Arrays.toString(result1));
+        System.out.println("Two passes result: " + Arrays.toString(result1));
         
         int[] result2 = productExceptSelf_twoArrays(nums);
-        System.out.println("Two arrays result: " + java.util.Arrays.toString(result2));
+        System.out.println("Two arrays result: " + Arrays.toString(result2));
         
         int[] result3 = productExceptSelf_bruteForce(nums);
-        System.out.println("Brute force result: " + java.util.Arrays.toString(result3));
+        System.out.println("Brute force result: " + Arrays.toString(result3));
         
         int[] result4 = productExceptSelf_division(nums);
-        System.out.println("Division result: " + java.util.Arrays.toString(result4));
+        System.out.println("Division result: " + Arrays.toString(result4));
         
         // Expected: [24,12,8,6]
         
@@ -172,10 +172,10 @@ public class ProductOfArrayExceptSelf {
         
         // Test case with zero: nums = [1,2,0,4]
         int[] numsWithZero = {1, 2, 0, 4};
-        System.out.println("Array with zero: " + java.util.Arrays.toString(numsWithZero));
+        System.out.println("Array with zero: " + Arrays.toString(numsWithZero));
         
         int[] result5 = productExceptSelf_twoPasses(numsWithZero);
-        System.out.println("Two passes result: " + java.util.Arrays.toString(result5));
+        System.out.println("Two passes result: " + Arrays.toString(result5));
         
         // Expected: [0,0,8,0]
     }

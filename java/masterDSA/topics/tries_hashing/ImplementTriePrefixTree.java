@@ -152,8 +152,8 @@ public class ImplementTriePrefixTree {
         /**
          * Get all words with given prefix - O(n) time, O(n) space
          */
-        public java.util.List<String> getWordsWithPrefix(String prefix) {
-            java.util.List<String> result = new java.util.ArrayList<>();
+        public List<String> getWordsWithPrefix(String prefix) {
+            List<String> result = new ArrayList<>();
             TrieNode current = root;
             
             // Navigate to prefix
@@ -170,7 +170,7 @@ public class ImplementTriePrefixTree {
             return result;
         }
         
-        private void collectWords(TrieNode node, String currentWord, java.util.List<String> result) {
+        private void collectWords(TrieNode node, String currentWord, List<String> result) {
             if (node.isEndOfWord) {
                 result.add(currentWord);
             }
@@ -264,9 +264,9 @@ public class ImplementTriePrefixTree {
     /**
      * Helper method to find all words that can be formed from given letters
      */
-    public static java.util.List<String> findWordsWithLetters(String[] words, String letters) {
+    public static List<String> findWordsWithLetters(String[] words, String letters) {
         Trie trie = buildTrie(words);
-        java.util.List<String> result = new java.util.ArrayList<>();
+        List<String> result = new ArrayList<>();
         boolean[] used = new boolean[letters.length()];
         
         findWordsHelper(trie.root, "", letters, used, result);
@@ -274,7 +274,7 @@ public class ImplementTriePrefixTree {
     }
     
     private static void findWordsHelper(TrieNode node, String currentWord, String letters, 
-                                      boolean[] used, java.util.List<String> result) {
+                                      boolean[] used, List<String> result) {
         if (node.isEndOfWord) {
             result.add(currentWord);
         }
@@ -296,14 +296,14 @@ public class ImplementTriePrefixTree {
     /**
      * Helper method to find words with wildcard pattern
      */
-    public static java.util.List<String> findWordsWithWildcard(Trie trie, String pattern) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> findWordsWithWildcard(Trie trie, String pattern) {
+        List<String> result = new ArrayList<>();
         findWordsWithWildcardHelper(trie.root, "", pattern, 0, result);
         return result;
     }
     
     private static void findWordsWithWildcardHelper(TrieNode node, String currentWord, String pattern, 
-                                                  int patternIndex, java.util.List<String> result) {
+                                                  int patternIndex, List<String> result) {
         if (patternIndex == pattern.length()) {
             if (node.isEndOfWord) {
                 result.add(currentWord);
@@ -336,7 +336,7 @@ public class ImplementTriePrefixTree {
      * Helper method to find shortest word that contains all given characters
      */
     public static String findShortestWordWithChars(Trie trie, String chars) {
-        java.util.Set<Character> charSet = new java.util.HashSet<>();
+        Set<Character> charSet = new HashSet<>();
         for (char c : chars.toCharArray()) {
             charSet.add(c);
         }
@@ -344,9 +344,9 @@ public class ImplementTriePrefixTree {
         return findShortestWordHelper(trie.root, "", charSet);
     }
     
-    private static String findShortestWordHelper(TrieNode node, String currentWord, java.util.Set<Character> charSet) {
+    private static String findShortestWordHelper(TrieNode node, String currentWord, Set<Character> charSet) {
         if (node.isEndOfWord) {
-            java.util.Set<Character> wordChars = new java.util.HashSet<>();
+            Set<Character> wordChars = new HashSet<>();
             for (char c : currentWord.toCharArray()) {
                 wordChars.add(c);
             }
@@ -402,7 +402,7 @@ public class ImplementTriePrefixTree {
         String[] words = {"apple", "app", "application", "apply", "apt"};
         Trie trie2 = buildTrie(words);
         
-        java.util.List<String> wordsWithPrefix = trie2.getWordsWithPrefix("app");
+        List<String> wordsWithPrefix = trie2.getWordsWithPrefix("app");
         System.out.println("Words with prefix 'app': " + wordsWithPrefix);
         
         String longestPrefix = trie2.longestCommonPrefix();
@@ -411,10 +411,10 @@ public class ImplementTriePrefixTree {
         int wordCount = trie2.countWords();
         System.out.println("Total words in trie: " + wordCount);
         
-        java.util.List<String> wordsWithLetters = findWordsWithLetters(words, "ppl");
+        List<String> wordsWithLetters = findWordsWithLetters(words, "ppl");
         System.out.println("Words with letters 'ppl': " + wordsWithLetters);
         
-        java.util.List<String> wordsWithWildcard = findWordsWithWildcard(trie2, "app*");
+        List<String> wordsWithWildcard = findWordsWithWildcard(trie2, "app*");
         System.out.println("Words with wildcard 'app*': " + wordsWithWildcard);
         
         String shortestWord = findShortestWordWithChars(trie2, "pl");

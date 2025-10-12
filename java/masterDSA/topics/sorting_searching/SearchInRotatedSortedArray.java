@@ -405,7 +405,7 @@ public class SearchInRotatedSortedArray {
         int target1 = 0;
         
         System.out.println("Testing Search in Rotated Sorted Array:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         System.out.println("Target: " + target1);
         
         int result1 = search_modifiedBinarySearch(nums1, target1);
@@ -437,7 +437,7 @@ public class SearchInRotatedSortedArray {
         int[] nums2 = {1};
         int target3 = 0;
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         System.out.println("Target: " + target3);
         
         int result5 = search_modifiedBinarySearch(nums2, target3);
@@ -474,7 +474,7 @@ public class SearchInRotatedSortedArray {
         System.out.println("Valley element index: " + valley);
         
         int[] restored = restoreRotatedArray(nums1);
-        System.out.println("Restored array: " + java.util.Arrays.toString(restored));
+        System.out.println("Restored array: " + Arrays.toString(restored));
         
         double median = findMedianInRotated(nums1);
         System.out.println("Median: " + median);

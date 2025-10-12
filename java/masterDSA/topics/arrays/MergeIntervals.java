@@ -39,9 +39,9 @@ public class MergeIntervals {
         }
         
         // Sort intervals by start time
-        java.util.Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
         
-        java.util.List<int[]> result = new java.util.ArrayList<>();
+        List<int[]> result = new ArrayList<>();
         result.add(intervals[0]);
         
         for (int i = 1; i < intervals.length; i++) {
@@ -71,9 +71,9 @@ public class MergeIntervals {
         }
         
         // Sort intervals by start time
-        java.util.Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
         
-        java.util.List<int[]> result = new java.util.ArrayList<>();
+        List<int[]> result = new ArrayList<>();
         int start = intervals[0][0];
         int end = intervals[0][1];
         
@@ -104,7 +104,7 @@ public class MergeIntervals {
             return intervals;
         }
         
-        java.util.List<int[]> result = new java.util.ArrayList<>();
+        List<int[]> result = new ArrayList<>();
         boolean[] merged = new boolean[intervals.length];
         
         for (int i = 0; i < intervals.length; i++) {

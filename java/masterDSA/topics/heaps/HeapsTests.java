@@ -27,8 +27,8 @@ public class HeapsTests {
         int k = 2;
         int[] result = TopKFrequentElements.topKFrequent_minHeap(nums, k);
         assertEquals(2, result.length);
-        assertTrue(java.util.Arrays.asList(result).contains(1));
-        assertTrue(java.util.Arrays.asList(result).contains(2));
+        assertTrue(Arrays.asList(result).contains(1));
+        assertTrue(Arrays.asList(result).contains(2));
     }
     
     @Test

@@ -35,14 +35,14 @@ public class TopKFrequentElements {
      */
     public static int[] topKFrequent_minHeap(int[] nums, int k) {
         // Count frequencies
-        java.util.Map<Integer, Integer> frequencyMap = new java.util.HashMap<>();
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
         
         // Create min heap based on frequency
-        java.util.PriorityQueue<java.util.Map.Entry<Integer, Integer>> minHeap = 
-            new java.util.PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
+        PriorityQueue<java.util.Map.Entry<Integer, Integer>> minHeap = 
+            new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
         
         for (java.util.Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
             if (minHeap.size() < k) {
@@ -68,14 +68,14 @@ public class TopKFrequentElements {
      */
     public static int[] topKFrequent_maxHeap(int[] nums, int k) {
         // Count frequencies
-        java.util.Map<Integer, Integer> frequencyMap = new java.util.HashMap<>();
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
         
         // Create max heap based on frequency
-        java.util.PriorityQueue<java.util.Map.Entry<Integer, Integer>> maxHeap = 
-            new java.util.PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+        PriorityQueue<java.util.Map.Entry<Integer, Integer>> maxHeap = 
+            new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
         
         for (java.util.Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
             maxHeap.offer(entry);
@@ -96,15 +96,15 @@ public class TopKFrequentElements {
      */
     public static int[] topKFrequent_bucketSort(int[] nums, int k) {
         // Count frequencies
-        java.util.Map<Integer, Integer> frequencyMap = new java.util.HashMap<>();
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
         
         // Create buckets
-        java.util.List<java.util.List<Integer>> buckets = new java.util.ArrayList<>();
+        List<List<Integer>> buckets = new ArrayList<>();
         for (int i = 0; i <= nums.length; i++) {
-            buckets.add(new java.util.ArrayList<>());
+            buckets.add(new ArrayList<>());
         }
         
         // Add elements to buckets based on frequency
@@ -133,7 +133,7 @@ public class TopKFrequentElements {
      */
     public static int[] topKFrequent_quickSelect(int[] nums, int k) {
         // Count frequencies
-        java.util.Map<Integer, Integer> frequencyMap = new java.util.HashMap<>();
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
@@ -195,14 +195,14 @@ public class TopKFrequentElements {
      * Helper method to print array
      */
     public static void printArray(int[] nums) {
-        System.out.println(java.util.Arrays.toString(nums));
+        System.out.println(Arrays.toString(nums));
     }
     
     /**
      * Helper method to count frequencies
      */
-    public static java.util.Map<Integer, Integer> countFrequencies(int[] nums) {
-        java.util.Map<Integer, Integer> frequencyMap = new java.util.HashMap<>();
+    public static Map<Integer, Integer> countFrequencies(int[] nums) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
@@ -213,7 +213,7 @@ public class TopKFrequentElements {
      * Helper method to find most frequent element
      */
     public static int mostFrequent(int[] nums) {
-        java.util.Map<Integer, Integer> frequencyMap = countFrequencies(nums);
+        Map<Integer, Integer> frequencyMap = countFrequencies(nums);
         int maxFreq = 0;
         int mostFrequent = nums[0];
         
@@ -231,7 +231,7 @@ public class TopKFrequentElements {
      * Helper method to find least frequent element
      */
     public static int leastFrequent(int[] nums) {
-        java.util.Map<Integer, Integer> frequencyMap = countFrequencies(nums);
+        Map<Integer, Integer> frequencyMap = countFrequencies(nums);
         int minFreq = Integer.MAX_VALUE;
         int leastFrequent = nums[0];
         
@@ -251,20 +251,20 @@ public class TopKFrequentElements {
         int k1 = 2;
         
         System.out.println("Testing Top K Frequent Elements:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         System.out.println("k = " + k1);
         
         int[] result1 = topKFrequent_minHeap(nums1, k1);
-        System.out.println("Min heap result: " + java.util.Arrays.toString(result1));
+        System.out.println("Min heap result: " + Arrays.toString(result1));
         
         int[] result2 = topKFrequent_maxHeap(nums1, k1);
-        System.out.println("Max heap result: " + java.util.Arrays.toString(result2));
+        System.out.println("Max heap result: " + Arrays.toString(result2));
         
         int[] result3 = topKFrequent_bucketSort(nums1, k1);
-        System.out.println("Bucket sort result: " + java.util.Arrays.toString(result3));
+        System.out.println("Bucket sort result: " + Arrays.toString(result3));
         
         int[] result4 = topKFrequent_quickSelect(nums1, k1);
-        System.out.println("Quick select result: " + java.util.Arrays.toString(result4));
+        System.out.println("Quick select result: " + Arrays.toString(result4));
         
         // Expected: [1, 2] (or [2, 1])
         
@@ -274,11 +274,11 @@ public class TopKFrequentElements {
         int[] nums2 = {1};
         int k2 = 1;
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         System.out.println("k = " + k2);
         
         int[] result5 = topKFrequent_minHeap(nums2, k2);
-        System.out.println("Min heap result: " + java.util.Arrays.toString(result5));
+        System.out.println("Min heap result: " + Arrays.toString(result5));
         
         // Expected: [1]
         
@@ -287,7 +287,7 @@ public class TopKFrequentElements {
         // Test helper methods
         int[] nums3 = {1, 1, 1, 2, 2, 3};
         
-        java.util.Map<Integer, Integer> frequencies = countFrequencies(nums3);
+        Map<Integer, Integer> frequencies = countFrequencies(nums3);
         System.out.println("Frequencies: " + frequencies);
         
         int mostFreq = mostFrequent(nums3);

@@ -92,7 +92,7 @@ public class PalindromeLinkedList {
         ListNode middle = findMiddle(head);
         
         // Push first half to stack
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         ListNode current = head;
         
         while (current != middle) {
@@ -158,7 +158,7 @@ public class PalindromeLinkedList {
         }
         
         // Convert to array
-        java.util.List<Integer> values = new java.util.ArrayList<>();
+        List<Integer> values = new ArrayList<>();
         ListNode current = head;
         
         while (current != null) {
@@ -306,7 +306,7 @@ public class PalindromeLinkedList {
      * Helper method to convert linked list to array
      */
     public static int[] linkedListToArray(ListNode head) {
-        java.util.List<Integer> values = new java.util.ArrayList<>();
+        List<Integer> values = new ArrayList<>();
         ListNode current = head;
         
         while (current != null) {
@@ -458,7 +458,7 @@ public class PalindromeLinkedList {
         
         // Test helper methods
         int[] array = linkedListToArray(head4);
-        System.out.println("Array: " + java.util.Arrays.toString(array));
+        System.out.println("Array: " + Arrays.toString(array));
         
         boolean isArrayPal = isArrayPalindrome(array);
         System.out.println("Is array palindrome: " + isArrayPal);

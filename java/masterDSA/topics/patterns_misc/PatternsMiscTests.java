@@ -125,8 +125,8 @@ public class PatternsMiscTests {
         root.left.left = new TreeTraversalPatterns.TreeNode(4);
         root.left.right = new TreeTraversalPatterns.TreeNode(5);
         
-        java.util.List<Integer> result = TreeTraversalPatterns.preorderTraversal(root);
-        assertEquals(java.util.Arrays.asList(1, 2, 4, 5, 3), result);
+        List<Integer> result = TreeTraversalPatterns.preorderTraversal(root);
+        assertEquals(Arrays.asList(1, 2, 4, 5, 3), result);
     }
     
     @Test
@@ -137,8 +137,8 @@ public class PatternsMiscTests {
         root.left.left = new TreeTraversalPatterns.TreeNode(4);
         root.left.right = new TreeTraversalPatterns.TreeNode(5);
         
-        java.util.List<Integer> result = TreeTraversalPatterns.inorderTraversal(root);
-        assertEquals(java.util.Arrays.asList(4, 2, 5, 1, 3), result);
+        List<Integer> result = TreeTraversalPatterns.inorderTraversal(root);
+        assertEquals(Arrays.asList(4, 2, 5, 1, 3), result);
     }
     
     @Test
@@ -176,7 +176,7 @@ public class PatternsMiscTests {
     public void testTopKElementsLargest() {
         int[] nums = {3, 1, 4, 1, 5, 9, 2, 6};
         int k = 3;
-        java.util.List<Integer> result = TopKElementsPattern.findKLargest(nums, k);
+        List<Integer> result = TopKElementsPattern.findKLargest(nums, k);
         assertEquals(3, result.size());
         assertTrue(result.contains(9));
         assertTrue(result.contains(6));
@@ -187,7 +187,7 @@ public class PatternsMiscTests {
     public void testTopKElementsFrequent() {
         int[] nums = {1, 1, 1, 2, 2, 3};
         int k = 2;
-        java.util.List<Integer> result = TopKElementsPattern.topKFrequent(nums, k);
+        List<Integer> result = TopKElementsPattern.topKFrequent(nums, k);
         assertEquals(2, result.size());
         assertTrue(result.contains(1));
         assertTrue(result.contains(2));
@@ -196,7 +196,7 @@ public class PatternsMiscTests {
     @Test
     public void testSubsetsPattern() {
         int[] nums = {1, 2, 3};
-        java.util.List<java.util.List<Integer>> result = SubsetsPattern.subsets(nums);
+        List<List<Integer>> result = SubsetsPattern.subsets(nums);
         assertEquals(8, result.size()); // 2^3 = 8 subsets
     }
     
@@ -204,7 +204,7 @@ public class PatternsMiscTests {
     public void testSubsetsPatternCombinations() {
         int n = 4;
         int k = 2;
-        java.util.List<java.util.List<Integer>> result = SubsetsPattern.combine(n, k);
+        List<List<Integer>> result = SubsetsPattern.combine(n, k);
         assertEquals(6, result.size()); // C(4,2) = 6
     }
     

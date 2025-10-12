@@ -32,16 +32,16 @@ public class Combinations {
      * Backtracking approach - O(C(n,k)) time, O(C(n,k)) space
      * Generate combinations using backtracking
      */
-    public static java.util.List<java.util.List<Integer>> combine_backtracking(int n, int k) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> combine_backtracking(int n, int k) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrack(1, n, k, current, result);
         return result;
     }
     
-    private static void backtrack(int start, int n, int k, java.util.List<Integer> current, java.util.List<java.util.List<Integer>> result) {
+    private static void backtrack(int start, int n, int k, List<Integer> current, List<List<Integer>> result) {
         if (current.size() == k) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -56,16 +56,16 @@ public class Combinations {
      * Iterative approach - O(C(n,k)) time, O(C(n,k)) space
      * Build combinations incrementally
      */
-    public static java.util.List<java.util.List<Integer>> combine_iterative(int n, int k) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        result.add(new java.util.ArrayList<>());
+    public static List<List<Integer>> combine_iterative(int n, int k) {
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>());
         
         for (int i = 1; i <= n; i++) {
             int size = result.size();
             for (int j = 0; j < size; j++) {
-                java.util.List<Integer> current = result.get(j);
+                List<Integer> current = result.get(j);
                 if (current.size() < k) {
-                    java.util.List<Integer> newCombination = new java.util.ArrayList<>(current);
+                    List<Integer> newCombination = new ArrayList<>(current);
                     newCombination.add(i);
                     if (newCombination.size() == k) {
                         result.add(newCombination);
@@ -85,31 +85,31 @@ public class Combinations {
      * Mathematical approach - O(C(n,k)) time, O(C(n,k)) space
      * Use combination formula C(n,k) = C(n-1,k-1) + C(n-1,k)
      */
-    public static java.util.List<java.util.List<Integer>> combine_mathematical(int n, int k) {
+    public static List<List<Integer>> combine_mathematical(int n, int k) {
         if (k == 0 || k > n) {
-            return new java.util.ArrayList<>();
+            return new ArrayList<>();
         }
         
         if (k == 1) {
-            java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+            List<List<Integer>> result = new ArrayList<>();
             for (int i = 1; i <= n; i++) {
-                java.util.List<Integer> combination = new java.util.ArrayList<>();
+                List<Integer> combination = new ArrayList<>();
                 combination.add(i);
                 result.add(combination);
             }
             return result;
         }
         
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
         
         // C(n,k) = C(n-1,k-1) + C(n-1,k)
-        java.util.List<java.util.List<Integer>> withN = combine_mathematical(n - 1, k - 1);
-        for (java.util.List<Integer> combination : withN) {
+        List<List<Integer>> withN = combine_mathematical(n - 1, k - 1);
+        for (List<Integer> combination : withN) {
             combination.add(n);
             result.add(combination);
         }
         
-        java.util.List<java.util.List<Integer>> withoutN = combine_mathematical(n - 1, k);
+        List<List<Integer>> withoutN = combine_mathematical(n - 1, k);
         result.addAll(withoutN);
         
         return result;
@@ -159,17 +159,17 @@ public class Combinations {
     /**
      * Helper method to find combinations with sum
      */
-    public static java.util.List<java.util.List<Integer>> combineWithSum(int n, int k, int targetSum) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> combineWithSum(int n, int k, int targetSum) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrackWithSum(1, n, k, targetSum, current, result, 0);
         return result;
     }
     
     private static void backtrackWithSum(int start, int n, int k, int targetSum, 
-                                       java.util.List<Integer> current, java.util.List<java.util.List<Integer>> result, int currentSum) {
+                                       List<Integer> current, List<List<Integer>> result, int currentSum) {
         if (current.size() == k && currentSum == targetSum) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -187,17 +187,17 @@ public class Combinations {
     /**
      * Helper method to find combinations with product
      */
-    public static java.util.List<java.util.List<Integer>> combineWithProduct(int n, int k, int targetProduct) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> combineWithProduct(int n, int k, int targetProduct) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrackWithProduct(1, n, k, targetProduct, current, result, 1);
         return result;
     }
     
     private static void backtrackWithProduct(int start, int n, int k, int targetProduct, 
-                                           java.util.List<Integer> current, java.util.List<java.util.List<Integer>> result, int currentProduct) {
+                                           List<Integer> current, List<List<Integer>> result, int currentProduct) {
         if (current.size() == k && currentProduct == targetProduct) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -215,17 +215,17 @@ public class Combinations {
     /**
      * Helper method to find combinations with constraints
      */
-    public static java.util.List<java.util.List<Integer>> combineWithConstraints(int n, int k, java.util.Set<Integer> forbidden) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> combineWithConstraints(int n, int k, Set<Integer> forbidden) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrackWithConstraints(1, n, k, forbidden, current, result);
         return result;
     }
     
-    private static void backtrackWithConstraints(int start, int n, int k, java.util.Set<Integer> forbidden, 
-                                              java.util.List<Integer> current, java.util.List<java.util.List<Integer>> result) {
+    private static void backtrackWithConstraints(int start, int n, int k, Set<Integer> forbidden, 
+                                              List<Integer> current, List<List<Integer>> result) {
         if (current.size() == k) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -241,17 +241,17 @@ public class Combinations {
     /**
      * Helper method to find combinations with minimum difference
      */
-    public static java.util.List<java.util.List<Integer>> combineWithMinDifference(int n, int k, int minDiff) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> combineWithMinDifference(int n, int k, int minDiff) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrackWithMinDifference(1, n, k, minDiff, current, result);
         return result;
     }
     
     private static void backtrackWithMinDifference(int start, int n, int k, int minDiff, 
-                                                 java.util.List<Integer> current, java.util.List<java.util.List<Integer>> result) {
+                                                 List<Integer> current, List<List<Integer>> result) {
         if (current.size() == k) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -267,17 +267,17 @@ public class Combinations {
     /**
      * Helper method to find combinations with maximum difference
      */
-    public static java.util.List<java.util.List<Integer>> combineWithMaxDifference(int n, int k, int maxDiff) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> combineWithMaxDifference(int n, int k, int maxDiff) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         backtrackWithMaxDifference(1, n, k, maxDiff, current, result);
         return result;
     }
     
     private static void backtrackWithMaxDifference(int start, int n, int k, int maxDiff, 
-                                                 java.util.List<Integer> current, java.util.List<java.util.List<Integer>> result) {
+                                                 List<Integer> current, List<List<Integer>> result) {
         if (current.size() == k) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -298,13 +298,13 @@ public class Combinations {
         System.out.println("Testing Combinations:");
         System.out.println("n = " + n + ", k = " + k);
         
-        java.util.List<java.util.List<Integer>> result1 = combine_backtracking(n, k);
+        List<List<Integer>> result1 = combine_backtracking(n, k);
         System.out.println("Backtracking result: " + result1);
         
-        java.util.List<java.util.List<Integer>> result2 = combine_iterative(n, k);
+        List<List<Integer>> result2 = combine_iterative(n, k);
         System.out.println("Iterative result: " + result2);
         
-        java.util.List<java.util.List<Integer>> result3 = combine_mathematical(n, k);
+        List<List<Integer>> result3 = combine_mathematical(n, k);
         System.out.println("Mathematical result: " + result3);
         
         // Expected: [[1,2], [1,3], [1,4], [2,3], [2,4], [3,4]]
@@ -317,7 +317,7 @@ public class Combinations {
         
         System.out.println("n = " + n2 + ", k = " + k2);
         
-        java.util.List<java.util.List<Integer>> result4 = combine_backtracking(n2, k2);
+        List<List<Integer>> result4 = combine_backtracking(n2, k2);
         System.out.println("Backtracking result: " + result4);
         
         // Expected: [[1]]
@@ -331,21 +331,21 @@ public class Combinations {
         int countMemo = combinationCountMemo(4, 2);
         System.out.println("Combination count with memoization: " + countMemo);
         
-        java.util.List<java.util.List<Integer>> withSum = combineWithSum(4, 2, 5);
+        List<List<Integer>> withSum = combineWithSum(4, 2, 5);
         System.out.println("Combinations with sum 5: " + withSum);
         
-        java.util.List<java.util.List<Integer>> withProduct = combineWithProduct(4, 2, 6);
+        List<List<Integer>> withProduct = combineWithProduct(4, 2, 6);
         System.out.println("Combinations with product 6: " + withProduct);
         
-        java.util.Set<Integer> forbidden = new java.util.HashSet<>();
+        Set<Integer> forbidden = new HashSet<>();
         forbidden.add(2);
-        java.util.List<java.util.List<Integer>> withConstraints = combineWithConstraints(4, 2, forbidden);
+        List<List<Integer>> withConstraints = combineWithConstraints(4, 2, forbidden);
         System.out.println("Combinations with constraints: " + withConstraints);
         
-        java.util.List<java.util.List<Integer>> withMinDiff = combineWithMinDifference(4, 2, 2);
+        List<List<Integer>> withMinDiff = combineWithMinDifference(4, 2, 2);
         System.out.println("Combinations with minimum difference 2: " + withMinDiff);
         
-        java.util.List<java.util.List<Integer>> withMaxDiff = combineWithMaxDifference(4, 2, 1);
+        List<List<Integer>> withMaxDiff = combineWithMaxDifference(4, 2, 1);
         System.out.println("Combinations with maximum difference 1: " + withMaxDiff);
         
         // Expected: Count = 6, With sum 5 = [[1,4], [2,3]], With product 6 = [[1,6], [2,3]], With constraints = [[1,3], [1,4], [3,4]], With min diff 2 = [[1,3], [1,4], [2,4]], With max diff 1 = [[1,2], [2,3], [3,4]]

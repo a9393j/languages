@@ -35,8 +35,8 @@ public class SmallestDifference {
      */
     public static int smallestDifference_twoPointers(int[] arrayOne, int[] arrayTwo) {
         // Sort both arrays to enable two-pointer technique
-        java.util.Arrays.sort(arrayOne);
-        java.util.Arrays.sort(arrayTwo);
+        Arrays.sort(arrayOne);
+        Arrays.sort(arrayTwo);
         
         int indexOne = 0;
         int indexTwo = 0;
@@ -62,8 +62,8 @@ public class SmallestDifference {
      * O(n log n + m log m) time, O(1) space
      */
     public static int[] smallestDifferencePair(int[] arrayOne, int[] arrayTwo) {
-        java.util.Arrays.sort(arrayOne);
-        java.util.Arrays.sort(arrayTwo);
+        Arrays.sort(arrayOne);
+        Arrays.sort(arrayTwo);
         
         int indexOne = 0;
         int indexTwo = 0;
@@ -112,7 +112,7 @@ public class SmallestDifference {
      * For each element in arrayOne, find closest element in arrayTwo using binary search
      */
     public static int smallestDifference_binarySearch(int[] arrayOne, int[] arrayTwo) {
-        java.util.Arrays.sort(arrayTwo);
+        Arrays.sort(arrayTwo);
         int minDiff = Integer.MAX_VALUE;
         
         for (int num : arrayOne) {
@@ -155,14 +155,14 @@ public class SmallestDifference {
         int[] arrayTwo = {26, 134, 135, 15, 17};
         
         System.out.println("Testing Smallest Difference:");
-        System.out.println("Array One: " + java.util.Arrays.toString(arrayOne));
-        System.out.println("Array Two: " + java.util.Arrays.toString(arrayTwo));
+        System.out.println("Array One: " + Arrays.toString(arrayOne));
+        System.out.println("Array Two: " + Arrays.toString(arrayTwo));
         
         int result1 = smallestDifference_twoPointers(arrayOne, arrayTwo);
         System.out.println("Two pointers result: " + result1);
         
         int[] pair = smallestDifferencePair(arrayOne, arrayTwo);
-        System.out.println("Closest pair: " + java.util.Arrays.toString(pair));
+        System.out.println("Closest pair: " + Arrays.toString(pair));
         
         int result2 = smallestDifference_bruteForce(arrayOne, arrayTwo);
         System.out.println("Brute force result: " + result2);

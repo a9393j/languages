@@ -104,7 +104,7 @@ public class LongestCommonSubsequence {
         int[][] memo = new int[m][n];
         
         for (int i = 0; i < m; i++) {
-            java.util.Arrays.fill(memo[i], -1);
+            Arrays.fill(memo[i], -1);
         }
         
         return lcsHelper(text1, text2, 0, 0, memo);
@@ -175,8 +175,8 @@ public class LongestCommonSubsequence {
     /**
      * Helper method to find all LCS strings
      */
-    public static java.util.Set<String> findAllLCS(String text1, String text2) {
-        java.util.Set<String> result = new java.util.HashSet<>();
+    public static Set<String> findAllLCS(String text1, String text2) {
+        Set<String> result = new HashSet<>();
         
         if (text1 == null || text2 == null || text1.length() == 0 || text2.length() == 0) {
             return result;
@@ -200,7 +200,7 @@ public class LongestCommonSubsequence {
         return result;
     }
     
-    private static void findAllLCSHelper(String text1, String text2, int i, int j, int[][] dp, String current, java.util.Set<String> result) {
+    private static void findAllLCSHelper(String text1, String text2, int i, int j, int[][] dp, String current, Set<String> result) {
         if (i == 0 || j == 0) {
             if (!current.isEmpty()) {
                 result.add(current);
@@ -381,7 +381,7 @@ public class LongestCommonSubsequence {
         String lcs = findLCS(text1, text2);
         System.out.println("LCS string: " + lcs);
         
-        java.util.Set<String> allLCS = findAllLCS(text1, text2);
+        Set<String> allLCS = findAllLCS(text1, text2);
         System.out.println("All LCS strings: " + allLCS);
         
         int lcSubstring = longestCommonSubstring(text1, text2);

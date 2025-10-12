@@ -35,11 +35,11 @@ public class ThreeNumberSum3Sum {
      * Two pointers approach - O(n²) time, O(1) space (excluding output)
      * Sort array first, then fix one number and use two pointers for the other two
      */
-    public static java.util.List<java.util.List<Integer>> threeSum_twoPointers(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> threeSum_twoPointers(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
         
         // Sort array to enable two-pointer technique and handle duplicates
-        java.util.Arrays.sort(nums);
+        Arrays.sort(nums);
         
         for (int i = 0; i < nums.length - 2; i++) {
             // Skip duplicates for the first number
@@ -56,7 +56,7 @@ public class ThreeNumberSum3Sum {
                 
                 if (sum == target) {
                     // Found a valid triplet
-                    result.add(java.util.Arrays.asList(nums[i], nums[left], nums[right]));
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     
                     // Skip duplicates for left pointer
                     while (left < right && nums[left] == nums[left + 1]) {
@@ -85,20 +85,20 @@ public class ThreeNumberSum3Sum {
      * Hashmap approach - O(n²) time, O(n) space
      * Fix two numbers and use hashmap to find the third
      */
-    public static java.util.List<java.util.List<Integer>> threeSum_hashmap(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.Set<java.util.List<Integer>> seen = new java.util.HashSet<>();
+    public static List<List<Integer>> threeSum_hashmap(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Set<List<Integer>> seen = new HashSet<>();
         
         for (int i = 0; i < nums.length - 2; i++) {
-            java.util.Map<Integer, Integer> numToIndex = new java.util.HashMap<>();
+            Map<Integer, Integer> numToIndex = new HashMap<>();
             
             for (int j = i + 1; j < nums.length; j++) {
                 int complement = -(nums[i] + nums[j]);
                 
                 if (numToIndex.containsKey(complement)) {
                     // Found a valid triplet
-                    java.util.List<Integer> triplet = java.util.Arrays.asList(nums[i], nums[j], complement);
-                    java.util.List<Integer> sortedTriplet = new java.util.ArrayList<>(triplet);
+                    List<Integer> triplet = Arrays.asList(nums[i], nums[j], complement);
+                    List<Integer> sortedTriplet = new ArrayList<>(triplet);
                     sortedTriplet.sort(Integer::compareTo);
                     
                     if (seen.add(sortedTriplet)) {
@@ -117,16 +117,16 @@ public class ThreeNumberSum3Sum {
      * Brute force approach - O(n³) time, O(1) space
      * Check all possible triplets
      */
-    public static java.util.List<java.util.List<Integer>> threeSum_bruteForce(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.Set<java.util.List<Integer>> seen = new java.util.HashSet<>();
+    public static List<List<Integer>> threeSum_bruteForce(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Set<List<Integer>> seen = new HashSet<>();
         
         for (int i = 0; i < nums.length - 2; i++) {
             for (int j = i + 1; j < nums.length - 1; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
                     if (nums[i] + nums[j] + nums[k] == 0) {
-                        java.util.List<Integer> triplet = java.util.Arrays.asList(nums[i], nums[j], nums[k]);
-                        java.util.List<Integer> sortedTriplet = new java.util.ArrayList<>(triplet);
+                        List<Integer> triplet = Arrays.asList(nums[i], nums[j], nums[k]);
+                        List<Integer> sortedTriplet = new ArrayList<>(triplet);
                         sortedTriplet.sort(Integer::compareTo);
                         
                         if (seen.add(sortedTriplet)) {
@@ -145,15 +145,15 @@ public class ThreeNumberSum3Sum {
         int[] nums = {-1, 0, 1, 2, -1, -4};
         
         System.out.println("Testing Three Sum:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums));
+        System.out.println("Array: " + Arrays.toString(nums));
         
-        java.util.List<java.util.List<Integer>> result1 = threeSum_twoPointers(nums);
+        List<List<Integer>> result1 = threeSum_twoPointers(nums);
         System.out.println("Two pointers result: " + result1);
         
-        java.util.List<java.util.List<Integer>> result2 = threeSum_hashmap(nums);
+        List<List<Integer>> result2 = threeSum_hashmap(nums);
         System.out.println("Hashmap result: " + result2);
         
-        java.util.List<java.util.List<Integer>> result3 = threeSum_bruteForce(nums);
+        List<List<Integer>> result3 = threeSum_bruteForce(nums);
         System.out.println("Brute force result: " + result3);
         
         // Expected: [[-1,-1,2],[-1,0,1]]

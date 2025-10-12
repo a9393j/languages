@@ -35,14 +35,14 @@ public class WordLadder {
      * BFS approach - O(M²N) time, O(MN) space
      * Use queue to find shortest transformation path
      */
-    public static int ladderLength_bfs(String beginWord, String endWord, java.util.List<String> wordList) {
+    public static int ladderLength_bfs(String beginWord, String endWord, List<String> wordList) {
         if (!wordList.contains(endWord)) {
             return 0;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordList);
-        java.util.Queue<String> queue = new java.util.LinkedList<>();
-        java.util.Set<String> visited = new java.util.HashSet<>();
+        Set<String> wordSet = new HashSet<>(wordList);
+        Queue<String> queue = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
         
         queue.offer(beginWord);
         visited.add(beginWord);
@@ -86,15 +86,15 @@ public class WordLadder {
      * Bidirectional BFS approach - O(M²N) time, O(MN) space
      * Search from both ends simultaneously
      */
-    public static int ladderLength_bidirectional(String beginWord, String endWord, java.util.List<String> wordList) {
+    public static int ladderLength_bidirectional(String beginWord, String endWord, List<String> wordList) {
         if (!wordList.contains(endWord)) {
             return 0;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordList);
-        java.util.Set<String> beginSet = new java.util.HashSet<>();
-        java.util.Set<String> endSet = new java.util.HashSet<>();
-        java.util.Set<String> visited = new java.util.HashSet<>();
+        Set<String> wordSet = new HashSet<>(wordList);
+        Set<String> beginSet = new HashSet<>();
+        Set<String> endSet = new HashSet<>();
+        Set<String> visited = new HashSet<>();
         
         beginSet.add(beginWord);
         endSet.add(endWord);
@@ -106,12 +106,12 @@ public class WordLadder {
         while (!beginSet.isEmpty() && !endSet.isEmpty()) {
             // Always expand the smaller set
             if (beginSet.size() > endSet.size()) {
-                java.util.Set<String> temp = beginSet;
+                Set<String> temp = beginSet;
                 beginSet = endSet;
                 endSet = temp;
             }
             
-            java.util.Set<String> nextSet = new java.util.HashSet<>();
+            Set<String> nextSet = new HashSet<>();
             
             for (String current : beginSet) {
                 char[] chars = current.toCharArray();
@@ -150,16 +150,16 @@ public class WordLadder {
      * Preprocessing approach - O(M²N) time, O(MN) space
      * Build adjacency list for faster lookup
      */
-    public static int ladderLength_preprocessing(String beginWord, String endWord, java.util.List<String> wordList) {
+    public static int ladderLength_preprocessing(String beginWord, String endWord, List<String> wordList) {
         if (!wordList.contains(endWord)) {
             return 0;
         }
         
         // Build adjacency list
-        java.util.Map<String, java.util.List<String>> graph = buildGraph(wordList);
+        Map<String, List<String>> graph = buildGraph(wordList);
         
-        java.util.Queue<String> queue = new java.util.LinkedList<>();
-        java.util.Set<String> visited = new java.util.HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
         
         queue.offer(beginWord);
         visited.add(beginWord);
@@ -199,11 +199,11 @@ public class WordLadder {
         return 0;
     }
     
-    private static java.util.Map<String, java.util.List<String>> buildGraph(java.util.List<String> wordList) {
-        java.util.Map<String, java.util.List<String>> graph = new java.util.HashMap<>();
+    private static Map<String, List<String>> buildGraph(List<String> wordList) {
+        Map<String, List<String>> graph = new HashMap<>();
         
         for (String word : wordList) {
-            graph.put(word, new java.util.ArrayList<>());
+            graph.put(word, new ArrayList<>());
         }
         
         for (String word : wordList) {
@@ -229,30 +229,30 @@ public class WordLadder {
     /**
      * Find all shortest transformation sequences
      */
-    public static java.util.List<java.util.List<String>> findLadders(String beginWord, String endWord, java.util.List<String> wordList) {
-        java.util.List<java.util.List<String>> result = new java.util.ArrayList<>();
+    public static List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        List<List<String>> result = new ArrayList<>();
         
         if (!wordList.contains(endWord)) {
             return result;
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordList);
-        java.util.Queue<java.util.List<String>> queue = new java.util.LinkedList<>();
-        java.util.Set<String> visited = new java.util.HashSet<>();
+        Set<String> wordSet = new HashSet<>(wordList);
+        Queue<List<String>> queue = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
         
-        queue.offer(java.util.Arrays.asList(beginWord));
+        queue.offer(Arrays.asList(beginWord));
         visited.add(beginWord);
         
         while (!queue.isEmpty()) {
             int size = queue.size();
-            java.util.Set<String> currentLevelVisited = new java.util.HashSet<>();
+            Set<String> currentLevelVisited = new HashSet<>();
             
             for (int i = 0; i < size; i++) {
-                java.util.List<String> currentPath = queue.poll();
+                List<String> currentPath = queue.poll();
                 String currentWord = currentPath.get(currentPath.size() - 1);
                 
                 if (currentWord.equals(endWord)) {
-                    result.add(new java.util.ArrayList<>(currentPath));
+                    result.add(new ArrayList<>(currentPath));
                     continue;
                 }
                 
@@ -265,7 +265,7 @@ public class WordLadder {
                             String transformed = new String(chars);
                             
                             if (wordSet.contains(transformed) && !visited.contains(transformed)) {
-                                java.util.List<String> newPath = new java.util.ArrayList<>(currentPath);
+                                List<String> newPath = new ArrayList<>(currentPath);
                                 newPath.add(transformed);
                                 queue.offer(newPath);
                                 currentLevelVisited.add(transformed);
@@ -306,8 +306,8 @@ public class WordLadder {
     /**
      * Helper method to find all words that differ by one character
      */
-    public static java.util.List<String> findOneCharDiffWords(String word, java.util.Set<String> wordSet) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> findOneCharDiffWords(String word, Set<String> wordSet) {
+        List<String> result = new ArrayList<>();
         
         for (int i = 0; i < word.length(); i++) {
             char[] chars = word.toCharArray();
@@ -330,14 +330,14 @@ public class WordLadder {
     /**
      * Helper method to find shortest path between two words
      */
-    public static java.util.List<String> findShortestPath(String beginWord, String endWord, java.util.List<String> wordList) {
+    public static List<String> findShortestPath(String beginWord, String endWord, List<String> wordList) {
         if (!wordList.contains(endWord)) {
-            return new java.util.ArrayList<>();
+            return new ArrayList<>();
         }
         
-        java.util.Set<String> wordSet = new java.util.HashSet<>(wordList);
-        java.util.Map<String, String> parent = new java.util.HashMap<>();
-        java.util.Queue<String> queue = new java.util.LinkedList<>();
+        Set<String> wordSet = new HashSet<>(wordList);
+        Map<String, String> parent = new HashMap<>();
+        Queue<String> queue = new LinkedList<>();
         
         queue.offer(beginWord);
         parent.put(beginWord, null);
@@ -367,7 +367,7 @@ public class WordLadder {
         }
         
         // Reconstruct path
-        java.util.List<String> path = new java.util.ArrayList<>();
+        List<String> path = new ArrayList<>();
         String current = endWord;
         
         while (current != null) {
@@ -382,7 +382,7 @@ public class WordLadder {
         // Test case: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
         String beginWord = "hit";
         String endWord = "cog";
-        java.util.List<String> wordList = java.util.Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
+        List<String> wordList = Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
         
         System.out.println("Testing Word Ladder:");
         System.out.println("Begin word: " + beginWord);
@@ -403,7 +403,7 @@ public class WordLadder {
         System.out.println();
         
         // Test case: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
-        java.util.List<String> wordList2 = java.util.Arrays.asList("hot", "dot", "dog", "lot", "log");
+        List<String> wordList2 = Arrays.asList("hot", "dot", "dog", "lot", "log");
         
         System.out.println("Word list: " + wordList2);
         
@@ -417,7 +417,7 @@ public class WordLadder {
         // Test case: beginWord = "a", endWord = "c", wordList = ["a","b","c"]
         String beginWord2 = "a";
         String endWord2 = "c";
-        java.util.List<String> wordList3 = java.util.Arrays.asList("a", "b", "c");
+        List<String> wordList3 = Arrays.asList("a", "b", "c");
         
         System.out.println("Begin word: " + beginWord2);
         System.out.println("End word: " + endWord2);
@@ -431,9 +431,9 @@ public class WordLadder {
         System.out.println();
         
         // Test find all ladders
-        java.util.List<java.util.List<String>> allLadders = findLadders(beginWord, endWord, wordList);
+        List<List<String>> allLadders = findLadders(beginWord, endWord, wordList);
         System.out.println("All shortest ladders:");
-        for (java.util.List<String> ladder : allLadders) {
+        for (List<String> ladder : allLadders) {
             System.out.println(ladder);
         }
         
@@ -441,10 +441,10 @@ public class WordLadder {
         boolean isOneDiff = isOneCharDiff("hit", "hot");
         System.out.println("'hit' and 'hot' differ by one character: " + isOneDiff);
         
-        java.util.List<String> oneCharDiffWords = findOneCharDiffWords("hit", new java.util.HashSet<>(wordList));
+        List<String> oneCharDiffWords = findOneCharDiffWords("hit", new HashSet<>(wordList));
         System.out.println("Words differing by one character from 'hit': " + oneCharDiffWords);
         
-        java.util.List<String> shortestPath = findShortestPath(beginWord, endWord, wordList);
+        List<String> shortestPath = findShortestPath(beginWord, endWord, wordList);
         System.out.println("Shortest path: " + shortestPath);
         
         // Expected: isOneDiff = true, oneCharDiffWords = [hot], shortestPath = [hit, hot, dot, dog, cog]

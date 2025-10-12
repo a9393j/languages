@@ -136,14 +136,14 @@ public class JumpGame {
     /**
      * Helper method to find all possible jump paths
      */
-    public static java.util.List<java.util.List<Integer>> findAllPaths(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> findAllPaths(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
         
         if (nums == null || nums.length == 0) {
             return result;
         }
         
-        java.util.List<Integer> path = new java.util.ArrayList<>();
+        List<Integer> path = new ArrayList<>();
         path.add(0);
         
         findAllPathsHelper(nums, 0, path, result);
@@ -151,9 +151,9 @@ public class JumpGame {
         return result;
     }
     
-    private static void findAllPathsHelper(int[] nums, int position, java.util.List<Integer> path, java.util.List<java.util.List<Integer>> result) {
+    private static void findAllPathsHelper(int[] nums, int position, List<Integer> path, List<List<Integer>> result) {
         if (position >= nums.length - 1) {
-            result.add(new java.util.ArrayList<>(path));
+            result.add(new ArrayList<>(path));
             return;
         }
         
@@ -219,8 +219,8 @@ public class JumpGame {
     /**
      * Helper method to find the shortest path with minimum jumps
      */
-    public static java.util.List<Integer> shortestPath(int[] nums) {
-        java.util.List<Integer> result = new java.util.ArrayList<>();
+    public static List<Integer> shortestPath(int[] nums) {
+        List<Integer> result = new ArrayList<>();
         
         if (nums == null || nums.length == 0) {
             return result;
@@ -228,9 +228,9 @@ public class JumpGame {
         
         int n = nums.length;
         int[] parent = new int[n];
-        java.util.Arrays.fill(parent, -1);
+        Arrays.fill(parent, -1);
         
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[n];
         
         queue.offer(0);
@@ -276,7 +276,7 @@ public class JumpGame {
         
         int n = nums.length;
         int[] dp = new int[n];
-        java.util.Arrays.fill(dp, 1);
+        Arrays.fill(dp, 1);
         
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
@@ -286,7 +286,7 @@ public class JumpGame {
             }
         }
         
-        return java.util.Arrays.stream(dp).max().getAsInt();
+        return Arrays.stream(dp).max().getAsInt();
     }
     
     public static void main(String[] args) {
@@ -294,7 +294,7 @@ public class JumpGame {
         int[] nums1 = {2, 3, 1, 1, 4};
         
         System.out.println("Testing Jump Game:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         
         boolean result1 = canJump_greedy(nums1);
         System.out.println("Greedy result: " + result1);
@@ -312,7 +312,7 @@ public class JumpGame {
         // Test case: nums = [3,2,1,0,4]
         int[] nums2 = {3, 2, 1, 0, 4};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         
         boolean result4 = canJump_greedy(nums2);
         System.out.println("Greedy result: " + result4);
@@ -324,7 +324,7 @@ public class JumpGame {
         // Test case: nums = [0]
         int[] nums3 = {0};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums3));
+        System.out.println("Array: " + Arrays.toString(nums3));
         
         boolean result5 = canJump_greedy(nums3);
         System.out.println("Greedy result: " + result5);
@@ -337,7 +337,7 @@ public class JumpGame {
         int minJumps = minJumps(nums1);
         System.out.println("Minimum jumps needed: " + minJumps);
         
-        java.util.List<java.util.List<Integer>> allPaths = findAllPaths(nums1);
+        List<List<Integer>> allPaths = findAllPaths(nums1);
         System.out.println("All possible paths: " + allPaths);
         
         int maxScore = maxScore(nums1);
@@ -346,7 +346,7 @@ public class JumpGame {
         boolean canReachWithK = canReachWithKJumps(nums1, 2);
         System.out.println("Can reach with 2 jumps: " + canReachWithK);
         
-        java.util.List<Integer> shortestPath = shortestPath(nums1);
+        List<Integer> shortestPath = shortestPath(nums1);
         System.out.println("Shortest path: " + shortestPath);
         
         int lis = longestIncreasingSubsequence(nums1);

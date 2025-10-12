@@ -89,7 +89,7 @@ public class HouseRobber {
         }
         
         int[] memo = new int[nums.length];
-        java.util.Arrays.fill(memo, -1);
+        Arrays.fill(memo, -1);
         
         return robHelper(nums, 0, memo);
     }
@@ -113,8 +113,8 @@ public class HouseRobber {
     /**
      * Helper method to find houses to rob
      */
-    public static java.util.List<Integer> findHousesToRob(int[] nums) {
-        java.util.List<Integer> result = new java.util.ArrayList<>();
+    public static List<Integer> findHousesToRob(int[] nums) {
+        List<Integer> result = new ArrayList<>();
         
         if (nums == null || nums.length == 0) {
             return result;
@@ -255,7 +255,7 @@ public class HouseRobber {
             }
         }
         
-        return java.util.Arrays.stream(dp).max().getAsInt();
+        return Arrays.stream(dp).max().getAsInt();
     }
     
     /**
@@ -277,7 +277,7 @@ public class HouseRobber {
             }
         }
         
-        return java.util.Arrays.stream(dp).max().getAsInt();
+        return Arrays.stream(dp).max().getAsInt();
     }
     
     /**
@@ -335,7 +335,7 @@ public class HouseRobber {
         int[] nums1 = {1, 2, 3, 1};
         
         System.out.println("Testing House Robber:");
-        System.out.println("Houses: " + java.util.Arrays.toString(nums1));
+        System.out.println("Houses: " + Arrays.toString(nums1));
         
         int result1 = rob_dp(nums1);
         System.out.println("DP result: " + result1);
@@ -353,7 +353,7 @@ public class HouseRobber {
         // Test case: nums = [2,7,9,3,1]
         int[] nums2 = {2, 7, 9, 3, 1};
         
-        System.out.println("Houses: " + java.util.Arrays.toString(nums2));
+        System.out.println("Houses: " + Arrays.toString(nums2));
         
         int result4 = rob_dp(nums2);
         System.out.println("DP result: " + result4);
@@ -365,7 +365,7 @@ public class HouseRobber {
         // Test case: nums = [2,1,1,2]
         int[] nums3 = {2, 1, 1, 2};
         
-        System.out.println("Houses: " + java.util.Arrays.toString(nums3));
+        System.out.println("Houses: " + Arrays.toString(nums3));
         
         int result5 = rob_dp(nums3);
         System.out.println("DP result: " + result5);
@@ -375,7 +375,7 @@ public class HouseRobber {
         System.out.println();
         
         // Test helper methods
-        java.util.List<Integer> housesToRob = findHousesToRob(nums1);
+        List<Integer> housesToRob = findHousesToRob(nums1);
         System.out.println("Houses to rob: " + housesToRob);
         
         int circular = robCircular(nums1);

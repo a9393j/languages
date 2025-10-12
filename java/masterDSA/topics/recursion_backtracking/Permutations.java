@@ -33,17 +33,17 @@ public class Permutations {
      * Backtracking approach - O(n!) time, O(n!) space
      * Generate permutations using backtracking
      */
-    public static java.util.List<java.util.List<Integer>> permute_backtracking(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> permute_backtracking(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         boolean[] used = new boolean[nums.length];
         backtrack(nums, current, used, result);
         return result;
     }
     
-    private static void backtrack(int[] nums, java.util.List<Integer> current, boolean[] used, java.util.List<java.util.List<Integer>> result) {
+    private static void backtrack(int[] nums, List<Integer> current, boolean[] used, List<List<Integer>> result) {
         if (current.size() == nums.length) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -62,16 +62,16 @@ public class Permutations {
      * Iterative approach - O(n!) time, O(n!) space
      * Build permutations incrementally
      */
-    public static java.util.List<java.util.List<Integer>> permute_iterative(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        result.add(new java.util.ArrayList<>());
+    public static List<List<Integer>> permute_iterative(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>());
         
         for (int num : nums) {
-            java.util.List<java.util.List<Integer>> newResult = new java.util.ArrayList<>();
+            List<List<Integer>> newResult = new ArrayList<>();
             
-            for (java.util.List<Integer> permutation : result) {
+            for (List<Integer> permutation : result) {
                 for (int i = 0; i <= permutation.size(); i++) {
-                    java.util.List<Integer> newPermutation = new java.util.ArrayList<>(permutation);
+                    List<Integer> newPermutation = new ArrayList<>(permutation);
                     newPermutation.add(i, num);
                     newResult.add(newPermutation);
                 }
@@ -87,15 +87,15 @@ public class Permutations {
      * Heap's algorithm approach - O(n!) time, O(n!) space
      * Generate permutations in-place
      */
-    public static java.util.List<java.util.List<Integer>> permute_heaps(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
+    public static List<List<Integer>> permute_heaps(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
         permuteHeapsHelper(nums, nums.length, result);
         return result;
     }
     
-    private static void permuteHeapsHelper(int[] nums, int n, java.util.List<java.util.List<Integer>> result) {
+    private static void permuteHeapsHelper(int[] nums, int n, List<List<Integer>> result) {
         if (n == 1) {
-            java.util.List<Integer> permutation = new java.util.ArrayList<>();
+            List<Integer> permutation = new ArrayList<>();
             for (int num : nums) {
                 permutation.add(num);
             }
@@ -123,18 +123,18 @@ public class Permutations {
     /**
      * Helper method to find permutations with duplicates
      */
-    public static java.util.List<java.util.List<Integer>> permuteWithDuplicates(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> permuteWithDuplicates(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         boolean[] used = new boolean[nums.length];
-        java.util.Arrays.sort(nums);
+        Arrays.sort(nums);
         backtrackWithDuplicates(nums, current, used, result);
         return result;
     }
     
-    private static void backtrackWithDuplicates(int[] nums, java.util.List<Integer> current, boolean[] used, java.util.List<java.util.List<Integer>> result) {
+    private static void backtrackWithDuplicates(int[] nums, List<Integer> current, boolean[] used, List<List<Integer>> result) {
         if (current.size() == nums.length) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -191,7 +191,7 @@ public class Permutations {
      * Helper method to find kth permutation
      */
     public static String getKthPermutation(int n, int k) {
-        java.util.List<Integer> numbers = new java.util.ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();
         int[] factorial = new int[n + 1];
         factorial[0] = 1;
         
@@ -216,19 +216,19 @@ public class Permutations {
     /**
      * Helper method to find permutations with constraints
      */
-    public static java.util.List<java.util.List<Integer>> permuteWithConstraints(int[] nums, java.util.Map<Integer, java.util.Set<Integer>> constraints) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> permuteWithConstraints(int[] nums, Map<Integer, Set<Integer>> constraints) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         boolean[] used = new boolean[nums.length];
         backtrackWithConstraints(nums, current, used, constraints, result);
         return result;
     }
     
-    private static void backtrackWithConstraints(int[] nums, java.util.List<Integer> current, boolean[] used, 
-                                               java.util.Map<Integer, java.util.Set<Integer>> constraints, 
-                                               java.util.List<java.util.List<Integer>> result) {
+    private static void backtrackWithConstraints(int[] nums, List<Integer> current, boolean[] used, 
+                                               Map<Integer, Set<Integer>> constraints, 
+                                               List<List<Integer>> result) {
         if (current.size() == nums.length) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -257,18 +257,18 @@ public class Permutations {
     /**
      * Helper method to find permutations with sum
      */
-    public static java.util.List<java.util.List<Integer>> permuteWithSum(int[] nums, int targetSum) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> permuteWithSum(int[] nums, int targetSum) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         boolean[] used = new boolean[nums.length];
         backtrackWithSum(nums, current, used, targetSum, 0, result);
         return result;
     }
     
-    private static void backtrackWithSum(int[] nums, java.util.List<Integer> current, boolean[] used, 
-                                       int targetSum, int currentSum, java.util.List<java.util.List<Integer>> result) {
+    private static void backtrackWithSum(int[] nums, List<Integer> current, boolean[] used, 
+                                       int targetSum, int currentSum, List<List<Integer>> result) {
         if (current.size() == nums.length && currentSum == targetSum) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -290,18 +290,18 @@ public class Permutations {
     /**
      * Helper method to find permutations with product
      */
-    public static java.util.List<java.util.List<Integer>> permuteWithProduct(int[] nums, int targetProduct) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> permuteWithProduct(int[] nums, int targetProduct) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         boolean[] used = new boolean[nums.length];
         backtrackWithProduct(nums, current, used, targetProduct, 1, result);
         return result;
     }
     
-    private static void backtrackWithProduct(int[] nums, java.util.List<Integer> current, boolean[] used, 
-                                           int targetProduct, int currentProduct, java.util.List<java.util.List<Integer>> result) {
+    private static void backtrackWithProduct(int[] nums, List<Integer> current, boolean[] used, 
+                                           int targetProduct, int currentProduct, List<List<Integer>> result) {
         if (current.size() == nums.length && currentProduct == targetProduct) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -323,17 +323,17 @@ public class Permutations {
     /**
      * Helper method to find circular permutations
      */
-    public static java.util.List<java.util.List<Integer>> permuteCircular(int[] nums) {
-        java.util.List<java.util.List<Integer>> result = new java.util.ArrayList<>();
-        java.util.List<Integer> current = new java.util.ArrayList<>();
+    public static List<List<Integer>> permuteCircular(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         boolean[] used = new boolean[nums.length];
         backtrackCircular(nums, current, used, result);
         return result;
     }
     
-    private static void backtrackCircular(int[] nums, java.util.List<Integer> current, boolean[] used, java.util.List<java.util.List<Integer>> result) {
+    private static void backtrackCircular(int[] nums, List<Integer> current, boolean[] used, List<List<Integer>> result) {
         if (current.size() == nums.length) {
-            result.add(new java.util.ArrayList<>(current));
+            result.add(new ArrayList<>(current));
             return;
         }
         
@@ -356,15 +356,15 @@ public class Permutations {
         int[] nums1 = {1, 2, 3};
         
         System.out.println("Testing Permutations:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         
-        java.util.List<java.util.List<Integer>> result1 = permute_backtracking(nums1);
+        List<List<Integer>> result1 = permute_backtracking(nums1);
         System.out.println("Backtracking result: " + result1);
         
-        java.util.List<java.util.List<Integer>> result2 = permute_iterative(nums1);
+        List<List<Integer>> result2 = permute_iterative(nums1);
         System.out.println("Iterative result: " + result2);
         
-        java.util.List<java.util.List<Integer>> result3 = permute_heaps(nums1);
+        List<List<Integer>> result3 = permute_heaps(nums1);
         System.out.println("Heap's algorithm result: " + result3);
         
         // Expected: [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]
@@ -374,9 +374,9 @@ public class Permutations {
         // Test case: nums = [0,1]
         int[] nums2 = {0, 1};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         
-        java.util.List<java.util.List<Integer>> result4 = permute_backtracking(nums2);
+        List<List<Integer>> result4 = permute_backtracking(nums2);
         System.out.println("Backtracking result: " + result4);
         
         // Expected: [[0,1], [1,0]]
@@ -386,9 +386,9 @@ public class Permutations {
         // Test case: nums = [1]
         int[] nums3 = {1};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums3));
+        System.out.println("Array: " + Arrays.toString(nums3));
         
-        java.util.List<java.util.List<Integer>> result5 = permute_backtracking(nums3);
+        List<List<Integer>> result5 = permute_backtracking(nums3);
         System.out.println("Backtracking result: " + result5);
         
         // Expected: [[1]]
@@ -397,30 +397,30 @@ public class Permutations {
         
         // Test helper methods
         int[] nums4 = {1, 1, 2};
-        java.util.List<java.util.List<Integer>> withDuplicates = permuteWithDuplicates(nums4);
+        List<List<Integer>> withDuplicates = permuteWithDuplicates(nums4);
         System.out.println("Permutations with duplicates: " + withDuplicates);
         
         int[] nums5 = {1, 2, 3};
         nextPermutation(nums5);
-        System.out.println("Next permutation: " + java.util.Arrays.toString(nums5));
+        System.out.println("Next permutation: " + Arrays.toString(nums5));
         
         String kthPermutation = getKthPermutation(3, 3);
         System.out.println("3rd permutation of [1,2,3]: " + kthPermutation);
         
-        java.util.Map<Integer, java.util.Set<Integer>> constraints = new java.util.HashMap<>();
-        java.util.Set<Integer> forbidden = new java.util.HashSet<>();
+        Map<Integer, Set<Integer>> constraints = new HashMap<>();
+        Set<Integer> forbidden = new HashSet<>();
         forbidden.add(2);
         constraints.put(1, forbidden);
-        java.util.List<java.util.List<Integer>> withConstraints = permuteWithConstraints(nums1, constraints);
+        List<List<Integer>> withConstraints = permuteWithConstraints(nums1, constraints);
         System.out.println("Permutations with constraints: " + withConstraints);
         
-        java.util.List<java.util.List<Integer>> withSum = permuteWithSum(nums1, 6);
+        List<List<Integer>> withSum = permuteWithSum(nums1, 6);
         System.out.println("Permutations with sum 6: " + withSum);
         
-        java.util.List<java.util.List<Integer>> withProduct = permuteWithProduct(nums1, 6);
+        List<List<Integer>> withProduct = permuteWithProduct(nums1, 6);
         System.out.println("Permutations with product 6: " + withProduct);
         
-        java.util.List<java.util.List<Integer>> circular = permuteCircular(nums1);
+        List<List<Integer>> circular = permuteCircular(nums1);
         System.out.println("Circular permutations: " + circular);
         
         // Expected: With duplicates = [[1,1,2], [1,2,1], [2,1,1]], Next permutation = [1,3,2], 3rd permutation = "213", With constraints = [[1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]], With sum 6 = [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]], With product 6 = [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]], Circular = [[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]

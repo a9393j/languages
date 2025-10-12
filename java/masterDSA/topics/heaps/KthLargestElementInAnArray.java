@@ -33,7 +33,7 @@ public class KthLargestElementInAnArray {
      * Maintain a min heap of size k
      */
     public static int findKthLargest_minHeap(int[] nums, int k) {
-        java.util.PriorityQueue<Integer> minHeap = new java.util.PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         
         for (int num : nums) {
             if (minHeap.size() < k) {
@@ -52,7 +52,7 @@ public class KthLargestElementInAnArray {
      * Use max heap and pop k-1 elements
      */
     public static int findKthLargest_maxHeap(int[] nums, int k) {
-        java.util.PriorityQueue<Integer> maxHeap = new java.util.PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
         
         for (int num : nums) {
             maxHeap.offer(num);
@@ -115,7 +115,7 @@ public class KthLargestElementInAnArray {
      * Sort array and return kth element
      */
     public static int findKthLargest_sorting(int[] nums, int k) {
-        java.util.Arrays.sort(nums);
+        Arrays.sort(nums);
         return nums[nums.length - k];
     }
     
@@ -124,8 +124,8 @@ public class KthLargestElementInAnArray {
      * Use counting sort for small range of values
      */
     public static int findKthLargest_countingSort(int[] nums, int k) {
-        int min = java.util.Arrays.stream(nums).min().getAsInt();
-        int max = java.util.Arrays.stream(nums).max().getAsInt();
+        int min = Arrays.stream(nums).min().getAsInt();
+        int max = Arrays.stream(nums).max().getAsInt();
         
         int[] count = new int[max - min + 1];
         
@@ -148,14 +148,14 @@ public class KthLargestElementInAnArray {
      * Helper method to print array
      */
     public static void printArray(int[] nums) {
-        System.out.println(java.util.Arrays.toString(nums));
+        System.out.println(Arrays.toString(nums));
     }
     
     /**
      * Helper method to find kth smallest element
      */
     public static int findKthSmallest(int[] nums, int k) {
-        java.util.PriorityQueue<Integer> maxHeap = new java.util.PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
         
         for (int num : nums) {
             if (maxHeap.size() < k) {
@@ -172,8 +172,8 @@ public class KthLargestElementInAnArray {
     /**
      * Helper method to find top k elements
      */
-    public static java.util.List<Integer> findTopK(int[] nums, int k) {
-        java.util.PriorityQueue<Integer> minHeap = new java.util.PriorityQueue<>();
+    public static List<Integer> findTopK(int[] nums, int k) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         
         for (int num : nums) {
             if (minHeap.size() < k) {
@@ -184,7 +184,7 @@ public class KthLargestElementInAnArray {
             }
         }
         
-        return new java.util.ArrayList<>(minHeap);
+        return new ArrayList<>(minHeap);
     }
     
     public static void main(String[] args) {
@@ -193,7 +193,7 @@ public class KthLargestElementInAnArray {
         int k1 = 2;
         
         System.out.println("Testing Kth Largest Element in an Array:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         System.out.println("k = " + k1);
         
         int result1 = findKthLargest_minHeap(nums1, k1);
@@ -219,7 +219,7 @@ public class KthLargestElementInAnArray {
         int[] nums2 = {3, 2, 3, 1, 2, 4, 5, 5, 6};
         int k2 = 4;
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         System.out.println("k = " + k2);
         
         int result6 = findKthLargest_minHeap(nums2, k2);
@@ -235,7 +235,7 @@ public class KthLargestElementInAnArray {
         int kthSmallest = findKthSmallest(nums3, 2);
         System.out.println("2nd smallest: " + kthSmallest);
         
-        java.util.List<Integer> topK = findTopK(nums3, 3);
+        List<Integer> topK = findTopK(nums3, 3);
         System.out.println("Top 3 elements: " + topK);
         
         // Expected: 2nd smallest = 2, Top 3 = [4, 5, 6]

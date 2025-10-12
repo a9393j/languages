@@ -37,7 +37,7 @@ public class LongestIncreasingSubsequence {
         
         int n = nums.length;
         int[] dp = new int[n];
-        java.util.Arrays.fill(dp, 1);
+        Arrays.fill(dp, 1);
         
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
@@ -47,7 +47,7 @@ public class LongestIncreasingSubsequence {
             }
         }
         
-        return java.util.Arrays.stream(dp).max().getAsInt();
+        return Arrays.stream(dp).max().getAsInt();
     }
     
     /**
@@ -59,7 +59,7 @@ public class LongestIncreasingSubsequence {
             return 0;
         }
         
-        java.util.List<Integer> tails = new java.util.ArrayList<>();
+        List<Integer> tails = new ArrayList<>();
         
         for (int num : nums) {
             int pos = binarySearch(tails, num);
@@ -74,7 +74,7 @@ public class LongestIncreasingSubsequence {
         return tails.size();
     }
     
-    private static int binarySearch(java.util.List<Integer> tails, int target) {
+    private static int binarySearch(List<Integer> tails, int target) {
         int left = 0;
         int right = tails.size();
         
@@ -101,8 +101,8 @@ public class LongestIncreasingSubsequence {
         
         // Coordinate compression
         int[] sorted = nums.clone();
-        java.util.Arrays.sort(sorted);
-        java.util.Map<Integer, Integer> map = new java.util.HashMap<>();
+        Arrays.sort(sorted);
+        Map<Integer, Integer> map = new HashMap<>();
         int rank = 1;
         for (int num : sorted) {
             if (!map.containsKey(num)) {
@@ -176,16 +176,16 @@ public class LongestIncreasingSubsequence {
     /**
      * Helper method to find the actual LIS sequence
      */
-    public static java.util.List<Integer> findLIS(int[] nums) {
+    public static List<Integer> findLIS(int[] nums) {
         if (nums == null || nums.length == 0) {
-            return new java.util.ArrayList<>();
+            return new ArrayList<>();
         }
         
         int n = nums.length;
         int[] dp = new int[n];
         int[] parent = new int[n];
-        java.util.Arrays.fill(dp, 1);
-        java.util.Arrays.fill(parent, -1);
+        Arrays.fill(dp, 1);
+        Arrays.fill(parent, -1);
         
         int maxLen = 1;
         int maxIndex = 0;
@@ -203,7 +203,7 @@ public class LongestIncreasingSubsequence {
             }
         }
         
-        java.util.List<Integer> result = new java.util.ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         int current = maxIndex;
         while (current != -1) {
             result.add(0, nums[current]);
@@ -224,8 +224,8 @@ public class LongestIncreasingSubsequence {
         int n = nums.length;
         int[] dp = new int[n];
         int[] count = new int[n];
-        java.util.Arrays.fill(dp, 1);
-        java.util.Arrays.fill(count, 1);
+        Arrays.fill(dp, 1);
+        Arrays.fill(count, 1);
         
         int maxLen = 1;
         
@@ -263,7 +263,7 @@ public class LongestIncreasingSubsequence {
         
         int n = nums.length;
         int[] dp = new int[n];
-        java.util.Arrays.fill(dp, 1);
+        Arrays.fill(dp, 1);
         
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
@@ -273,7 +273,7 @@ public class LongestIncreasingSubsequence {
             }
         }
         
-        return java.util.Arrays.stream(dp).max().getAsInt();
+        return Arrays.stream(dp).max().getAsInt();
     }
     
     /**
@@ -289,7 +289,7 @@ public class LongestIncreasingSubsequence {
         int[] lds = new int[n];
         
         // Calculate LIS from left to right
-        java.util.Arrays.fill(lis, 1);
+        Arrays.fill(lis, 1);
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (nums[j] < nums[i]) {
@@ -299,7 +299,7 @@ public class LongestIncreasingSubsequence {
         }
         
         // Calculate LDS from right to left
-        java.util.Arrays.fill(lds, 1);
+        Arrays.fill(lds, 1);
         for (int i = n - 2; i >= 0; i--) {
             for (int j = n - 1; j > i; j--) {
                 if (nums[j] < nums[i]) {
@@ -346,7 +346,7 @@ public class LongestIncreasingSubsequence {
         int[] nums1 = {10, 9, 2, 5, 3, 7, 101, 18};
         
         System.out.println("Testing Longest Increasing Subsequence:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         
         int result1 = lengthOfLIS_dp(nums1);
         System.out.println("DP result: " + result1);
@@ -364,7 +364,7 @@ public class LongestIncreasingSubsequence {
         // Test case: nums = [0,1,0,3,2,3]
         int[] nums2 = {0, 1, 0, 3, 2, 3};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         
         int result4 = lengthOfLIS_dp(nums2);
         System.out.println("DP result: " + result4);
@@ -376,7 +376,7 @@ public class LongestIncreasingSubsequence {
         // Test case: nums = [7,7,7,7,7,7,7]
         int[] nums3 = {7, 7, 7, 7, 7, 7, 7};
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums3));
+        System.out.println("Array: " + Arrays.toString(nums3));
         
         int result5 = lengthOfLIS_dp(nums3);
         System.out.println("DP result: " + result5);
@@ -386,7 +386,7 @@ public class LongestIncreasingSubsequence {
         System.out.println();
         
         // Test helper methods
-        java.util.List<Integer> lis = findLIS(nums1);
+        List<Integer> lis = findLIS(nums1);
         System.out.println("LIS sequence: " + lis);
         
         int numLIS = numberOfLIS(nums1);

@@ -38,7 +38,7 @@ public class DailyTemperatures {
     public static int[] dailyTemperatures_stack(int[] temperatures) {
         int n = temperatures.length;
         int[] answer = new int[n];
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         
         for (int i = 0; i < n; i++) {
             // Pop elements with smaller temperatures
@@ -104,7 +104,7 @@ public class DailyTemperatures {
     public static int[] nextGreaterElement(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && nums[i] > nums[stack.peek()]) {
@@ -128,7 +128,7 @@ public class DailyTemperatures {
     public static int[] nextSmallerElement(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && nums[i] < nums[stack.peek()]) {
@@ -152,7 +152,7 @@ public class DailyTemperatures {
     public static int[] previousGreaterElement(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         
         for (int i = n - 1; i >= 0; i--) {
             while (!stack.isEmpty() && nums[i] > nums[stack.peek()]) {
@@ -176,7 +176,7 @@ public class DailyTemperatures {
     public static int[] previousSmallerElement(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         
         for (int i = n - 1; i >= 0; i--) {
             while (!stack.isEmpty() && nums[i] < nums[stack.peek()]) {
@@ -198,7 +198,7 @@ public class DailyTemperatures {
      * Helper method to print array
      */
     public static void printArray(int[] nums) {
-        System.out.println(java.util.Arrays.toString(nums));
+        System.out.println(Arrays.toString(nums));
     }
     
     /**
@@ -206,7 +206,7 @@ public class DailyTemperatures {
      */
     public static int largestRectangleArea(int[] heights) {
         int n = heights.length;
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         int maxArea = 0;
         
         for (int i = 0; i <= n; i++) {
@@ -229,16 +229,16 @@ public class DailyTemperatures {
         int[] temperatures = {73, 74, 75, 71, 69, 72, 76, 73};
         
         System.out.println("Testing Daily Temperatures:");
-        System.out.println("Temperatures: " + java.util.Arrays.toString(temperatures));
+        System.out.println("Temperatures: " + Arrays.toString(temperatures));
         
         int[] result1 = dailyTemperatures_stack(temperatures);
-        System.out.println("Stack result: " + java.util.Arrays.toString(result1));
+        System.out.println("Stack result: " + Arrays.toString(result1));
         
         int[] result2 = dailyTemperatures_bruteForce(temperatures);
-        System.out.println("Brute force result: " + java.util.Arrays.toString(result2));
+        System.out.println("Brute force result: " + Arrays.toString(result2));
         
         int[] result3 = dailyTemperatures_array(temperatures);
-        System.out.println("Array result: " + java.util.Arrays.toString(result3));
+        System.out.println("Array result: " + Arrays.toString(result3));
         
         // Expected: [1,1,4,2,1,1,0,0]
         
@@ -247,10 +247,10 @@ public class DailyTemperatures {
         // Test case: temperatures = [30,40,50,60]
         int[] temperatures2 = {30, 40, 50, 60};
         
-        System.out.println("Temperatures: " + java.util.Arrays.toString(temperatures2));
+        System.out.println("Temperatures: " + Arrays.toString(temperatures2));
         
         int[] result4 = dailyTemperatures_stack(temperatures2);
-        System.out.println("Stack result: " + java.util.Arrays.toString(result4));
+        System.out.println("Stack result: " + Arrays.toString(result4));
         
         // Expected: [1,1,1,0]
         
@@ -259,10 +259,10 @@ public class DailyTemperatures {
         // Test case: temperatures = [30,60,90]
         int[] temperatures3 = {30, 60, 90};
         
-        System.out.println("Temperatures: " + java.util.Arrays.toString(temperatures3));
+        System.out.println("Temperatures: " + Arrays.toString(temperatures3));
         
         int[] result5 = dailyTemperatures_stack(temperatures3);
-        System.out.println("Stack result: " + java.util.Arrays.toString(result5));
+        System.out.println("Stack result: " + Arrays.toString(result5));
         
         // Expected: [1,1,0]
         
@@ -272,16 +272,16 @@ public class DailyTemperatures {
         int[] nums = {2, 1, 2, 4, 3, 1};
         
         int[] nextGreater = nextGreaterElement(nums);
-        System.out.println("Next greater elements: " + java.util.Arrays.toString(nextGreater));
+        System.out.println("Next greater elements: " + Arrays.toString(nextGreater));
         
         int[] nextSmaller = nextSmallerElement(nums);
-        System.out.println("Next smaller elements: " + java.util.Arrays.toString(nextSmaller));
+        System.out.println("Next smaller elements: " + Arrays.toString(nextSmaller));
         
         int[] prevGreater = previousGreaterElement(nums);
-        System.out.println("Previous greater elements: " + java.util.Arrays.toString(prevGreater));
+        System.out.println("Previous greater elements: " + Arrays.toString(prevGreater));
         
         int[] prevSmaller = previousSmallerElement(nums);
-        System.out.println("Previous smaller elements: " + java.util.Arrays.toString(prevSmaller));
+        System.out.println("Previous smaller elements: " + Arrays.toString(prevSmaller));
         
         // Test largest rectangle in histogram
         int[] heights = {2, 1, 5, 6, 2, 3};

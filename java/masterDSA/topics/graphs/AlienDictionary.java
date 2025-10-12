@@ -35,13 +35,13 @@ public class AlienDictionary {
         }
         
         // Build adjacency list and in-degree count
-        java.util.Map<Character, java.util.Set<Character>> graph = new java.util.HashMap<>();
-        java.util.Map<Character, Integer> inDegree = new java.util.HashMap<>();
+        Map<Character, Set<Character>> graph = new HashMap<>();
+        Map<Character, Integer> inDegree = new HashMap<>();
         
         // Initialize all characters
         for (String word : words) {
             for (char c : word.toCharArray()) {
-                graph.putIfAbsent(c, new java.util.HashSet<>());
+                graph.putIfAbsent(c, new HashSet<>());
                 inDegree.putIfAbsent(c, 0);
             }
         }
@@ -72,7 +72,7 @@ public class AlienDictionary {
         }
         
         // Kahn's algorithm
-        java.util.Queue<Character> queue = new java.util.LinkedList<>();
+        Queue<Character> queue = new LinkedList<>();
         for (char c : inDegree.keySet()) {
             if (inDegree.get(c) == 0) {
                 queue.offer(c);
@@ -107,12 +107,12 @@ public class AlienDictionary {
         }
         
         // Build adjacency list
-        java.util.Map<Character, java.util.Set<Character>> graph = new java.util.HashMap<>();
+        Map<Character, Set<Character>> graph = new HashMap<>();
         
         // Initialize all characters
         for (String word : words) {
             for (char c : word.toCharArray()) {
-                graph.putIfAbsent(c, new java.util.HashSet<>());
+                graph.putIfAbsent(c, new HashSet<>());
             }
         }
         
@@ -139,8 +139,8 @@ public class AlienDictionary {
         }
         
         // DFS to detect cycles and build ordering
-        java.util.Map<Character, Integer> state = new java.util.HashMap<>(); // 0: unvisited, 1: visiting, 2: visited
-        java.util.List<Character> order = new java.util.ArrayList<>();
+        Map<Character, Integer> state = new HashMap<>(); // 0: unvisited, 1: visiting, 2: visited
+        List<Character> order = new ArrayList<>();
         
         for (char c : graph.keySet()) {
             state.put(c, 0);
@@ -155,7 +155,7 @@ public class AlienDictionary {
         }
         
         // Reverse to get correct order
-        java.util.Collections.reverse(order);
+        Collections.reverse(order);
         StringBuilder result = new StringBuilder();
         for (char c : order) {
             result.append(c);
@@ -164,8 +164,8 @@ public class AlienDictionary {
         return result.toString();
     }
     
-    private static boolean dfs(char c, java.util.Map<Character, java.util.Set<Character>> graph, 
-                              java.util.Map<Character, Integer> state, java.util.List<Character> order) {
+    private static boolean dfs(char c, Map<Character, Set<Character>> graph, 
+                              Map<Character, Integer> state, List<Character> order) {
         if (state.get(c) == 1) {
             return true; // Cycle detected
         }
@@ -195,7 +195,7 @@ public class AlienDictionary {
             return false;
         }
         
-        java.util.Map<Character, Integer> charOrder = new java.util.HashMap<>();
+        Map<Character, Integer> charOrder = new HashMap<>();
         for (int i = 0; i < order.length(); i++) {
             charOrder.put(order.charAt(i), i);
         }
@@ -212,7 +212,7 @@ public class AlienDictionary {
         return true;
     }
     
-    private static boolean isValidOrder(String word1, String word2, java.util.Map<Character, Integer> charOrder) {
+    private static boolean isValidOrder(String word1, String word2, Map<Character, Integer> charOrder) {
         int minLen = Math.min(word1.length(), word2.length());
         
         for (int i = 0; i < minLen; i++) {
@@ -237,15 +237,15 @@ public class AlienDictionary {
     /**
      * Helper method to find all possible orderings
      */
-    public static java.util.List<String> findAllOrderings(String[] words) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> findAllOrderings(String[] words) {
+        List<String> result = new ArrayList<>();
         
         if (words == null || words.length == 0) {
             return result;
         }
         
         // Collect all unique characters
-        java.util.Set<Character> chars = new java.util.HashSet<>();
+        Set<Character> chars = new HashSet<>();
         for (String word : words) {
             for (char c : word.toCharArray()) {
                 chars.add(c);
@@ -253,14 +253,14 @@ public class AlienDictionary {
         }
         
         // Generate all permutations
-        java.util.List<Character> charList = new java.util.ArrayList<>(chars);
+        List<Character> charList = new ArrayList<>(chars);
         generatePermutations(charList, 0, words, result);
         
         return result;
     }
     
-    private static void generatePermutations(java.util.List<Character> chars, int start, 
-                                           String[] words, java.util.List<String> result) {
+    private static void generatePermutations(List<Character> chars, int start, 
+                                           String[] words, List<String> result) {
         if (start == chars.size()) {
             StringBuilder order = new StringBuilder();
             for (char c : chars) {
@@ -274,9 +274,9 @@ public class AlienDictionary {
         }
         
         for (int i = start; i < chars.size(); i++) {
-            java.util.Collections.swap(chars, start, i);
+            Collections.swap(chars, start, i);
             generatePermutations(chars, start + 1, words, result);
-            java.util.Collections.swap(chars, start, i);
+            Collections.swap(chars, start, i);
         }
     }
     
@@ -340,7 +340,7 @@ public class AlienDictionary {
         String[] words1 = {"wrt", "wrf", "er", "ett", "rftt"};
         
         System.out.println("Testing Alien Dictionary:");
-        System.out.println("Words: " + java.util.Arrays.toString(words1));
+        System.out.println("Words: " + Arrays.toString(words1));
         
         String result1 = alienOrder_topological(words1);
         System.out.println("Topological sort result: " + result1);
@@ -355,7 +355,7 @@ public class AlienDictionary {
         // Test case: words = ["z","x"]
         String[] words2 = {"z", "x"};
         
-        System.out.println("Words: " + java.util.Arrays.toString(words2));
+        System.out.println("Words: " + Arrays.toString(words2));
         
         String result3 = alienOrder_topological(words2);
         System.out.println("Topological sort result: " + result3);
@@ -367,7 +367,7 @@ public class AlienDictionary {
         // Test case: words = ["z","x","z"]
         String[] words3 = {"z", "x", "z"};
         
-        System.out.println("Words: " + java.util.Arrays.toString(words3));
+        System.out.println("Words: " + Arrays.toString(words3));
         
         String result4 = alienOrder_topological(words3);
         System.out.println("Topological sort result: " + result4);
@@ -379,7 +379,7 @@ public class AlienDictionary {
         // Test case: words = ["abc","ab"]
         String[] words4 = {"abc", "ab"};
         
-        System.out.println("Words: " + java.util.Arrays.toString(words4));
+        System.out.println("Words: " + Arrays.toString(words4));
         
         String result5 = alienOrder_topological(words4);
         System.out.println("Topological sort result: " + result5);
@@ -400,7 +400,7 @@ public class AlienDictionary {
         
         // Test with smaller example
         String[] words5 = {"ba", "bc", "ac"};
-        java.util.List<String> allOrderings = findAllOrderings(words5);
+        List<String> allOrderings = findAllOrderings(words5);
         System.out.println("All possible orderings: " + allOrderings);
         
         // Expected: Is valid = true, Min comparisons = 4, Common prefix = "", All orderings = [bac, bca]

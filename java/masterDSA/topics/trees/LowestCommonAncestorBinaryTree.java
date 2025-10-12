@@ -76,7 +76,7 @@ public class LowestCommonAncestorBinaryTree {
         }
         
         TreeNode root = new TreeNode(values[0]);
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         
         for (int i = 1; i < values.length; i += 2) {

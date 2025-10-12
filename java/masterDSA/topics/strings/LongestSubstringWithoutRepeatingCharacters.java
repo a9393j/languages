@@ -38,7 +38,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
             return 0;
         }
         
-        java.util.Map<Character, Integer> charCount = new java.util.HashMap<>();
+        Map<Character, Integer> charCount = new HashMap<>();
         int left = 0;
         int maxLen = 0;
         
@@ -68,7 +68,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
             return 0;
         }
         
-        java.util.Set<Character> charSet = new java.util.HashSet<>();
+        Set<Character> charSet = new HashSet<>();
         int left = 0;
         int maxLen = 0;
         
@@ -98,7 +98,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
             return 0;
         }
         
-        java.util.Map<Character, Integer> charIndex = new java.util.HashMap<>();
+        Map<Character, Integer> charIndex = new HashMap<>();
         int left = 0;
         int maxLen = 0;
         
@@ -143,7 +143,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
      * Helper method to check if substring is unique
      */
     private static boolean isUnique(String s, int start, int end) {
-        java.util.Set<Character> charSet = new java.util.HashSet<>();
+        Set<Character> charSet = new HashSet<>();
         
         for (int i = start; i <= end; i++) {
             char c = s.charAt(i);
@@ -166,7 +166,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         }
         
         int[] charIndex = new int[128]; // ASCII characters
-        java.util.Arrays.fill(charIndex, -1);
+        Arrays.fill(charIndex, -1);
         
         int left = 0;
         int maxLen = 0;
@@ -194,7 +194,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
             return "";
         }
         
-        java.util.Map<Character, Integer> charIndex = new java.util.HashMap<>();
+        Map<Character, Integer> charIndex = new HashMap<>();
         int left = 0;
         int maxLen = 0;
         int start = 0;

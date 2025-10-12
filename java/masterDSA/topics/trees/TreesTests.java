@@ -22,8 +22,8 @@ public class TreesTests {
     public void testBinaryTreeTraversals() {
         Integer[] values = {1, null, 2, 3};
         BinaryTreeInorderPreorderPostorderTraversal.TreeNode root = BinaryTreeInorderPreorderPostorderTraversal.createBinaryTree(values);
-        java.util.List<Integer> inorder = BinaryTreeInorderPreorderPostorderTraversal.inorderTraversal_recursive(root);
-        java.util.List<Integer> expected = java.util.Arrays.asList(1, 3, 2);
+        List<Integer> inorder = BinaryTreeInorderPreorderPostorderTraversal.inorderTraversal_recursive(root);
+        List<Integer> expected = Arrays.asList(1, 3, 2);
         assertEquals(expected, inorder);
     }
     
@@ -31,11 +31,11 @@ public class TreesTests {
     public void testBinaryTreeLevelOrderTraversal() {
         Integer[] values = {3, 9, 20, null, null, 15, 7};
         BinaryTreeLevelOrderTraversal.TreeNode root = BinaryTreeLevelOrderTraversal.createBinaryTree(values);
-        java.util.List<java.util.List<Integer>> result = BinaryTreeLevelOrderTraversal.levelOrder_bfs(root);
+        List<List<Integer>> result = BinaryTreeLevelOrderTraversal.levelOrder_bfs(root);
         assertEquals(3, result.size());
-        assertEquals(java.util.Arrays.asList(3), result.get(0));
-        assertEquals(java.util.Arrays.asList(9, 20), result.get(1));
-        assertEquals(java.util.Arrays.asList(15, 7), result.get(2));
+        assertEquals(Arrays.asList(3), result.get(0));
+        assertEquals(Arrays.asList(9, 20), result.get(1));
+        assertEquals(Arrays.asList(15, 7), result.get(2));
     }
     
     @Test

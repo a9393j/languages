@@ -34,7 +34,7 @@ public class FirstDuplicateValue {
      * Use HashSet to track seen elements
      */
     public static int firstDuplicateValue_hashSet(int[] array) {
-        java.util.Set<Integer> seen = new java.util.HashSet<>();
+        Set<Integer> seen = new HashSet<>();
         
         for (int num : array) {
             if (seen.contains(num)) {
@@ -114,7 +114,7 @@ public class FirstDuplicateValue {
      * Note: This doesn't preserve the "first" duplicate order
      */
     public static int firstDuplicateValue_sorting(int[] array) {
-        java.util.Arrays.sort(array);
+        Arrays.sort(array);
         
         for (int i = 1; i < array.length; i++) {
             if (array[i] == array[i - 1]) {
@@ -130,7 +130,7 @@ public class FirstDuplicateValue {
         int[] array = {2, 1, 5, 2, 3, 3, 4};
         
         System.out.println("Testing First Duplicate Value:");
-        System.out.println("Array: " + java.util.Arrays.toString(array));
+        System.out.println("Array: " + Arrays.toString(array));
         
         int result1 = firstDuplicateValue_hashSet(array);
         System.out.println("HashSet result: " + result1);
@@ -157,7 +157,7 @@ public class FirstDuplicateValue {
         
         // Test case with no duplicates: array = [1, 2, 3, 4, 5]
         int[] noDuplicates = {1, 2, 3, 4, 5};
-        System.out.println("Array with no duplicates: " + java.util.Arrays.toString(noDuplicates));
+        System.out.println("Array with no duplicates: " + Arrays.toString(noDuplicates));
         
         int result6 = firstDuplicateValue_hashSet(noDuplicates);
         System.out.println("HashSet result: " + result6);

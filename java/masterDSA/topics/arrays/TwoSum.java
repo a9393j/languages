@@ -40,7 +40,7 @@ public class TwoSum {
      */
     public static int[] twoSum_hashmap(int[] nums, int target) {
         // HashMap to store number -> index mapping
-        java.util.Map<Integer, Integer> numToIndex = new java.util.HashMap<>();
+        Map<Integer, Integer> numToIndex = new HashMap<>();
         
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
@@ -73,7 +73,7 @@ public class TwoSum {
         }
         
         // Sort by value
-        java.util.Arrays.sort(numsWithIndex, (a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(numsWithIndex, (a, b) -> Integer.compare(a[0], b[0]));
         
         int left = 0, right = nums.length - 1;
         
@@ -116,17 +116,17 @@ public class TwoSum {
         int target = 9;
         
         System.out.println("Testing Two Sum:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums));
+        System.out.println("Array: " + Arrays.toString(nums));
         System.out.println("Target: " + target);
         
         int[] result1 = twoSum_hashmap(nums, target);
-        System.out.println("Hashmap result: " + java.util.Arrays.toString(result1));
+        System.out.println("Hashmap result: " + Arrays.toString(result1));
         
         int[] result2 = twoSum_twoPointers(nums, target);
-        System.out.println("Two pointers result: " + java.util.Arrays.toString(result2));
+        System.out.println("Two pointers result: " + Arrays.toString(result2));
         
         int[] result3 = twoSum_bruteForce(nums, target);
-        System.out.println("Brute force result: " + java.util.Arrays.toString(result3));
+        System.out.println("Brute force result: " + Arrays.toString(result3));
         
         // Expected: [0, 1] (indices of 2 and 7)
     }

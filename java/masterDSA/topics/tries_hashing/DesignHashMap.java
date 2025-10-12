@@ -183,8 +183,8 @@ public class DesignHashMap {
         /**
          * Get all keys - O(n) time, O(n) space
          */
-        public java.util.List<Integer> keySet() {
-            java.util.List<Integer> keys = new java.util.ArrayList<>();
+        public List<Integer> keySet() {
+            List<Integer> keys = new ArrayList<>();
             
             for (Node bucket : buckets) {
                 Node current = bucket;
@@ -200,8 +200,8 @@ public class DesignHashMap {
         /**
          * Get all values - O(n) time, O(n) space
          */
-        public java.util.List<Integer> values() {
-            java.util.List<Integer> values = new java.util.ArrayList<>();
+        public List<Integer> values() {
+            List<Integer> values = new ArrayList<>();
             
             for (Node bucket : buckets) {
                 Node current = bucket;
@@ -237,8 +237,8 @@ public class DesignHashMap {
             this.deleted = new boolean[capacity];
             this.size = 0;
             
-            java.util.Arrays.fill(keys, EMPTY);
-            java.util.Arrays.fill(values, EMPTY);
+            Arrays.fill(keys, EMPTY);
+            Arrays.fill(values, EMPTY);
         }
         
         /**
@@ -320,8 +320,8 @@ public class DesignHashMap {
             deleted = new boolean[capacity];
             size = 0;
             
-            java.util.Arrays.fill(keys, EMPTY);
-            java.util.Arrays.fill(values, EMPTY);
+            Arrays.fill(keys, EMPTY);
+            Arrays.fill(values, EMPTY);
             
             for (int i = 0; i < oldKeys.length; i++) {
                 if (oldKeys[i] != EMPTY && !oldDeleted[i]) {
@@ -355,9 +355,9 @@ public class DesignHashMap {
          * Clear all key-value pairs - O(1) time
          */
         public void clear() {
-            java.util.Arrays.fill(keys, EMPTY);
-            java.util.Arrays.fill(values, EMPTY);
-            java.util.Arrays.fill(deleted, false);
+            Arrays.fill(keys, EMPTY);
+            Arrays.fill(values, EMPTY);
+            Arrays.fill(deleted, false);
             size = 0;
         }
     }
@@ -428,7 +428,7 @@ public class DesignHashMap {
      * Helper method to find most frequent key
      */
     public static int findMostFrequentKey(MyHashMap map) {
-        java.util.Map<Integer, Integer> frequency = new java.util.HashMap<>();
+        Map<Integer, Integer> frequency = new HashMap<>();
         
         for (int key : map.keySet()) {
             frequency.put(key, frequency.getOrDefault(key, 0) + 1);
@@ -450,8 +450,8 @@ public class DesignHashMap {
     /**
      * Helper method to find keys with given value
      */
-    public static java.util.List<Integer> findKeysWithValue(MyHashMap map, int value) {
-        java.util.List<Integer> result = new java.util.ArrayList<>();
+    public static List<Integer> findKeysWithValue(MyHashMap map, int value) {
+        List<Integer> result = new ArrayList<>();
         
         for (int key : map.keySet()) {
             if (map.get(key) == value) {
@@ -522,7 +522,7 @@ public class DesignHashMap {
         int mostFrequent = findMostFrequentKey(map4);
         System.out.println("Most frequent key: " + mostFrequent);
         
-        java.util.List<Integer> keysWithValue = findKeysWithValue(map4, 10);
+        List<Integer> keysWithValue = findKeysWithValue(map4, 10);
         System.out.println("Keys with value 10: " + keysWithValue);
         
         // Expected: Most frequent key = 1, Keys with value 10 = [1, 3]

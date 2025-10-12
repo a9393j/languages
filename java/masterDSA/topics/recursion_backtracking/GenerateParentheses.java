@@ -30,13 +30,13 @@ public class GenerateParentheses {
      * Backtracking approach - O(4^n / sqrt(n)) time, O(4^n / sqrt(n)) space
      * Generate all valid combinations using backtracking
      */
-    public static java.util.List<String> generateParentheses_backtracking(int n) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> generateParentheses_backtracking(int n) {
+        List<String> result = new ArrayList<>();
         backtrack("", 0, 0, n, result);
         return result;
     }
     
-    private static void backtrack(String current, int open, int close, int n, java.util.List<String> result) {
+    private static void backtrack(String current, int open, int close, int n, List<String> result) {
         if (current.length() == 2 * n) {
             result.add(current);
             return;
@@ -55,13 +55,13 @@ public class GenerateParentheses {
      * Recursive approach - O(4^n / sqrt(n)) time, O(4^n / sqrt(n)) space
      * Use recursion with constraints
      */
-    public static java.util.List<String> generateParentheses_recursive(int n) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> generateParentheses_recursive(int n) {
+        List<String> result = new ArrayList<>();
         generateRecursive("", n, n, result);
         return result;
     }
     
-    private static void generateRecursive(String current, int open, int close, java.util.List<String> result) {
+    private static void generateRecursive(String current, int open, int close, List<String> result) {
         if (open == 0 && close == 0) {
             result.add(current);
             return;
@@ -80,11 +80,11 @@ public class GenerateParentheses {
      * Iterative approach - O(4^n / sqrt(n)) time, O(4^n / sqrt(n)) space
      * Use queue to generate combinations
      */
-    public static java.util.List<String> generateParentheses_iterative(int n) {
-        java.util.List<String> result = new java.util.ArrayList<>();
-        java.util.Queue<String> queue = new java.util.LinkedList<>();
-        java.util.Queue<Integer> openQueue = new java.util.LinkedList<>();
-        java.util.Queue<Integer> closeQueue = new java.util.LinkedList<>();
+    public static List<String> generateParentheses_iterative(int n) {
+        List<String> result = new ArrayList<>();
+        Queue<String> queue = new LinkedList<>();
+        Queue<Integer> openQueue = new LinkedList<>();
+        Queue<Integer> closeQueue = new LinkedList<>();
         
         queue.offer("");
         openQueue.offer(0);
@@ -146,7 +146,7 @@ public class GenerateParentheses {
             return 0;
         }
         
-        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        Stack<Integer> stack = new Stack<>();
         stack.push(-1);
         int maxLen = 0;
         
@@ -169,13 +169,13 @@ public class GenerateParentheses {
     /**
      * Helper method to remove invalid parentheses
      */
-    public static java.util.List<String> removeInvalidParentheses(String s) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> removeInvalidParentheses(String s) {
+        List<String> result = new ArrayList<>();
         removeInvalidParenthesesHelper(s, 0, 0, new char[]{'(', ')'}, result);
         return result;
     }
     
-    private static void removeInvalidParenthesesHelper(String s, int lastI, int lastJ, char[] par, java.util.List<String> result) {
+    private static void removeInvalidParenthesesHelper(String s, int lastI, int lastJ, char[] par, List<String> result) {
         int stack = 0;
         
         for (int i = lastI; i < s.length(); i++) {
@@ -254,13 +254,13 @@ public class GenerateParentheses {
     /**
      * Helper method to generate parentheses with different characters
      */
-    public static java.util.List<String> generateParenthesesWithChars(int n, char openChar, char closeChar) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> generateParenthesesWithChars(int n, char openChar, char closeChar) {
+        List<String> result = new ArrayList<>();
         generateWithChars("", 0, 0, n, openChar, closeChar, result);
         return result;
     }
     
-    private static void generateWithChars(String current, int open, int close, int n, char openChar, char closeChar, java.util.List<String> result) {
+    private static void generateWithChars(String current, int open, int close, int n, char openChar, char closeChar, List<String> result) {
         if (current.length() == 2 * n) {
             result.add(current);
             return;
@@ -278,13 +278,13 @@ public class GenerateParentheses {
     /**
      * Helper method to generate parentheses with maximum depth
      */
-    public static java.util.List<String> generateParenthesesWithMaxDepth(int n, int maxDepth) {
-        java.util.List<String> result = new java.util.ArrayList<>();
+    public static List<String> generateParenthesesWithMaxDepth(int n, int maxDepth) {
+        List<String> result = new ArrayList<>();
         generateWithMaxDepth("", 0, 0, n, maxDepth, 0, result);
         return result;
     }
     
-    private static void generateWithMaxDepth(String current, int open, int close, int n, int maxDepth, int currentDepth, java.util.List<String> result) {
+    private static void generateWithMaxDepth(String current, int open, int close, int n, int maxDepth, int currentDepth, List<String> result) {
         if (current.length() == 2 * n) {
             result.add(current);
             return;
@@ -326,13 +326,13 @@ public class GenerateParentheses {
         System.out.println("Testing Generate Parentheses:");
         System.out.println("n = " + n);
         
-        java.util.List<String> result1 = generateParentheses_backtracking(n);
+        List<String> result1 = generateParentheses_backtracking(n);
         System.out.println("Backtracking result: " + result1);
         
-        java.util.List<String> result2 = generateParentheses_recursive(n);
+        List<String> result2 = generateParentheses_recursive(n);
         System.out.println("Recursive result: " + result2);
         
-        java.util.List<String> result3 = generateParentheses_iterative(n);
+        List<String> result3 = generateParentheses_iterative(n);
         System.out.println("Iterative result: " + result3);
         
         // Expected: ["((()))", "(()())", "(())()", "()(())", "()()()"]
@@ -344,7 +344,7 @@ public class GenerateParentheses {
         
         System.out.println("n = " + n2);
         
-        java.util.List<String> result4 = generateParentheses_backtracking(n2);
+        List<String> result4 = generateParentheses_backtracking(n2);
         System.out.println("Backtracking result: " + result4);
         
         // Expected: ["()"]
@@ -356,7 +356,7 @@ public class GenerateParentheses {
         
         System.out.println("n = " + n3);
         
-        java.util.List<String> result5 = generateParentheses_backtracking(n3);
+        List<String> result5 = generateParentheses_backtracking(n3);
         System.out.println("Backtracking result: " + result5);
         
         // Expected: ["(())", "()()"]
@@ -370,7 +370,7 @@ public class GenerateParentheses {
         int longestValid = longestValidParentheses("(()");
         System.out.println("Longest valid parentheses in '(()': " + longestValid);
         
-        java.util.List<String> removed = removeInvalidParentheses("()())()");
+        List<String> removed = removeInvalidParentheses("()())()");
         System.out.println("Remove invalid parentheses: " + removed);
         
         int minAdd = minAddToMakeValid("()))((");
@@ -379,10 +379,10 @@ public class GenerateParentheses {
         int minRemove = minRemoveToMakeValid("()))((");
         System.out.println("Minimum remove to make valid: " + minRemove);
         
-        java.util.List<String> withChars = generateParenthesesWithChars(2, '[', ']');
+        List<String> withChars = generateParenthesesWithChars(2, '[', ']');
         System.out.println("Parentheses with chars: " + withChars);
         
-        java.util.List<String> withMaxDepth = generateParenthesesWithMaxDepth(3, 2);
+        List<String> withMaxDepth = generateParenthesesWithMaxDepth(3, 2);
         System.out.println("Parentheses with max depth: " + withMaxDepth);
         
         int count = countValidParentheses(3);

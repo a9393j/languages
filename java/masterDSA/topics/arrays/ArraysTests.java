@@ -1,18 +1,18 @@
 package masterDSA.topics.arrays;
-import masterDSA.topics.arrays.FourSum.FourSum;
-import masterDSA.topics.arrays.NonConstructibleChange.NonConstructibleChange;
-import masterDSA.topics.arrays.SmallestDifference.SmallestDifference;
-import masterDSA.topics.arrays.ThreeNumberSum3Sum.ThreeNumberSum3Sum;
-import masterDSA.topics.arrays.TwoSum.TwoSum;
-import masterDSA.topics.arrays.ProductOfArrayExceptSelf.ProductOfArrayExceptSelf;
-import masterDSA.topics.arrays.FirstDuplicateValue.FirstDuplicateValue;
-import masterDSA.topics.arrays.MinRewards.MinRewards;
-import masterDSA.topics.arrays.LongestPeakLongestMountain.LongestPeakLongestMountain;
-import masterDSA.topics.arrays.MergeIntervals.MergeIntervals;
-import masterDSA.topics.arrays.MissingNumber.MissingNumber;
-import masterDSA.topics.arrays.MaximumSubarrayKadane.MaximumSubarrayKadane;
-import masterDSA.topics.arrays.SmallestDifferenceBetweenTwoArrays.SmallestDifferenceBetweenTwoArrays;
-import masterDSA.topics.arrays.TournamentWinner.TournamentWinner;
+import masterDSA.topics.arrays.FourSum;
+import masterDSA.topics.arrays.NonConstructibleChange;
+import masterDSA.topics.arrays.SmallestDifference;
+import masterDSA.topics.arrays.ThreeNumberSum3Sum;
+import masterDSA.topics.arrays.TwoSum;
+import masterDSA.topics.arrays.ProductOfArrayExceptSelf;
+import masterDSA.topics.arrays.FirstDuplicateValue;
+import masterDSA.topics.arrays.MinRewards;
+import masterDSA.topics.arrays.LongestPeakLongestMountain;
+import masterDSA.topics.arrays.MergeIntervals;
+import masterDSA.topics.arrays.MissingNumber;
+import masterDSA.topics.arrays.MaximumSubarrayKadane;
+import masterDSA.topics.arrays.SmallestDifferenceBetweenTwoArrays;
+import masterDSA.topics.arrays.TournamentWinner;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -37,7 +37,7 @@ public class ArraysTests {
     @Test
     public void testThreeSum() {
         int[] nums = {-1, 0, 1, 2, -1, -4};
-        java.util.List<java.util.List<Integer>> result = ThreeNumberSum3Sum.threeSum_twoPointers(nums);
+        List<List<Integer>> result = ThreeNumberSum3Sum.threeSum_twoPointers(nums);
         assertEquals(2, result.size());
     }
     
@@ -45,7 +45,7 @@ public class ArraysTests {
     public void testFourSum() {
         int[] nums = {1, 0, -1, 0, -2, 2};
         int target = 0;
-        java.util.List<java.util.List<Integer>> result = FourSum.fourSum_twoPointers(nums, target);
+        List<List<Integer>> result = FourSum.fourSum_twoPointers(nums, target);
         assertEquals(3, result.size());
     }
     

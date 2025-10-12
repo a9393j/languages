@@ -34,7 +34,7 @@ public class TournamentWinner {
      * Use HashMap to track team scores and find winner
      */
     public static String tournamentWinner_hashMap(String[][] competitions, int[] results) {
-        java.util.Map<String, Integer> teamScores = new java.util.HashMap<>();
+        Map<String, Integer> teamScores = new HashMap<>();
         String currentBestTeam = "";
         int highestScore = 0;
         
@@ -64,10 +64,10 @@ public class TournamentWinner {
      * HashMap approach with detailed tracking - O(n) time, O(k) space
      * Track all team scores and return detailed information
      */
-    public static java.util.Map<String, Object> tournamentWinner_detailed(String[][] competitions, int[] results) {
-        java.util.Map<String, Integer> teamScores = new java.util.HashMap<>();
-        java.util.Map<String, Integer> teamWins = new java.util.HashMap<>();
-        java.util.Map<String, Integer> teamLosses = new java.util.HashMap<>();
+    public static Map<String, Object> tournamentWinner_detailed(String[][] competitions, int[] results) {
+        Map<String, Integer> teamScores = new HashMap<>();
+        Map<String, Integer> teamWins = new HashMap<>();
+        Map<String, Integer> teamLosses = new HashMap<>();
         
         for (int i = 0; i < competitions.length; i++) {
             String homeTeam = competitions[i][0];
@@ -96,7 +96,7 @@ public class TournamentWinner {
             }
         }
         
-        java.util.Map<String, Object> result = new java.util.HashMap<>();
+        Map<String, Object> result = new HashMap<>();
         result.put("winner", winner);
         result.put("score", highestScore);
         result.put("teamScores", teamScores);
@@ -111,7 +111,7 @@ public class TournamentWinner {
      * Award different points based on competition type
      */
     public static String tournamentWinner_alternativeScoring(String[][] competitions, int[] results) {
-        java.util.Map<String, Integer> teamScores = new java.util.HashMap<>();
+        Map<String, Integer> teamScores = new HashMap<>();
         String currentBestTeam = "";
         int highestScore = 0;
         
@@ -143,7 +143,7 @@ public class TournamentWinner {
      * Count wins for each team and find team with most wins
      */
     public static String tournamentWinner_bruteForce(String[][] competitions, int[] results) {
-        java.util.Map<String, Integer> teamWins = new java.util.HashMap<>();
+        Map<String, Integer> teamWins = new HashMap<>();
         
         for (int i = 0; i < competitions.length; i++) {
             String homeTeam = competitions[i][0];
@@ -192,7 +192,7 @@ public class TournamentWinner {
         String result1 = tournamentWinner_hashMap(competitions, results);
         System.out.println("HashMap result: " + result1);
         
-        java.util.Map<String, Object> detailedResult = tournamentWinner_detailed(competitions, results);
+        Map<String, Object> detailedResult = tournamentWinner_detailed(competitions, results);
         System.out.println("Detailed result: " + detailedResult);
         
         String result2 = tournamentWinner_alternativeScoring(competitions, results);

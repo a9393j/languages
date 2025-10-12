@@ -39,7 +39,7 @@ public class MinRewards {
         int[] rewards = new int[n];
         
         // Initialize all rewards to 1 (minimum requirement)
-        java.util.Arrays.fill(rewards, 1);
+        Arrays.fill(rewards, 1);
         
         // Left to right pass: ensure left neighbor constraint
         for (int i = 1; i < n; i++) {
@@ -73,7 +73,7 @@ public class MinRewards {
         int[] rewards = new int[n];
         
         // Find local minima (valleys)
-        java.util.List<Integer> valleys = new java.util.ArrayList<>();
+        List<Integer> valleys = new ArrayList<>();
         
         for (int i = 0; i < n; i++) {
             boolean isValley = true;
@@ -94,7 +94,7 @@ public class MinRewards {
         }
         
         // Initialize rewards array
-        java.util.Arrays.fill(rewards, 1);
+        Arrays.fill(rewards, 1);
         
         // Expand rewards from each valley
         for (int valley : valleys) {
@@ -137,7 +137,7 @@ public class MinRewards {
         int[] rewards = new int[n];
         
         // Initialize all rewards to 1
-        java.util.Arrays.fill(rewards, 1);
+        Arrays.fill(rewards, 1);
         
         boolean changed = true;
         while (changed) {
@@ -171,9 +171,9 @@ public class MinRewards {
      * Helper method to print rewards distribution
      */
     public static void printRewardsDistribution(int[] scores, int[] rewards) {
-        System.out.println("Scores:  " + java.util.Arrays.toString(scores));
-        System.out.println("Rewards: " + java.util.Arrays.toString(rewards));
-        System.out.println("Total:   " + java.util.Arrays.stream(rewards).sum());
+        System.out.println("Scores:  " + Arrays.toString(scores));
+        System.out.println("Rewards: " + Arrays.toString(rewards));
+        System.out.println("Total:   " + Arrays.stream(rewards).sum());
     }
     
     public static void main(String[] args) {
@@ -181,7 +181,7 @@ public class MinRewards {
         int[] scores = {8, 4, 2, 1, 3, 6, 7, 9, 5};
         
         System.out.println("Testing Min Rewards:");
-        System.out.println("Scores: " + java.util.Arrays.toString(scores));
+        System.out.println("Scores: " + Arrays.toString(scores));
         
         int result1 = minRewards_twoPasses(scores);
         System.out.println("Two passes result: " + result1);
@@ -198,7 +198,7 @@ public class MinRewards {
         
         // Test case: scores = [1, 2, 3, 4, 5] (increasing)
         int[] increasingScores = {1, 2, 3, 4, 5};
-        System.out.println("Increasing scores: " + java.util.Arrays.toString(increasingScores));
+        System.out.println("Increasing scores: " + Arrays.toString(increasingScores));
         
         int result4 = minRewards_twoPasses(increasingScores);
         System.out.println("Two passes result: " + result4);
@@ -209,7 +209,7 @@ public class MinRewards {
         
         // Test case: scores = [5, 4, 3, 2, 1] (decreasing)
         int[] decreasingScores = {5, 4, 3, 2, 1};
-        System.out.println("Decreasing scores: " + java.util.Arrays.toString(decreasingScores));
+        System.out.println("Decreasing scores: " + Arrays.toString(decreasingScores));
         
         int result5 = minRewards_twoPasses(decreasingScores);
         System.out.println("Two passes result: " + result5);

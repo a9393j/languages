@@ -45,7 +45,7 @@ public class TriesHashingTests {
     @Test
     public void testGroupAnagrams() {
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        java.util.List<java.util.List<String>> result = GroupAnagrams.groupAnagrams_sorting(strs);
+        List<List<String>> result = GroupAnagrams.groupAnagrams_sorting(strs);
         
         assertEquals(3, result.size());
         
@@ -54,7 +54,7 @@ public class TriesHashingTests {
         boolean foundTanGroup = false;
         boolean foundBatGroup = false;
         
-        for (java.util.List<String> group : result) {
+        for (List<String> group : result) {
             if (group.contains("eat") && group.contains("tea") && group.contains("ate")) {
                 foundEatGroup = true;
             } else if (group.contains("tan") && group.contains("nat")) {
@@ -83,7 +83,7 @@ public class TriesHashingTests {
         assertFalse(trie.search("hel"));
         assertTrue(trie.startsWith("hel"));
         
-        java.util.List<String> wordsWithPrefix = trie.getWordsWithPrefix("hel");
+        List<String> wordsWithPrefix = trie.getWordsWithPrefix("hel");
         assertEquals(2, wordsWithPrefix.size());
         assertTrue(wordsWithPrefix.contains("hello"));
         assertTrue(wordsWithPrefix.contains("help"));

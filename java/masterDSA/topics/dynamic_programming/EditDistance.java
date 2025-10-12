@@ -127,7 +127,7 @@ public class EditDistance {
         int[][] memo = new int[m + 1][n + 1];
         
         for (int i = 0; i <= m; i++) {
-            java.util.Arrays.fill(memo[i], -1);
+            Arrays.fill(memo[i], -1);
         }
         
         return editDistanceHelper(word1, word2, m, n, memo);
@@ -163,8 +163,8 @@ public class EditDistance {
     /**
      * Helper method to find the actual edit operations
      */
-    public static java.util.List<String> findEditOperations(String word1, String word2) {
-        java.util.List<String> operations = new java.util.ArrayList<>();
+    public static List<String> findEditOperations(String word1, String word2) {
+        List<String> operations = new ArrayList<>();
         
         if (word1 == null || word2 == null) {
             return operations;
@@ -427,7 +427,7 @@ public class EditDistance {
         System.out.println();
         
         // Test helper methods
-        java.util.List<String> operations = findEditOperations(word1, word2);
+        List<String> operations = findEditOperations(word1, word2);
         System.out.println("Edit operations: " + operations);
         
         int lcs = longestCommonSubsequence(word1, word2);

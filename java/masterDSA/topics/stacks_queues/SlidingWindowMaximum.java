@@ -41,7 +41,7 @@ public class SlidingWindowMaximum {
         
         int n = nums.length;
         int[] result = new int[n - k + 1];
-        java.util.Deque<Integer> deque = new java.util.ArrayDeque<>();
+        Deque<Integer> deque = new java.util.ArrayDeque<>();
         
         for (int i = 0; i < n; i++) {
             // Remove indices outside current window
@@ -142,7 +142,7 @@ public class SlidingWindowMaximum {
         
         int n = nums.length;
         int[] result = new int[n - k + 1];
-        java.util.PriorityQueue<Integer> maxHeap = new java.util.PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
         
         for (int i = 0; i < k; i++) {
             maxHeap.offer(nums[i]);
@@ -169,7 +169,7 @@ public class SlidingWindowMaximum {
         
         int n = nums.length;
         int[] result = new int[n - k + 1];
-        java.util.Deque<Integer> deque = new java.util.ArrayDeque<>();
+        Deque<Integer> deque = new java.util.ArrayDeque<>();
         
         for (int i = 0; i < n; i++) {
             // Remove indices outside current window
@@ -205,7 +205,7 @@ public class SlidingWindowMaximum {
      * Helper method to find maximum in sliding window of size n
      */
     public static int[] maxSlidingWindowSizeN(int[] nums) {
-        int max = java.util.Arrays.stream(nums).max().getAsInt();
+        int max = Arrays.stream(nums).max().getAsInt();
         return new int[]{max};
     }
     
@@ -265,7 +265,7 @@ public class SlidingWindowMaximum {
      * Helper method to print array
      */
     public static void printArray(int[] nums) {
-        System.out.println(java.util.Arrays.toString(nums));
+        System.out.println(Arrays.toString(nums));
     }
     
     public static void main(String[] args) {
@@ -274,20 +274,20 @@ public class SlidingWindowMaximum {
         int k1 = 3;
         
         System.out.println("Testing Sliding Window Maximum:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         System.out.println("Window size: " + k1);
         
         int[] result1 = maxSlidingWindow_deque(nums1, k1);
-        System.out.println("Deque result: " + java.util.Arrays.toString(result1));
+        System.out.println("Deque result: " + Arrays.toString(result1));
         
         int[] result2 = maxSlidingWindow_twoPointers(nums1, k1);
-        System.out.println("Two pointers result: " + java.util.Arrays.toString(result2));
+        System.out.println("Two pointers result: " + Arrays.toString(result2));
         
         int[] result3 = maxSlidingWindow_bruteForce(nums1, k1);
-        System.out.println("Brute force result: " + java.util.Arrays.toString(result3));
+        System.out.println("Brute force result: " + Arrays.toString(result3));
         
         int[] result4 = maxSlidingWindow_priorityQueue(nums1, k1);
-        System.out.println("Priority queue result: " + java.util.Arrays.toString(result4));
+        System.out.println("Priority queue result: " + Arrays.toString(result4));
         
         // Expected: [3,3,5,5,6,7]
         
@@ -297,11 +297,11 @@ public class SlidingWindowMaximum {
         int[] nums2 = {1};
         int k2 = 1;
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         System.out.println("Window size: " + k2);
         
         int[] result5 = maxSlidingWindow_deque(nums2, k2);
-        System.out.println("Deque result: " + java.util.Arrays.toString(result5));
+        System.out.println("Deque result: " + Arrays.toString(result5));
         
         // Expected: [1]
         
@@ -311,11 +311,11 @@ public class SlidingWindowMaximum {
         int[] nums3 = {1, -1};
         int k3 = 1;
         
-        System.out.println("Array: " + java.util.Arrays.toString(nums3));
+        System.out.println("Array: " + Arrays.toString(nums3));
         System.out.println("Window size: " + k3);
         
         int[] result6 = maxSlidingWindow_deque(nums3, k3);
-        System.out.println("Deque result: " + java.util.Arrays.toString(result6));
+        System.out.println("Deque result: " + Arrays.toString(result6));
         
         // Expected: [1,-1]
         
@@ -325,13 +325,13 @@ public class SlidingWindowMaximum {
         int[] nums4 = {1, 3, -1, -3, 5, 3, 6, 7};
         
         int[] minWindow = minSlidingWindow(nums4, 3);
-        System.out.println("Minimum sliding window: " + java.util.Arrays.toString(minWindow));
+        System.out.println("Minimum sliding window: " + Arrays.toString(minWindow));
         
         int[] sumWindow = sumSlidingWindow(nums4, 3);
-        System.out.println("Sum sliding window: " + java.util.Arrays.toString(sumWindow));
+        System.out.println("Sum sliding window: " + Arrays.toString(sumWindow));
         
         double[] avgWindow = averageSlidingWindow(nums4, 3);
-        System.out.println("Average sliding window: " + java.util.Arrays.toString(avgWindow));
+        System.out.println("Average sliding window: " + Arrays.toString(avgWindow));
         
         // Expected: Min = [-1,-3,-3,-3,3,3], Sum = [3,5,1,5,14,16], Average = [1.0,1.67,0.33,1.67,4.67,5.33]
     }

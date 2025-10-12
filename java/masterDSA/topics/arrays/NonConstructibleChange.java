@@ -36,7 +36,7 @@ public class NonConstructibleChange {
      */
     public static int nonConstructibleChange_greedy(int[] coins) {
         // Sort coins to process them in ascending order
-        java.util.Arrays.sort(coins);
+        Arrays.sort(coins);
         
         int maxChange = 0; // Maximum change we can make so far
         
@@ -64,7 +64,7 @@ public class NonConstructibleChange {
             return 1; // Cannot make change 1 with no coins
         }
         
-        java.util.Arrays.sort(coins);
+        Arrays.sort(coins);
         
         int maxChange = 0;
         
@@ -90,7 +90,7 @@ public class NonConstructibleChange {
      * Note: This is inefficient and only for educational purposes
      */
     public static int nonConstructibleChange_bruteForce(int[] coins) {
-        java.util.Set<Integer> possibleSums = new java.util.HashSet<>();
+        Set<Integer> possibleSums = new HashSet<>();
         possibleSums.add(0); // We can always make 0
         
         // Generate all possible sums using subsets
@@ -117,7 +117,7 @@ public class NonConstructibleChange {
         // Test case 1: coins = [1, 2, 5]
         int[] coins1 = {1, 2, 5};
         System.out.println("Testing Non-Constructible Change:");
-        System.out.println("Coins: " + java.util.Arrays.toString(coins1));
+        System.out.println("Coins: " + Arrays.toString(coins1));
         
         int result1 = nonConstructibleChange_greedy(coins1);
         System.out.println("Greedy result: " + result1);
@@ -134,7 +134,7 @@ public class NonConstructibleChange {
         
         // Test case 2: coins = [5, 7, 1, 1, 2, 3, 22]
         int[] coins2 = {5, 7, 1, 1, 2, 3, 22};
-        System.out.println("Coins: " + java.util.Arrays.toString(coins2));
+        System.out.println("Coins: " + Arrays.toString(coins2));
         
         int result4 = nonConstructibleChange_greedy(coins2);
         System.out.println("Greedy result: " + result4);

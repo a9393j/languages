@@ -27,12 +27,12 @@ import java.util.*;
  */
 public class MedianOfDataStream {
     
-    private java.util.PriorityQueue<Integer> maxHeap; // Smaller half
-    private java.util.PriorityQueue<Integer> minHeap; // Larger half
+    private PriorityQueue<Integer> maxHeap; // Smaller half
+    private PriorityQueue<Integer> minHeap; // Larger half
     
     public MedianOfDataStream() {
-        maxHeap = new java.util.PriorityQueue<>((a, b) -> b - a);
-        minHeap = new java.util.PriorityQueue<>();
+        maxHeap = new PriorityQueue<>((a, b) -> b - a);
+        minHeap = new PriorityQueue<>();
     }
     
     /**
@@ -69,12 +69,12 @@ public class MedianOfDataStream {
      * Use max heap for smaller half and min heap for larger half
      */
     public static class MedianFinder {
-        private java.util.PriorityQueue<Integer> maxHeap; // Smaller half
-        private java.util.PriorityQueue<Integer> minHeap; // Larger half
+        private PriorityQueue<Integer> maxHeap; // Smaller half
+        private PriorityQueue<Integer> minHeap; // Larger half
         
         public MedianFinder() {
-            maxHeap = new java.util.PriorityQueue<>((a, b) -> b - a);
-            minHeap = new java.util.PriorityQueue<>();
+            maxHeap = new PriorityQueue<>((a, b) -> b - a);
+            minHeap = new PriorityQueue<>();
         }
         
         public void addNum(int num) {
@@ -106,15 +106,15 @@ public class MedianOfDataStream {
      * Sort array after each addition
      */
     public static class MedianFinderSorting {
-        private java.util.List<Integer> nums;
+        private List<Integer> nums;
         
         public MedianFinderSorting() {
-            nums = new java.util.ArrayList<>();
+            nums = new ArrayList<>();
         }
         
         public void addNum(int num) {
             nums.add(num);
-            java.util.Collections.sort(nums);
+            Collections.sort(nums);
         }
         
         public double findMedian() {
@@ -132,10 +132,10 @@ public class MedianOfDataStream {
      * Insert element in correct position
      */
     public static class MedianFinderInsertion {
-        private java.util.List<Integer> nums;
+        private List<Integer> nums;
         
         public MedianFinderInsertion() {
-            nums = new java.util.ArrayList<>();
+            nums = new ArrayList<>();
         }
         
         public void addNum(int num) {
@@ -186,7 +186,7 @@ public class MedianOfDataStream {
      * Helper method to find median of array
      */
     public static double findMedian(int[] nums) {
-        java.util.Arrays.sort(nums);
+        Arrays.sort(nums);
         int n = nums.length;
         
         if (n % 2 == 1) {
@@ -286,7 +286,7 @@ public class MedianOfDataStream {
         // Test helper methods
         int[] nums = {1, 2, 3, 4, 5};
         double median = findMedian(nums);
-        System.out.println("Median of array " + java.util.Arrays.toString(nums) + ": " + median);
+        System.out.println("Median of array " + Arrays.toString(nums) + ": " + median);
         
         int[] nums1 = {1, 3};
         int[] nums2 = {2};

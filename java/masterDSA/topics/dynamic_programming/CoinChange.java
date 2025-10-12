@@ -41,7 +41,7 @@ public class CoinChange {
         // dp[i] represents minimum number of coins needed to make amount i
         int[] dp = new int[amount + 1];
         // Initialize with amount + 1 (impossible value) to represent infinity
-        java.util.Arrays.fill(dp, amount + 1);
+        Arrays.fill(dp, amount + 1);
         // Base case: 0 coins needed to make amount 0
         dp[0] = 0;
         
@@ -77,7 +77,7 @@ public class CoinChange {
         // memo[i] stores the minimum coins needed for amount i
         int[] memo = new int[amount + 1];
         // Initialize with -1 to indicate not computed yet
-        java.util.Arrays.fill(memo, -1);
+        Arrays.fill(memo, -1);
         
         // Call helper function with memoization
         int result = coinChangeHelper(coins, amount, memo);
@@ -130,7 +130,7 @@ public class CoinChange {
         }
         
         // Queue to store amounts to process
-        java.util.Queue<Integer> queue = new java.util.LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         // Track visited amounts to avoid cycles
         boolean[] visited = new boolean[amount + 1];
         
@@ -234,9 +234,9 @@ public class CoinChange {
      */
     public static int coinChangeDifferentValues(int[] coins, int amount) {
         // Sort coins to enable early termination
-        java.util.Arrays.sort(coins);
+        Arrays.sort(coins);
         int[] dp = new int[amount + 1];
-        java.util.Arrays.fill(dp, amount + 1);
+        Arrays.fill(dp, amount + 1);
         dp[0] = 0;
         
         for (int i = 1; i <= amount; i++) {
@@ -259,7 +259,7 @@ public class CoinChange {
      */
     public static int coinChangeWithCost(int[] coins, int amount, int transactionCost) {
         int[] dp = new int[amount + 1];
-        java.util.Arrays.fill(dp, amount + 1);
+        Arrays.fill(dp, amount + 1);
         dp[0] = 0;
         
         for (int i = 1; i <= amount; i++) {
@@ -280,7 +280,7 @@ public class CoinChange {
      */
     public static int coinChangeMinValue(int[] coins, int amount, int minValue) {
         int[] dp = new int[amount + 1];
-        java.util.Arrays.fill(dp, amount + 1);
+        Arrays.fill(dp, amount + 1);
         dp[0] = 0;
         
         for (int i = 1; i <= amount; i++) {
@@ -301,7 +301,7 @@ public class CoinChange {
      */
     public static int coinChangeMaxValue(int[] coins, int amount, int maxValue) {
         int[] dp = new int[amount + 1];
-        java.util.Arrays.fill(dp, amount + 1);
+        Arrays.fill(dp, amount + 1);
         dp[0] = 0;
         
         for (int i = 1; i <= amount; i++) {
@@ -322,7 +322,7 @@ public class CoinChange {
      */
     public static int coinChangeOddEven(int[] coins, int amount, boolean useOdd) {
         int[] dp = new int[amount + 1];
-        java.util.Arrays.fill(dp, amount + 1);
+        Arrays.fill(dp, amount + 1);
         dp[0] = 0;
         
         for (int i = 1; i <= amount; i++) {
@@ -343,7 +343,7 @@ public class CoinChange {
         int amount1 = 6;
         
         System.out.println("Testing Coin Change:");
-        System.out.println("Coins: " + java.util.Arrays.toString(coins1));
+        System.out.println("Coins: " + Arrays.toString(coins1));
         System.out.println("Amount: " + amount1);
         
         int result1 = coinChange_bottomUp(coins1, amount1);
@@ -363,7 +363,7 @@ public class CoinChange {
         int[] coins2 = {2};
         int amount2 = 3;
         
-        System.out.println("Coins: " + java.util.Arrays.toString(coins2));
+        System.out.println("Coins: " + Arrays.toString(coins2));
         System.out.println("Amount: " + amount2);
         
         int result4 = coinChange_bottomUp(coins2, amount2);
@@ -377,7 +377,7 @@ public class CoinChange {
         int[] coins3 = {1};
         int amount3 = 0;
         
-        System.out.println("Coins: " + java.util.Arrays.toString(coins3));
+        System.out.println("Coins: " + Arrays.toString(coins3));
         System.out.println("Amount: " + amount3);
         
         int result5 = coinChange_bottomUp(coins3, amount3);

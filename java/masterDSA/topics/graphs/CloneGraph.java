@@ -32,19 +32,19 @@ public class CloneGraph {
      */
     public static class Node {
         public int val;
-        public java.util.List<Node> neighbors;
+        public List<Node> neighbors;
         
         public Node() {
             val = 0;
-            neighbors = new java.util.ArrayList<>();
+            neighbors = new ArrayList<>();
         }
         
         public Node(int _val) {
             val = _val;
-            neighbors = new java.util.ArrayList<>();
+            neighbors = new ArrayList<>();
         }
         
-        public Node(int _val, java.util.List<Node> _neighbors) {
+        public Node(int _val, List<Node> _neighbors) {
             val = _val;
             neighbors = _neighbors;
         }
@@ -59,11 +59,11 @@ public class CloneGraph {
             return null;
         }
         
-        java.util.Map<Node, Node> visited = new java.util.HashMap<>();
+        Map<Node, Node> visited = new HashMap<>();
         return dfsClone(node, visited);
     }
     
-    private static Node dfsClone(Node node, java.util.Map<Node, Node> visited) {
+    private static Node dfsClone(Node node, Map<Node, Node> visited) {
         if (visited.containsKey(node)) {
             return visited.get(node);
         }
@@ -87,8 +87,8 @@ public class CloneGraph {
             return null;
         }
         
-        java.util.Map<Node, Node> visited = new java.util.HashMap<>();
-        java.util.Queue<Node> queue = new java.util.LinkedList<>();
+        Map<Node, Node> visited = new HashMap<>();
+        Queue<Node> queue = new LinkedList<>();
         
         Node clonedNode = new Node(node.val);
         visited.put(node, clonedNode);
@@ -119,8 +119,8 @@ public class CloneGraph {
             return null;
         }
         
-        java.util.Map<Node, Node> visited = new java.util.HashMap<>();
-        java.util.Stack<Node> stack = new java.util.Stack<>();
+        Map<Node, Node> visited = new HashMap<>();
+        Stack<Node> stack = new Stack<>();
         
         Node clonedNode = new Node(node.val);
         visited.put(node, clonedNode);
@@ -175,8 +175,8 @@ public class CloneGraph {
             return;
         }
         
-        java.util.Set<Node> visited = new java.util.HashSet<>();
-        java.util.Queue<Node> queue = new java.util.LinkedList<>();
+        Set<Node> visited = new HashSet<>();
+        Queue<Node> queue = new LinkedList<>();
         
         queue.offer(node);
         visited.add(node);
@@ -208,11 +208,11 @@ public class CloneGraph {
             return false;
         }
         
-        java.util.Map<Node, Node> mapping = new java.util.HashMap<>();
+        Map<Node, Node> mapping = new HashMap<>();
         return dfsCompare(graph1, graph2, mapping);
     }
     
-    private static boolean dfsCompare(Node node1, Node node2, java.util.Map<Node, Node> mapping) {
+    private static boolean dfsCompare(Node node1, Node node2, Map<Node, Node> mapping) {
         if (mapping.containsKey(node1)) {
             return mapping.get(node1) == node2;
         }
@@ -245,8 +245,8 @@ public class CloneGraph {
     }
     
     private static Node bfsFarthest(Node start) {
-        java.util.Queue<Node> queue = new java.util.LinkedList<>();
-        java.util.Set<Node> visited = new java.util.HashSet<>();
+        Queue<Node> queue = new LinkedList<>();
+        Set<Node> visited = new HashSet<>();
         
         queue.offer(start);
         visited.add(start);
@@ -272,8 +272,8 @@ public class CloneGraph {
     }
     
     private static int bfsDistance(Node start) {
-        java.util.Queue<Node> queue = new java.util.LinkedList<>();
-        java.util.Set<Node> visited = new java.util.HashSet<>();
+        Queue<Node> queue = new LinkedList<>();
+        Set<Node> visited = new HashSet<>();
         
         queue.offer(start);
         visited.add(start);
@@ -309,9 +309,9 @@ public class CloneGraph {
             return null;
         }
         
-        java.util.Map<Node, Integer> degrees = new java.util.HashMap<>();
-        java.util.Queue<Node> queue = new java.util.LinkedList<>();
-        java.util.Set<Node> visited = new java.util.HashSet<>();
+        Map<Node, Integer> degrees = new HashMap<>();
+        Queue<Node> queue = new LinkedList<>();
+        Set<Node> visited = new HashSet<>();
         
         queue.offer(node);
         visited.add(node);
@@ -349,8 +349,8 @@ public class CloneGraph {
             return true;
         }
         
-        java.util.Map<Node, Integer> colors = new java.util.HashMap<>();
-        java.util.Queue<Node> queue = new java.util.LinkedList<>();
+        Map<Node, Integer> colors = new HashMap<>();
+        Queue<Node> queue = new LinkedList<>();
         
         colors.put(node, 0);
         queue.offer(node);

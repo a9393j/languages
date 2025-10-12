@@ -197,7 +197,7 @@ public class MaximumSubarrayKadane {
         int[] nums1 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         
         System.out.println("Testing Maximum Subarray:");
-        System.out.println("Array: " + java.util.Arrays.toString(nums1));
+        System.out.println("Array: " + Arrays.toString(nums1));
         
         int result1 = maxSubArray_kadane(nums1);
         System.out.println("Kadane's result: " + result1);
@@ -223,7 +223,7 @@ public class MaximumSubarrayKadane {
         
         // Test case: nums = [1]
         int[] nums2 = {1};
-        System.out.println("Array: " + java.util.Arrays.toString(nums2));
+        System.out.println("Array: " + Arrays.toString(nums2));
         
         int result6 = maxSubArray_kadane(nums2);
         System.out.println("Kadane's result: " + result6);
@@ -234,7 +234,7 @@ public class MaximumSubarrayKadane {
         
         // Test case: nums = [5,4,-1,7,8]
         int[] nums3 = {5, 4, -1, 7, 8};
-        System.out.println("Array: " + java.util.Arrays.toString(nums3));
+        System.out.println("Array: " + Arrays.toString(nums3));
         
         int result7 = maxSubArray_kadane(nums3);
         System.out.println("Kadane's result: " + result7);

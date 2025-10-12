@@ -233,7 +233,7 @@ public class InterweavingMergeAlternateNodes {
      * Helper method to convert linked list to array
      */
     public static int[] linkedListToArray(ListNode head) {
-        java.util.List<Integer> values = new java.util.ArrayList<>();
+        List<Integer> values = new ArrayList<>();
         ListNode current = head;
         
         while (current != null) {

@@ -62,7 +62,7 @@ public class GraphsTests {
     public void testWordLadder() {
         String beginWord = "hit";
         String endWord = "cog";
-        java.util.List<String> wordList = java.util.Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
+        List<String> wordList = Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
         int result = WordLadder.ladderLength_bfs(beginWord, endWord, wordList);
         assertEquals(5, result);
     }
